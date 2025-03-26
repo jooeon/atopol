@@ -1,11 +1,14 @@
-import { motion } from "motion/react"
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 
 const Index = () => {
     return (
         <>
-            <main>
-                <h1 className="text-8xl">title page</h1>
-            </main>
+          <Header/>
+          <main>
+            <h1 className="text-[7vw] uppercase">(Re)collecting Objects</h1>
+          </main>
+          <Footer/>
         </>
     );
 };

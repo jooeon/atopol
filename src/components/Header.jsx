@@ -1,0 +1,108 @@
+import { NavLink, Link, useLocation } from "react-router-dom";
+import {motion, useScroll} from "framer-motion";
+import PropTypes from "prop-types";
+import {useEffect, useState} from "react";
+
+const Header = ({delay = 0.4}) => {
+
+  const [isVisible, setIsVisible] = useState(true);   // tracks the visibility of navbar
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const scrollThreshold = 5; // Minimum scroll change to detect direction
+
+  const { scrollYProgress } = useScroll();
+
+  // check if scrolled to bottom of the screen, then set visible true
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.onChange((latest) => {
+      if (latest >= 0.96) {
+        setIsVisible(true);
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup listener on unmount
+  }, [scrollYProgress]);
+
+  // Handle scroll direction, set visible when scrolling down, hide when scrolling up
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = Math.max(0, window.scrollY);
+
+      if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          setIsVisible(true);
+        }
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  const location = useLocation();
+  const isLandingPage = location.pathname === "/";
+  const isSmallScalePage = location.pathname === "/small-scale";
+  const isAboutPage = location.pathname === "/about";
+
+  const getLinkClasses = (path) => {
+    if (isLandingPage) {
+      // On the landing page, all links are full opacity
+      return "text-link";
+    }
+
+    if (path === "/small-scale" && isSmallScalePage) {
+      return "text-link";
+    }
+
+    if (path === "/about" && isAboutPage) {
+      return "text-link";
+    }
+
+    // Otherwise, make inactive links greyed out
+    return "text-link opacity-50 hover:opacity-100 transition-opacity duration-500";
+  };
+
+  return (
+    <motion.header
+      className="fixed top-0 w-full z-30 mix-blend-difference"
+      initial={{y: -100, opacity: 0}}
+      animate={isVisible ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+      transition={{
+        duration: 1.4,
+        delay: delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}>
+      <motion.nav
+        className="flex items-center justify-between text-[0.75vw] p-3 md:p-5 xl:px-7 xl:py-4 4xl:px-10 4xl:py-8 7xl:px-14 7xl:py-12
+              font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+      >
+        <Link to="/" className="text-link">
+          Allen Topolski
+        </Link>
+        <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
+          <li>
+            <NavLink to="/small-scale" className={() => getLinkClasses("/small-scale")}>
+              Art
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" className={() => getLinkClasses("/info")}>
+              Info
+            </NavLink>
+          </li>
+        </ul>
+      </motion.nav>
+    </motion.header>
+  );
+};
+
+// Add PropTypes validation
+Header.propTypes = {
+  delay: PropTypes.number,
+};
+
+export default Header;

@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
     darkMode: 'selector',
-    content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+    content: [
+        "./src/**/*.{js,jsx,ts,tsx}",
+        './index.html',
+    ],
     theme: {
         fontFamily: {
-            // 'outfit': ['Outfit', 'Arial', 'system-ui', 'sans-serif'],
+            // 'georgia': ['georgiapro', 'serif'],
         },
         extend: {
             width: {

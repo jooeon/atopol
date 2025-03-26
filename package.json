@@ -16,6 +16,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "framer-motion": "^12.6.0",
+    "lenis": "^1.2.3",
     "motion": "^12.4.5",
     "postcss": "^8.5.3",
     "prop-types": "^15.8.1",

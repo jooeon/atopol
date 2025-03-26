@@ -45,16 +45,11 @@ const Header = ({delay = 0.4}) => {
 
   const location = useLocation();
   const isLandingPage = location.pathname === "/";
-  const isSmallScalePage = location.pathname === "/small-scale";
   const isAboutPage = location.pathname === "/about";
 
   const getLinkClasses = (path) => {
     if (isLandingPage) {
       // On the landing page, all links are full opacity
-      return "text-link";
-    }
-
-    if (path === "/small-scale" && isSmallScalePage) {
       return "text-link";
     }
 
@@ -77,7 +72,7 @@ const Header = ({delay = 0.4}) => {
         ease: [0.16, 1, 0.3, 1],
       }}>
       <motion.nav
-        className="flex items-center justify-between text-[0.75vw] p-3 md:p-5 xl:px-7 xl:py-4 4xl:px-10 4xl:py-8 7xl:px-14 7xl:py-12
+        className="flex items-center justify-between text-3xs sm:text-sm md:text-md xl:text-xl 4xl:text-3xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-4 4xl:px-10 4xl:py-8 7xl:px-14 7xl:py-12
               font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
       >
         <Link to="/" className="text-link">
@@ -85,12 +80,7 @@ const Header = ({delay = 0.4}) => {
         </Link>
         <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
           <li>
-            <NavLink to="/small-scale" className={() => getLinkClasses("/small-scale")}>
-              Art
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" className={() => getLinkClasses("/info")}>
+            <NavLink to="/about" className={() => getLinkClasses("/about")}>
               Info
             </NavLink>
           </li>

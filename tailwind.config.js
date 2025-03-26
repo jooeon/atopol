@@ -7,7 +7,8 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            // 'georgia': ['georgiapro', 'serif'],
+            'hedvig': ['Hedvig Letters Serif', 'georgiapro', 'serif'],
+            'georgia': ['georgiapro', 'serif'],
         },
         extend: {
             width: {
@@ -53,11 +54,11 @@ module.exports = {
                 xs: '0.75px',
             },
             colors: {
-                customWhite: "#fafafa",
-                customBlack: "#070707",
+                customWhite: "#F1F1F1",
+                customBlack: "#111111",
                 customBlackLight: "#151515",
-                customGray: "#9a9a9a",
-                customGrayLight: "#ececec",
+                customGray: "#414141",
+                customGrayLight: "#a5a5a5",
                 customNavy: "#100f14",
                 customNavyLight: "#15141a",
             },

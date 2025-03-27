@@ -15,6 +15,14 @@ const carouselData = [
     year: "2023",
     thumbnail: "/images/thumbnails/Twin_b.jpg",
   },
+  {
+    images: [
+      "/images/Bayberry.jpg",
+    ],
+    title: "Bayberry",
+    year: "2016",
+    thumbnail: "/images/thumbnails/Bayberry.jpg",
+  },
 ];
 
 export default carouselData;

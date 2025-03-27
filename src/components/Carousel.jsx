@@ -21,16 +21,20 @@ const Carousel = () => {
       <div className="absolute w-1/2 h-full left-0" onClick={handlePrevImage}></div>
       <div className="absolute w-1/2 h-full right-0" onClick={handleNextImage}></div>
       <AnimatePresence exitBeforeEnter>
-        <motion.img
-          key={carouselData[currentIndex].id}
-          src={carouselData[currentIndex].thumbnail}
-          alt={`${carouselData[currentIndex].title} - ${carouselData[currentIndex].year}`}
-          className="h-[60vw] xl:h-[35vw] object-cover"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.5 }}
-        />
+        <div className="flex items-center text-customGrayLight">
+          <p className="absolute left-[10vw] xl:left-[30vw]">(</p>
+          <motion.img
+            key={carouselData[currentIndex].id}
+            src={carouselData[currentIndex].thumbnail}
+            alt={`${carouselData[currentIndex].title} - ${carouselData[currentIndex].year}`}
+            className="h-[80vw] xl:h-[60vh] object-cover px-20"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.5 }}
+          />
+          <p className="absolute right-[10vw] xl:right-[30vw]">)</p>
+        </div>
       </AnimatePresence>
       <div className="absolute bottom-0 text-center pb-4 text-customGrayLight">
         <p className="text-3xs xl:text-base">{currentIndex + 1}. {carouselData[currentIndex].title}</p>

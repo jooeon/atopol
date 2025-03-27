@@ -9,11 +9,11 @@ const carouselData = [
   },
   {
     images: [
-      "/images/UntitledForNow2-646x1024.jpg",
+      "/images/Twin_b.jpg",
     ],
-    title: "Untitled (for now) 3 or Things I Used to Need",
-    year: "2018",
-    thumbnail: "/images/thumbnails/UntitledForNow2-646x1024.jpg",
+    title: "Twin",
+    year: "2023",
+    thumbnail: "/images/thumbnails/Twin_b.jpg",
   },
 ];
 

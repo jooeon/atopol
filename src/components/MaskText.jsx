@@ -10,7 +10,7 @@ export function MaskText({ phrase }) {
         whileInView={{ y: 0 }}
         viewport={{once: true}}
         transition= {{
-          duration: 1.0,
+          duration: 2.0,
           ease: [0.25, 1, 0.5, 1],  // easeOutQuart
           delay: 0.075,
         }}

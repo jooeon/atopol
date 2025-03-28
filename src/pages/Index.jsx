@@ -20,7 +20,7 @@ const Index = () => {
                     viewport={{once: true}}
                     transition= {{
                       duration: 0.75,
-                      ease: "easeIn",  // easeOutQuart
+                      ease: "linear",  // easeOutQuart
                       delay: 0.75,
                     }}
                   ><MaskText phrase={"Re"} /></motion.span>

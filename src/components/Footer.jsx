@@ -15,7 +15,7 @@ const Footer = () => {
         }}
       >
         <p>&copy; 2025. Allen Topolski</p>
-        <ThemeToggle />
+        {/*<ThemeToggle />*/}
       </motion.div>
     </footer>
   );

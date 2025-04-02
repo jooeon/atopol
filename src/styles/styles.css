@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Attempt to randomize thumbnail layout for floating gallery */
+/* Not ideal, may have to manually set positions and size for aesthetics */
+
 .floating-gallery-item:nth-child(5n+1) {
     max-width: 8vw;
     margin: 0.5vw;
@@ -31,6 +34,9 @@
     margin: 1.5vw;
     transform: translateY(50px) scale(1.05);
 }
+
+/* Background grain effect on all pages */
+/* Appied in root/index.html */
 
 .grain {
     position: fixed;

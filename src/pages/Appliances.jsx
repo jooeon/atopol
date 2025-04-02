@@ -1,7 +1,8 @@
 import Header from '../components/Header.jsx';
-import FloatingGallery from '../components/FloatingGallery.jsx';
-import appliancesData from '../data/AppliancesData.jsx';
+import AppliancesData from '../data/AppliancesData.jsx';
 import Footer from '../components/Footer.jsx';
+import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
+import { MaskText } from '../components/MaskText.jsx';
 
 const Appliances = () => {
 
@@ -9,19 +10,12 @@ const Appliances = () => {
     <>
       <Header/>
       <main>
-        <FloatingGallery>
-          {appliancesData.map((item, index) => (
-            <div key={index} className="relative">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full max-w-[8vw] h-auto object-cover pointer-events-none"
-              />
-            </div>
-          ))}
-        </FloatingGallery>
+        <h1 className="absolute top-32 left-40 text-5xl leading-normal">
+          <MaskText phrase={"Appliances"} duration={1.0} delay={1.0}/>
+        </h1>
+        <VerticalScrollGallery images={AppliancesData} />
       </main>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   );
 

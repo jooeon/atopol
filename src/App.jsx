@@ -69,6 +69,13 @@ PageWrapper.propTypes = {
 };
 
 const App = () => {
+
+  useEffect(() => {
+    // Default to dark theme
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }, []);
+
   return (
     <ReactLenis root>
       <BrowserRouter>

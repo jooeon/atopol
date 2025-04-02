@@ -29,9 +29,6 @@ const Index = () => {
                 <div className="ml-20"><MaskText phrase={"Objects"} /></div>
               </h1>
             </section>
-            <section>
-              <div></div>
-            </section>
           </main>
           <Footer/>
         </>

@@ -1,18 +1,17 @@
 import { motion } from "framer-motion";
 
-export function MaskText({ phrase }) {
-
+export function MaskText({ phrase, duration = 2, delay = 0.075 }) {
   return (
     <div className="overflow-hidden">
       <motion.p
         className="m-0"
         initial={{ y: "100%" }}
         whileInView={{ y: 0 }}
-        viewport={{once: true}}
-        transition= {{
-          duration: 2.0,
-          ease: [0.25, 1, 0.5, 1],  // easeOutQuart
-          delay: 0.075,
+        viewport={{ once: true }}
+        transition={{
+          duration: duration,
+          ease: [0.25, 1, 0.5, 1], // easeOutQuart
+          delay: delay,
         }}
       >
         {phrase}

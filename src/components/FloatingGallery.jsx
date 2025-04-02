@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
+// Currently unused
+// TODO: find a way to arrange image thumbnails nicely
 const FloatingGallery = ({ children }) => {
   // Define constraints for dragging in both x and y directions.
   const constraints = { left: -2000, right: 1000, top: -2000, bottom: 1000 };

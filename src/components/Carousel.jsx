@@ -37,7 +37,7 @@ const Carousel = () => {
         </div>
       </AnimatePresence>
       <div className="absolute bottom-0 text-center pb-4 text-customGrayLight">
-        <p className="text-3xs xl:text-base">{currentIndex + 1}. {carouselData[currentIndex].title}</p>
+        <p className="text-3xs xl:text-base">{String(currentIndex+1).padStart(2, "0")}. {carouselData[currentIndex].title}</p>
       </div>
     </div>
   );

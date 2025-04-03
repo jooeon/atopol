@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header.jsx';
 import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
 
-const Appliances = () => {
+const SmallScale = () => {
   const [smallScaleData, setSmallScaleData] = useState([]);
 
   useEffect(() => {
@@ -27,10 +27,12 @@ const Appliances = () => {
       {smallScaleData.length > 0 ? (
         <VerticalScrollGallery images={smallScaleData} title={"Small Scale"} />
       ) : (
-        <p>Loading data...</p>
+        <div className="h-screen w-full flex justify-center items-center text-[1vw]">
+          <p>Loading data...</p>
+        </div>
       )}
     </>
   );
 };
 
-export default Appliances;
+export default SmallScale;

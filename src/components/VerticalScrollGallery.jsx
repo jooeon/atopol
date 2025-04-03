@@ -75,6 +75,11 @@ export function VerticalScrollGallery({ images, title }) {
     }
   };
 
+  // For creating artwork detail page links
+  // To lowercase and replace spaces with dashes
+  function formatString(str) {
+    return str.toLowerCase().replace(/\s+/g, '-');
+  }
 
   return (
     <div className="flex h-screen mr-5 xl:m-0">
@@ -86,9 +91,9 @@ export function VerticalScrollGallery({ images, title }) {
           text-3xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
           <MaskText phrase={title} duration={1.0} delay={0.6} />
         </h1>
-        <a href={images[currentIndex].link} target="_blank" rel="noopener noreferrer">
+        <a href={window.location.pathname+"/"+formatString(images[currentIndex].title)} rel="noopener noreferrer">
           <img
-            src={images[currentIndex].image}
+            src={images[currentIndex].images[0]}
             alt="Selected"
             className="w-full xl:w-[30vw] xl:max-h-[80vh] object-contain"
           />
@@ -131,7 +136,7 @@ export function VerticalScrollGallery({ images, title }) {
                 }`}
               >
                 <img
-                  src={img.image}
+                  src={img.images[0]}
                   alt={`Thumbnail ${index}`}
                   className="w-full h-full object-cover pointer-events-none"
                 />

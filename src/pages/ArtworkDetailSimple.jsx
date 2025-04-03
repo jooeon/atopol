@@ -1,0 +1,148 @@
+import {useParams} from "react-router-dom";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import { useEffect, useState } from 'react';
+
+// Template component for individual artwork pages
+const ArtworkDetailSimple = () => {
+
+  const { artworkGroup, artworkTitle } = useParams(); // Get URL params
+
+  const [artworkData, setArtworkData] = useState(null);
+
+  // Create the path dynamically based on URL params
+  const artworkJsonPath = `../data/${artworkGroup}/${artworkTitle}.json`;
+
+  useEffect(() => {
+    // Dynamically import the JSON data based on the path
+    const fetchArtworkData = async () => {
+      try {
+        const data = await import(`${artworkJsonPath}`);
+        setArtworkData(data.default); // Assuming the data is exported as default
+      } catch (error) {
+        console.error("Error loading artwork data:", error);
+      }
+    };
+
+    fetchArtworkData();
+  }, [artworkGroup, artworkTitle]); // Run the effect when URL params change
+
+  if (!artworkData) {
+    return <div>Failed to load artwork data...</div>;
+  }
+
+  // Convert normal video URL to embed version
+  const convertToEmbedURL = (url) => {
+    // YouTube URL pattern
+    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/[^\n\s]+\/|(?:v|e(?:mbed))\/?)([a-zA-Z0-9_-]{11})(?:[?&][^\n\s]*)?|youtu\.be\/([a-zA-Z0-9_-]{11}))/;
+
+    // Vimeo URL pattern (fixing the regex)
+    const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?(?:vimeo\.com\/(?:[^\n\s]+\/)?([0-9]+))/;
+
+    // Check if it's a YouTube URL
+    const youtubeMatch = url.match(youtubeRegex);
+    if (youtubeMatch) {
+      const videoId = youtubeMatch[1] || youtubeMatch[2];
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    // Check if it's a Vimeo URL
+    const vimeoMatch = url.match(vimeoRegex);
+    if (vimeoMatch) {
+      const videoId = vimeoMatch[1];
+      return `https://player.vimeo.com/video/${videoId}`;
+    }
+
+    // Return the URL as-is if it's neither YouTube nor Vimeo
+    return url;
+  };
+
+  return (
+    <>
+      <Header />
+      <main>
+        <div className="flex flex-col">
+          <section className="relative flex m-2 md:m-5 h-full pt-10 md:pt-20">
+            {/* Image/Video content scroll section */}
+            <div className="flex flex-col gap-3 md:gap-6 w-7/12">
+
+              {/* Render videos (if they exist) */}
+              {artworkData.videoLinks &&
+                artworkData.videoLinks.map((videoLink, index) => {
+                  const embedUrl = convertToEmbedURL(videoLink);
+                  return (
+                    <div key={index} className="relative overflow-hidden">
+                      {/* Container with aspect ratio */}
+                      <div className="relative w-full aspect-w-16 aspect-h-9">
+                        <iframe
+                          title={`video-${index}`}
+                          src={embedUrl}
+                          className="absolute top-0 left-0 w-full h-full"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+                  );
+                })
+              }
+
+              {/* Render images */}
+              {artworkData.images.map((image, index) => (
+                <div key={index} className="overflow-hidden">
+                  <motion.img
+                    src={image}
+                    alt={artworkData.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: 1.0,
+                      ease: 'easeOut'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+            {/* Description section */}
+            <motion.div
+              className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] grid-rows-[min]
+                                gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
+                                h-fit w-5/12 p-0 pt-8 md:p-5 md:pt-16 2xl:pt-32 4xl:pt-48
+                                text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+              initial={{opacity: 0, y: 20}}
+              animate={{opacity: 1, y: 0}}
+              transition={{
+                duration: 0.3,
+                delay: 0.9,
+                ease: "easeOut",
+              }}
+            >
+              <h1 className="col-start-3 row-start-1
+                text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-4xl 3xl:text-6xl 4xl:text-7xl">
+                {artworkData.title}
+              </h1>
+              <p className="col-start-3 row-start-2">{artworkData.year}</p>
+              <p className="col-start-3 row-start-3">{artworkData.medium}</p>
+              <p className="col-start-3 row-start-4">{artworkData.dimensions}</p>
+              <p className="col-start-3 row-start-5 text-customGray dark:text-customGrayLight
+                text-5xs xs:text-5xs md:text-3xs lg:text-xs xl:text-xs 2xl:text-sm 3xl:text-lg 4xl:text-xl">{artworkData.description}</p>
+
+            </motion.div>
+          </section>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+// PropTypes validation
+ArtworkDetailSimple.propTypes = {
+  id: PropTypes.number,
+};
+
+export default ArtworkDetailSimple;

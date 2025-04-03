@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header.jsx';
 import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
 
-const Appliances = () => {
-  const [appliancesData, setAppliancesData] = useState([]);
+const SiteSpecific = () => {
+  const [siteSpecificData, setSiteSpecificData] = useState([]);
 
   useEffect(() => {
     // Dynamically import all JSON files from the folder
-    const modules = import.meta.glob('../data/appliances/*.json');
+    const modules = import.meta.glob('../data/site-specific/*.json');
     console.log("Modules found:", modules); // Check this in the browser console
     const loadData = async () => {
       const entries = await Promise.all(
@@ -16,7 +16,7 @@ const Appliances = () => {
           return mod.default;  // JSON files export their content as default
         })
       );
-      setAppliancesData(entries);
+      setSiteSpecificData(entries);
     };
     loadData();
   }, []);
@@ -24,8 +24,8 @@ const Appliances = () => {
   return (
     <>
       <Header />
-      {appliancesData.length > 0 ? (
-        <VerticalScrollGallery images={appliancesData} title={"Appliances"} />
+      {siteSpecificData.length > 0 ? (
+        <VerticalScrollGallery images={siteSpecificData} title={"Site-Specific"} />
       ) : (
         <div className="h-screen w-full flex justify-center items-center text-[1vw]">
           <p>Loading data...</p>
@@ -35,4 +35,4 @@ const Appliances = () => {
   );
 };
 
-export default Appliances;
+export default SiteSpecific;

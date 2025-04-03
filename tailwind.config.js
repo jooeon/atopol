@@ -5,6 +5,9 @@ module.exports = {
         "./src/**/*.{js,jsx,ts,tsx}",
         './index.html',
     ],
+    plugins: [
+        require('@tailwindcss/aspect-ratio'),
+    ],
     theme: {
         fontFamily: {
             'hedvig': ['Hedvig Letters Serif', 'georgiapro', 'serif'],
@@ -73,5 +76,4 @@ module.exports = {
             },
         }
     },
-    plugins: [], // Add any plugins here as needed
 };

@@ -16,9 +16,25 @@ collections:
     extension: "json"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+            label: "Image"
+            name: "image"
+            widget: "image"
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
       - { label: "Year", name: "year", widget: "string" }
-      - { label: "Image", name: "image", widget: "image",}
-      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string" }
+      - { label: "Dimensions", name: "dimensions", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
   - name: "smallScale"
     label: "Small Scale"
     folder: "src/data/small-scale"
@@ -28,6 +44,50 @@ collections:
     extension: "json"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
       - { label: "Year", name: "year", widget: "string" }
-      - { label: "Image", name: "image", widget: "image",}
-      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string" }
+      - { label: "Dimensions", name: "dimensions", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+  - name: "site-specific"
+    label: "Site-Specific"
+    folder: "src/data/site-specific"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Medium", name: "medium", widget: "string" }
+      - { label: "Dimensions", name: "dimensions", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }

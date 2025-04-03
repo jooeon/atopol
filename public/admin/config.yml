@@ -17,7 +17,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Year", name: "year", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", media_folder: "images/"}
+      - { label: "Image", name: "image", widget: "image",}
       - { label: "Link", name: "link", widget: "string", required: false }
   - name: "smallScale"
     label: "Small Scale"
@@ -29,5 +29,5 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Year", name: "year", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", media_folder: "images/"}
+      - { label: "Image", name: "image", widget: "image",}
       - { label: "Link", name: "link", widget: "string", required: false }

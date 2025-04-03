@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
-import { MaskText } from '../components/MaskText.jsx';
 
 const Appliances = () => {
   const [appliancesData, setAppliancesData] = useState([]);
@@ -10,6 +9,7 @@ const Appliances = () => {
   useEffect(() => {
     // Dynamically import all JSON files from the folder
     const modules = import.meta.glob('../data/appliances/*.json');
+    console.log("Modules found:", modules); // Check this in the browser console
     const loadData = async () => {
       const entries = await Promise.all(
         Object.values(modules).map(async (importer) => {
@@ -25,8 +25,12 @@ const Appliances = () => {
   return (
     <>
       <Header />
-      <VerticalScrollGallery images={appliancesData} title={"Appliances"} />
-      {/*<Footer />*/}
+      {appliancesData.length > 0 ? (
+        <VerticalScrollGallery images={appliancesData} title={"Appliances"} />
+      ) : (
+        <p>Loading data...</p>
+      )}
+      <Footer />
     </>
   );
 };

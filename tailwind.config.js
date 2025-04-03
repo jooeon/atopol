@@ -57,11 +57,11 @@ module.exports = {
                 xs: '0.75px',
             },
             colors: {
-                customWhite: "#f1f1f1",
+                customWhite: "#fafafa",
                 customBlack: "#050505",
                 customBlackLight: "#151515",
                 customGray: "#4e4e4e",
-                customGrayLight: "#8e8e8e",
+                customGrayLight: "#898989",
                 customGrayLighter: "#cccccc",
                 customNavy: "#100f14",
                 customNavyLight: "#15141a",

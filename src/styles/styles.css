@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.x-scroll-item:nth-child(n) {
+    height: 60vh;
+}
+
+.x-scroll-item:nth-child(2n) {
+    height: 80vh;
+}
+
 /* Attempt to randomize thumbnail layout for floating gallery */
 /* Not ideal, may have to manually set positions and size for aesthetics */
 

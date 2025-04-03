@@ -32,7 +32,7 @@ const Index = () => {
                 disconcerting susceptibility to nostalgia and Topolski finds himself coveting the decayed, feigning the
                 familiar and writing about himself in the third person.</p>
             </div>
-            <div className="text-sm text-customGray dark:text-customGrayLight">
+            <div className="text-sm text-customGrayLight">
               <p>The objects and images I make tap the familiar. They are constructed primarily of found
                 materials or objects that are reworked and combined through a variety of transformative activities.
                 They have associations that are sometimes transparent – wheels, hanging devices, etc. – that

@@ -34,7 +34,7 @@ collections:
       - { label: "Year", name: "year", widget: "string" }
       - { label: "Medium", name: "medium", widget: "string" }
       - { label: "Dimensions", name: "dimensions", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
   - name: "smallScale"
     label: "Small Scale"
     folder: "src/data/small-scale"
@@ -62,7 +62,7 @@ collections:
       - { label: "Year", name: "year", widget: "string" }
       - { label: "Medium", name: "medium", widget: "string" }
       - { label: "Dimensions", name: "dimensions", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
   - name: "site-specific"
     label: "Site-Specific"
     folder: "src/data/site-specific"
@@ -90,4 +90,4 @@ collections:
       - { label: "Year", name: "year", widget: "string" }
       - { label: "Medium", name: "medium", widget: "string" }
       - { label: "Dimensions", name: "dimensions", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }

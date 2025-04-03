@@ -4,6 +4,7 @@ import Footer from "../components/Footer.jsx";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
+import { MaskText } from '../components/MaskText.jsx';
 
 // Template component for individual artwork pages
 const ArtworkDetailSimple = () => {
@@ -73,7 +74,17 @@ const ArtworkDetailSimple = () => {
                 artworkData.videoLinks.map((videoLink, index) => {
                   const embedUrl = convertToEmbedURL(videoLink);
                   return (
-                    <div key={index} className="relative overflow-hidden">
+                    <motion.div
+                      key={index}
+                      className="relative overflow-hidden"
+                      initial={{opacity: 0, y: 40}}
+                      animate={{opacity: 1, y: 0}}
+                      transition={{
+                        duration: 0.3,
+                        delay: 1.0,
+                        ease: "easeOut",
+                      }}
+                    >
                       {/* Container with aspect ratio */}
                       <div className="relative w-full aspect-w-16 aspect-h-9">
                         <iframe
@@ -83,7 +94,7 @@ const ArtworkDetailSimple = () => {
                           allowFullScreen
                         ></iframe>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })
               }
@@ -123,13 +134,24 @@ const ArtworkDetailSimple = () => {
             >
               <h1 className="col-start-3 row-start-1
                 text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-4xl 3xl:text-6xl 4xl:text-7xl">
-                {artworkData.title}
+                <MaskText phrase={artworkData.title} delay={1.1} duration={1.0} />
               </h1>
-              <p className="col-start-3 row-start-2">{artworkData.year}</p>
-              <p className="col-start-3 row-start-3">{artworkData.medium}</p>
-              <p className="col-start-3 row-start-4">{artworkData.dimensions}</p>
-              <p className="col-start-3 row-start-5 text-customGray dark:text-customGrayLight
-                text-5xs xs:text-5xs md:text-3xs lg:text-xs xl:text-xs 2xl:text-sm 3xl:text-lg 4xl:text-xl">{artworkData.description}</p>
+              <div className="col-start-3 row-start-2"><MaskText phrase={artworkData.year} delay={1.25} duration={1.0}/></div>
+              <div className="col-start-3 row-start-3"><MaskText phrase={artworkData.medium} delay={1.4} duration={1.0}/></div>
+              <div className="col-start-3 row-start-4"><MaskText phrase={artworkData.dimensions} delay={1.55} duration={1.0}/></div>
+              <motion.div
+                className="col-start-3 row-start-5 text-customGrayLight
+                text-5xs xs:text-5xs md:text-3xs lg:text-xs xl:text-xs 2xl:text-sm 3xl:text-lg 4xl:text-xl"
+                initial={{opacity: 0, y: 20 }}
+                animate={{opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 1.7,
+                  ease: "easeOut",
+                }}
+              >
+                {artworkData.description}
+              </motion.div>
 
             </motion.div>
           </section>

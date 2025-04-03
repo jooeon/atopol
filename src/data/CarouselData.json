@@ -1,6 +1,8 @@
 [
   {
     "images": [
+      "/images/Equipment-for-Constructive-Calm-and-Productive-Play1.jpg",
+      "/images/Equipment-for-Constructive-Calm-and-Productive-Play1.jpg",
       "/images/Equipment-for-Constructive-Calm-and-Productive-Play1.jpg"
     ],
     "title": "Equipment for Constructive Calm and Productive Play",
@@ -22,5 +24,21 @@
     "title": "Bayberry",
     "year": "2016",
     "thumbnail": "/images/thumbnails/Bayberry.jpg"
+  },
+  {
+    "images": [
+      "/images/UntitledForNow2-646x1024.jpg"
+    ],
+    "title": "Untitled",
+    "year": "2016",
+    "thumbnail": "/images/thumbnails/UntitledForNow2-646x1024.jpg"
+  },
+  {
+    "images": [
+      "/images/SensitiveEquip.jpg"
+    ],
+    "title": "Sensitive Equip",
+    "year": "2016",
+    "thumbnail": "/images/thumbnails/SensitiveEquip.jpg"
   }
 ]

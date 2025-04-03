@@ -28,7 +28,7 @@ const SmallScale = () => {
         <VerticalScrollGallery images={smallScaleData} title={"Small Scale"} />
       ) : (
         <div className="h-screen w-full flex justify-center items-center text-[1vw]">
-          <p>Loading data...</p>
+          <p>Failed to load artwork data...</p>
         </div>
       )}
     </>

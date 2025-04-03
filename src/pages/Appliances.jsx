@@ -28,7 +28,7 @@ const Appliances = () => {
         <VerticalScrollGallery images={appliancesData} title={"Appliances"} />
       ) : (
         <div className="h-screen w-full flex justify-center items-center text-[1vw]">
-          <p>Loading data...</p>
+          <p>Failed to load artwork data...</p>
         </div>
       )}
     </>

@@ -107,7 +107,7 @@ export function VerticalScrollGallery({ images, title }) {
             phrase={`${String(currentIndex + 1).padStart(2, '0')}. ${images[currentIndex].title}`}
             duration={1.0} delay={0.9}
           />
-          <div className="text-customGray dark:text-customGrayLight">
+          <div className="text-customGrayLight">
             <MaskText
               phrase={`${images[currentIndex].year}`}
               duration={1.0} delay={0.9}

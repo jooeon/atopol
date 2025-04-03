@@ -1,8 +1,8 @@
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
-import Carousel from '../components/Carousel.jsx';
 import { MaskText } from '../components/MaskText.jsx';
 import { motion } from "framer-motion";
+import Carousel from '../components/Carousel.jsx';
 
 const Index = () => {
     return (

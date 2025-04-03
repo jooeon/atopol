@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header.jsx';
-import Footer from '../components/Footer.jsx';
 import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
 
 const Appliances = () => {
@@ -30,7 +29,6 @@ const Appliances = () => {
       ) : (
         <p>Loading data...</p>
       )}
-      <Footer />
     </>
   );
 };

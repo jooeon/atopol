@@ -1,41 +1,36 @@
-import Header from '../components/Header.jsx';
-import { MaskText } from '../components/MaskText.jsx';
-import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
-import SmallScaleData from '../data/SmallScaleData.json';
-
-const smallScaleModules = import.meta.glob('../data/small-scale/*.md');
-
-// Function to load all entries
-async function loadSmallScaleData() {
-  const dataPromises = Object.values(smallScaleModules).map(async (moduleImporter) => {
-    const mod = await moduleImporter();
-    return mod.default || mod;
-  });
-  const smallScaleDataArray = await Promise.all(dataPromises);
-  return smallScaleDataArray;
-}
-
-// Example usage in a component
 import { useEffect, useState } from 'react';
+import Header from '../components/Header.jsx';
+import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
 
-const SmallScale = () => {
+const Appliances = () => {
   const [smallScaleData, setSmallScaleData] = useState([]);
 
   useEffect(() => {
-    loadSmallScaleData().then((data) => {
-      setSmallScaleData(data);
-    });
+    // Dynamically import all JSON files from the folder
+    const modules = import.meta.glob('../data/small-scale/*.json');
+    console.log("Modules found:", modules); // Check this in the browser console
+    const loadData = async () => {
+      const entries = await Promise.all(
+        Object.values(modules).map(async (importer) => {
+          const mod = await importer();
+          return mod.default;  // JSON files export their content as default
+        })
+      );
+      setSmallScaleData(entries);
+    };
+    loadData();
   }, []);
 
   return (
     <>
       <Header />
-      <main>
-        {/* Ensure VerticalScrollGallery expects an array of artwork objects */}
+      {smallScaleData.length > 0 ? (
         <VerticalScrollGallery images={smallScaleData} title={"Small Scale"} />
-      </main>
+      ) : (
+        <p>Loading data...</p>
+      )}
     </>
   );
 };
 
-export default SmallScale;
+export default Appliances;

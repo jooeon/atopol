@@ -1,23 +1,41 @@
 import Header from '../components/Header.jsx';
 import { MaskText } from '../components/MaskText.jsx';
 import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
-import SmallScaleData from '../data/SmallScaleData.jsx';
+import SmallScaleData from '../data/SmallScaleData.json';
+
+const smallScaleModules = import.meta.glob('../data/small-scale/*.md');
+
+// Function to load all entries
+async function loadSmallScaleData() {
+  const dataPromises = Object.values(smallScaleModules).map(async (moduleImporter) => {
+    const mod = await moduleImporter();
+    return mod.default || mod;
+  });
+  const smallScaleDataArray = await Promise.all(dataPromises);
+  return smallScaleDataArray;
+}
+
+// Example usage in a component
+import { useEffect, useState } from 'react';
 
 const SmallScale = () => {
+  const [smallScaleData, setSmallScaleData] = useState([]);
+
+  useEffect(() => {
+    loadSmallScaleData().then((data) => {
+      setSmallScaleData(data);
+    });
+  }, []);
 
   return (
     <>
-      <Header/>
+      <Header />
       <main>
-        <h1 className="absolute top-32 left-40 text-5xl leading-normal">
-          <MaskText phrase={"Small-Scale"} duration={1.0} delay={1.0}/>
-        </h1>
-        <VerticalScrollGallery images={SmallScaleData} />
+        {/* Ensure VerticalScrollGallery expects an array of artwork objects */}
+        <VerticalScrollGallery images={smallScaleData} title={"Small Scale"} />
       </main>
-      {/*<Footer/>*/}
     </>
   );
-
 };
 
 export default SmallScale;

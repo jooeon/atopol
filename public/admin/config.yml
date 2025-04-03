@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: jooeon/atopol
+  branch: master
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "appliances"
+    label: "Appliances"
+    folder: "src/data/appliances"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", media_folder: "images/"}
+      - { label: "Link", name: "link", widget: "string", required: false }
+  - name: "smallScale"
+    label: "Small Scale"
+    folder: "src/data/small-scale"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", media_folder: "images/"}
+      - { label: "Link", name: "link", widget: "string", required: false }

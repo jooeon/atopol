@@ -15,7 +15,7 @@ const Index = () => {
           <motion.h2
             className="text-[5vw] leading-none"
           >
-            <MaskText phrase={"Bio"} duration={1.5}/>
+            <MaskText phrase={"Bio"} duration={1.5} isAnimateInView={true}/>
           </motion.h2>
           <div className="flex gap-20 w-3/4">
             <div className="text-sm">
@@ -51,7 +51,7 @@ const Index = () => {
           <motion.h2
             className="text-[5vw] leading-none"
           >
-            <MaskText phrase={"Exhibitions"} duration={1.5}/>
+            <MaskText phrase={"Exhibitions"} duration={1.5} isAnimateInView={true}/>
           </motion.h2>
           <div className="text-sm"></div>
         </section>

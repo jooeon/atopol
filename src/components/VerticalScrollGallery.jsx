@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { MaskText } from './MaskText.jsx';
 
 // Pass in array data consisting of image, title, year
 // See src/data directory for examples of data structure
-export function VerticalScrollGallery({ images }) {
+export function VerticalScrollGallery({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(Math.floor(images.length/2));
   const containerRef = useRef(null);
   // y controls the vertical offset of the thumbnails list.
@@ -76,26 +77,41 @@ export function VerticalScrollGallery({ images }) {
 
 
   return (
-    <div className="flex h-screen">
-      {/* Artwork Label */}
-      <div className="w-1/4">
-        <div className="absolute bottom-40 left-60 max-w-96">
-          <p>{String(currentIndex + 1).padStart(2, "0")}. {images[currentIndex].title}</p>
-          <p className="text-customGray dark:text-customGrayLight">{images[currentIndex].year}</p>
-        </div>
-      </div>
+    <div className="flex h-screen mr-5 xl:m-0">
+      <div className="xl:w-1/4"></div>
       {/* Artwork Focus */}
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">
+        <h1 className="w-full xl:w-fit xl:absolute xl:top-32 3xl:top-40 4xl:top-56 xl:left-40 3xl:left-52 4xl:left-64
+          py-10 xl:p-0
+          text-3xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
+          <MaskText phrase={title} duration={1.0} delay={0.6} />
+        </h1>
         <a href={images[currentIndex].link} target="_blank" rel="noopener noreferrer">
           <img
             src={images[currentIndex].image}
             alt="Selected"
-            className="w-[30vw] max-h-[80vh] object-contain"
+            className="w-full xl:w-[30vw] xl:max-h-[80vh] object-contain"
           />
         </a>
+        {/* Artwork Label */}
+        <div
+          className="w-full xl:max-w-80 py-2 text-sm lg:text-base xl:text-[1vw] xl:leading-normal
+          xl:absolute xl:bottom-44 2xl:bottom-52 3xl:bottom-72 4xl:bottom-96 xl:left-44 3xl:left-64 4xl:left-80"
+        >
+          <MaskText
+            phrase={`${String(currentIndex + 1).padStart(2, '0')}. ${images[currentIndex].title}`}
+            duration={1.0} delay={0.9}
+          />
+          <div className="text-customGray dark:text-customGrayLight">
+            <MaskText
+              phrase={`${images[currentIndex].year}`}
+              duration={1.0} delay={0.9}
+            />
+          </div>
+        </div>
       </div>
       {/* Vertical Scroll Section */}
-      <div className="w-1/4 relative flex flex-col items-center">
+      <div className="xl:w-1/4 relative flex flex-col items-center">
         {/* A container with overflow-hidden to mask the list */}
         <div
           ref={containerRef}
@@ -110,8 +126,8 @@ export function VerticalScrollGallery({ images }) {
               <div
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`thumbnail w-[10vw] h-44 overflow-hidden ${
-                  index === currentIndex ? "opacity-100" : "opacity-50"
+                className={`thumbnail w-full xl:w-[12vw] h-20 md:h-72 xl:h-[20vh] overflow-hidden ${
+                  index === currentIndex ? 'opacity-100' : 'opacity-35'
                 }`}
               >
                 <img

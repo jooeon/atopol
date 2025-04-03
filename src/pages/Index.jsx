@@ -23,10 +23,14 @@ const Index = () => {
                       ease: "linear",  // easeOutQuart
                       delay: 0.75,
                     }}
-                  ><MaskText phrase={"Re"} /></motion.span>
-                  <MaskText phrase={"collecting"} />
+                  >
+                    <MaskText phrase={"Re"} isAnimateInView={true}/>
+                  </motion.span>
+                  <MaskText phrase={"collecting"} isAnimateInView={true}/>
                 </div>
-                <div className="ml-20"><MaskText phrase={"Objects"} /></div>
+                <div className="ml-20">
+                  <MaskText phrase={"Objects"} isAnimateInView={true}/>
+                </div>
               </h1>
             </section>
           </main>

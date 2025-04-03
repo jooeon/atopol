@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import carouselData from "../data/CarouselData";
+import carouselData from "../data/CarouselData.json";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

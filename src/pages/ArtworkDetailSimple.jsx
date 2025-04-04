@@ -136,22 +136,24 @@ const ArtworkDetailSimple = () => {
                 text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-4xl 3xl:text-6xl 4xl:text-7xl">
                 <MaskText phrase={artworkData.title} delay={1.1} duration={1.0} />
               </h1>
-              <div className="col-start-3 row-start-2"><MaskText phrase={artworkData.year} delay={1.25} duration={1.0}/></div>
-              <div className="col-start-3 row-start-3"><MaskText phrase={artworkData.medium} delay={1.4} duration={1.0}/></div>
-              <div className="col-start-3 row-start-4"><MaskText phrase={artworkData.dimensions} delay={1.55} duration={1.0}/></div>
-              <motion.div
-                className="col-start-3 row-start-5 text-customGrayLight
-                text-5xs xs:text-5xs md:text-3xs lg:text-xs xl:text-xs 2xl:text-sm 3xl:text-lg 4xl:text-xl"
-                initial={{opacity: 0, y: 20 }}
-                animate={{opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 1.7,
-                  ease: "easeOut",
-                }}
-              >
-                {artworkData.description}
-              </motion.div>
+              {artworkData.year && <div className="col-start-3 row-start-2"><MaskText phrase={artworkData.year} delay={1.25} duration={1.0}/></div>}
+              {artworkData.medium && <div className="col-start-3 row-start-3"><MaskText phrase={artworkData.medium} delay={1.4} duration={1.0}/></div>}
+              {artworkData.dimensions && <div className="col-start-3 row-start-4"><MaskText phrase={artworkData.dimensions} delay={1.55} duration={1.0}/></div>}
+              {artworkData.description &&
+                <motion.div
+                  className="col-start-3 row-start-5 text-customGrayLight
+                  text-5xs xs:text-5xs md:text-3xs lg:text-xs xl:text-xs 2xl:text-sm 3xl:text-lg 4xl:text-xl"
+                  initial={{opacity: 0, y: 20 }}
+                  animate={{opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 1.7,
+                    ease: "easeOut",
+                  }}
+                >
+                  {artworkData.description}
+                </motion.div>
+              }
 
             </motion.div>
           </section>

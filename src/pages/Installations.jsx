@@ -5,7 +5,6 @@ import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
 const Installations = () => {
   const [combinedData, setCombinedData] = useState([]);
   const [siteSpecificIndex, setSiteSpecificIndex] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0); // State to manage the current index
 
   useEffect(() => {
     // Dynamically import JSON files from both folders
@@ -38,35 +37,15 @@ const Installations = () => {
     loadData();
   }, []);
 
-  // Function to skip to the site-specific items
-  const skipToSiteSpecific = () => {
-    setCurrentIndex(0); // Set the index to 0 for the first site-specific item
-  };
-
-  // Function to skip to the small-scale items
-  const skipToSmallScale = () => {
-    setCurrentIndex(siteSpecificIndex); // Set the index to the first small-scale item
-  };
-
   return (
     <>
       <Header />
       {combinedData.length > 0 ? (
         <>
-          {/* Buttons to skip between groups */}
-          <div className="absolute top-96 flex justify-center my-4">
-            <button onClick={skipToSiteSpecific} disabled={siteSpecificIndex === 0}>
-              Skip to Site-Specific
-            </button>
-            <button onClick={skipToSmallScale} disabled={siteSpecificIndex === combinedData.length}>
-              Skip to Small Scale
-            </button>
-          </div>
-
           <VerticalScrollGallery
-            images={combinedData}
+            data={combinedData}
             title={"Installations"}
-            newIndex={currentIndex} // Pass newIndex to skip to
+            skipIndex={siteSpecificIndex}
           />
         </>
       ) : (

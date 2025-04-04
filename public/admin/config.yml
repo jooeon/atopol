@@ -31,10 +31,16 @@ collections:
           name: "videoLink"
           widget: "string"
           required: false
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Medium", name: "medium", widget: "string" }
-      - { label: "Dimensions", name: "dimensions", widget: "string" }
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
       - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "appliances"
+      }
   - name: "smallScale"
     label: "Small Scale"
     folder: "src/data/small-scale"
@@ -59,10 +65,16 @@ collections:
           name: "videoLink"
           widget: "string"
           required: false
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Medium", name: "medium", widget: "string" }
-      - { label: "Dimensions", name: "dimensions", widget: "string" }
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
       - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "small-scale"
+      }
   - name: "site-specific"
     label: "Site-Specific"
     folder: "src/data/site-specific"
@@ -87,7 +99,13 @@ collections:
           name: "videoLink"
           widget: "string"
           required: false
-      - { label: "Year", name: "year", widget: "string" }
-      - { label: "Medium", name: "medium", widget: "string" }
-      - { label: "Dimensions", name: "dimensions", widget: "string" }
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
       - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "site-specific"
+      }

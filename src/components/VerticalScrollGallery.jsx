@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { MaskText } from './MaskText.jsx';
 
-// Pass in array data consisting of image, title, year
+// Pass in artwork data array, title of the gallery, and skipIndex
+// providing skipIndex allows the option to quickly skip to a certain part of the vertical scroll
+// if skipIndex is provided then buttons appear to skip between one category of images to another
+// skipIndex should be equal to the length of the first group of images
 // See src/data directory for examples of data structure
-export function VerticalScrollGallery({ images, title, newIndex }) {
-  const [currentIndex, setCurrentIndex] = useState(Math.floor(images.length/2));
+export function VerticalScrollGallery({ data, title, skipIndex = null }) {
+  const [currentIndex, setCurrentIndex] = useState(Math.floor(data.length/2));
   const containerRef = useRef(null);
   // y controls the vertical offset of the thumbnails list.
   const y = useMotionValue(0);
@@ -14,10 +17,25 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
   const [itemHeight, setItemHeight] = useState(0);
   const gap = 16; // Matching gap-y-4 (16px gap)
   const wheelTimeout = useRef(null);
+  const [isBeforeSkipIndex, setIsBeforeSkipIndex] = useState(true);
+
+  const skipToBeginning = () => {
+    setCurrentIndex(0);
+  }
+
+  const skipToSkipIndex = () => {
+    setCurrentIndex(skipIndex);
+  }
 
   useEffect(() => {
-    setCurrentIndex(newIndex);
-  }, [newIndex]);
+    if (skipIndex) {
+      if (currentIndex < skipIndex) {
+        setIsBeforeSkipIndex(true);
+      } else {
+        setIsBeforeSkipIndex(false);
+      }
+    }
+  }, [currentIndex]);
 
   // Measure the height of the first thumbnail on mount
   // *** All thumbnails must be of equal height
@@ -48,7 +66,7 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
       const currentY = springY.get();
       // Calculate index based on current y offset.
       let newIndex = Math.round((centerOffset - currentY) / (itemHeight + gap));
-      newIndex = Math.min(Math.max(newIndex, 0), images.length - 1);
+      newIndex = Math.min(Math.max(newIndex, 0), data.length - 1);
       setCurrentIndex(newIndex);
     }
   };
@@ -61,7 +79,7 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
       // when the first image is centered
       const maxY = containerHeight / 2 - itemHeight / 2;
       // when the last image is centered
-      const minY = - (images.length - 1) * (itemHeight + gap) + maxY;
+      const minY = - (data.length - 1) * (itemHeight + gap) + maxY;
 
       // Calculate the new y value based on the wheel delta.
       const newY = y.get() - e.deltaY;
@@ -80,24 +98,77 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
   };
 
   // For creating artwork detail page links
-  // To lowercase and replace spaces with dashes
+  // To lowercase and replace spaces with dashes, remove parentheses
   function formatString(str) {
-    return str.toLowerCase().replace(/\s+/g, '-');
+    return str.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
   }
+
+  useEffect(() => {
+    if (skipIndex) {
+      // Detect if the currentIndex is greater than the skipIndex and toggle the theme accordingly
+      if (currentIndex < skipIndex) {
+        // Add dark mode and store in localStorage for temporary session theme
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        // Remove dark mode and store in localStorage for temporary session theme
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+  }, [currentIndex, skipIndex]);
+
+  // Initialize the theme based on localStorage or default to light
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else {
+      // Default theme
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   return (
     <div className="flex h-screen mr-5 xl:m-0">
       <div className="xl:w-1/4"></div>
       {/* Artwork Focus */}
       <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">
-        <h1 className="w-full xl:w-fit xl:absolute xl:top-32 3xl:top-40 4xl:top-56 xl:left-40 3xl:left-52 4xl:left-64
-          py-10 xl:p-0
-          text-3xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
-          <MaskText phrase={title} duration={1.0} delay={0.6} />
-        </h1>
-        <a href={window.location.pathname+"/"+formatString(images[currentIndex].title)} rel="noopener noreferrer">
+        <div className="w-full xl:w-fit pb-10 xl:absolute xl:top-32 3xl:top-40 4xl:top-56 xl:left-40 3xl:left-52 4xl:left-64">
+          <h1 className="text-3xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
+            <MaskText phrase={title} duration={1.2} delay={0.6} />
+          </h1>
+          {/* Buttons to skip between groups */}
+          {skipIndex &&
+            <div className="flex gap-4 text-sm lg:text-base xl:text-[1vw] xl:leading-normal">
+              <button
+                onClick={skipToBeginning}
+                className={`capitalize ${
+                  isBeforeSkipIndex ? '' : 'opacity-50 hover:opacity-100 transition-opacity duration-300'
+                }`}
+                disabled={isBeforeSkipIndex}
+              >
+                <MaskText phrase={data[0].category} duration={1.0} delay={1.0} />
+              </button>
+              <button
+                onClick={skipToSkipIndex}
+                className={`capitalize ${
+                  !isBeforeSkipIndex ? '' : 'opacity-50 hover:opacity-100 transition-opacity duration-300'
+                }`}
+                disabled={!isBeforeSkipIndex}
+              >
+                <MaskText phrase={data[skipIndex].category} duration={1.0} delay={1.0} />
+              </button>
+            </div>
+          }
+        </div>
+        <a href={data[currentIndex].category + '/' + formatString(data[currentIndex].title)} rel="noopener noreferrer">
           <img
-            src={images[currentIndex].images[0]}
+            src={data[currentIndex].images[0]}
             alt="Selected"
             className="w-full xl:w-[30vw] xl:max-h-[80vh] object-contain"
           />
@@ -108,15 +179,17 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
           xl:absolute xl:bottom-44 2xl:bottom-52 3xl:bottom-72 4xl:bottom-96 xl:left-44 3xl:left-64 4xl:left-80"
         >
           <MaskText
-            phrase={`${String(currentIndex + 1).padStart(2, '0')}. ${images[currentIndex].title}`}
-            duration={1.0} delay={0.9}
+            phrase={`${String(currentIndex + 1).padStart(2, '0')}. ${data[currentIndex].title}`}
+            duration={1.0} delay={1.2}
           />
-          <div className="text-customGrayLight">
-            <MaskText
-              phrase={`${images[currentIndex].year}`}
-              duration={1.0} delay={0.9}
-            />
-          </div>
+          {data[currentIndex].year &&
+            <div className="text-customGrayLight">
+              <MaskText
+                phrase={`${data[currentIndex].year}`}
+                duration={1.0} delay={1.4}
+              />
+            </div>
+          }
         </div>
       </div>
       {/* Vertical Scroll Section */}
@@ -131,7 +204,7 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
             style={{ y: springY }}
             className="flex flex-col items-center gap-y-4"
           >
-            {images.map((img, index) => (
+            {data.map((artwork, index) => (
               <div
                 key={index}
                 onClick={() => setCurrentIndex(index)}
@@ -140,7 +213,7 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
                 }`}
               >
                 <img
-                  src={img.images[0]}
+                  src={artwork.images[0]}
                   alt={`Thumbnail ${index}`}
                   className="w-full h-full object-cover pointer-events-none"
                 />
@@ -154,12 +227,12 @@ export function VerticalScrollGallery({ images, title, newIndex }) {
 }
 
 VerticalScrollGallery.propTypes = {
-  images: PropTypes.arrayOf(
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string.isRequired,
       title: PropTypes.string,
       year: PropTypes.string,
-      link: PropTypes.string,
+      category: PropTypes.string,
     })
   ).isRequired,
 };

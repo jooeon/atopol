@@ -80,13 +80,8 @@ const Header = ({delay = 0.4}) => {
         </Link>
         <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
           <li>
-            <NavLink to="/small-scale" className={() => getLinkClasses("/small-scale")}>
-              Small Scale
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/site-specific" className={() => getLinkClasses("/site-specific")}>
-              Site-Specific
+            <NavLink to="/installations" className={() => getLinkClasses("/installations")}>
+              Installations
             </NavLink>
           </li>
           <li>

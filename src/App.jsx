@@ -47,8 +47,9 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
         <Route path="/:artworkGroup/:artworkTitle" element={<PageWrapper><ArtworkDetailSimple /></PageWrapper>} />
         <Route path="/installations" element={<PageWrapper><Installations /></PageWrapper>} />
-        <Route path="/small-scale" element={<PageWrapper><SmallScale /></PageWrapper>} />
-        <Route path="/site-specific" element={<PageWrapper><SiteSpecific /></PageWrapper>} />
+        {/* small-scal and site-specific has been combined to installations */}
+        {/*<Route path="/small-scale" element={<PageWrapper><SmallScale /></PageWrapper>} />*/}
+        {/*<Route path="/site-specific" element={<PageWrapper><SiteSpecific /></PageWrapper>} />*/}
         <Route path="/appliances" element={<PageWrapper><Appliances /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
       </Routes>

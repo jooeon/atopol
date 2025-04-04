@@ -8,7 +8,6 @@ const Appliances = () => {
   useEffect(() => {
     // Dynamically import all JSON files from the folder
     const modules = import.meta.glob('../data/appliances/*.json');
-    console.log("Modules found:", modules); // Check this in the browser console
     const loadData = async () => {
       const entries = await Promise.all(
         Object.values(modules).map(async (importer) => {
@@ -25,7 +24,7 @@ const Appliances = () => {
     <>
       <Header />
       {appliancesData.length > 0 ? (
-        <VerticalScrollGallery images={appliancesData} title={"Appliances"} />
+        <VerticalScrollGallery data={appliancesData} title={"Appliances"} />
       ) : (
         <div className="h-screen w-full flex justify-center items-center text-[1vw]">
           <p>Failed to load artwork data...</p>

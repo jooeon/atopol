@@ -18,6 +18,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
   const gap = 16; // Matching gap-y-4 (16px gap)
   const wheelTimeout = useRef(null);
   const [isBeforeSkipIndex, setIsBeforeSkipIndex] = useState(true);
+  const defaultTheme = localStorage.getItem('theme')
 
   const skipToBeginning = () => {
     setCurrentIndex(0);
@@ -118,19 +119,19 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
     }
   }, [currentIndex, skipIndex]);
 
-  // Initialize the theme based on localStorage or default to light
+  // Reset the theme based on localStorage when leaving this page
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      if (savedTheme === 'dark') {
+    return () => {
+      if (defaultTheme === 'dark') {
         document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
       } else {
         document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
       }
-    } else {
-      // Default theme
-      document.documentElement.classList.remove('dark');
-    }
+    };
   }, []);
 
   return (

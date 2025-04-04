@@ -5,7 +5,7 @@ import { MaskText } from './MaskText.jsx';
 
 // Pass in array data consisting of image, title, year
 // See src/data directory for examples of data structure
-export function VerticalScrollGallery({ images, title }) {
+export function VerticalScrollGallery({ images, title, newIndex }) {
   const [currentIndex, setCurrentIndex] = useState(Math.floor(images.length/2));
   const containerRef = useRef(null);
   // y controls the vertical offset of the thumbnails list.
@@ -14,6 +14,10 @@ export function VerticalScrollGallery({ images, title }) {
   const [itemHeight, setItemHeight] = useState(0);
   const gap = 16; // Matching gap-y-4 (16px gap)
   const wheelTimeout = useRef(null);
+
+  useEffect(() => {
+    setCurrentIndex(newIndex);
+  }, [newIndex]);
 
   // Measure the height of the first thumbnail on mount
   // *** All thumbnails must be of equal height

@@ -10,6 +10,7 @@ import SmallScale from './pages/SmallScale.jsx';
 import Appliances from './pages/Appliances.jsx';
 import SiteSpecific from './pages/SiteSpecific.jsx';
 import ArtworkDetailSimple from './pages/ArtworkDetailSimple.jsx';
+import Installations from './pages/Installations.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -45,6 +46,7 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
         <Route path="/:artworkGroup/:artworkTitle" element={<PageWrapper><ArtworkDetailSimple /></PageWrapper>} />
+        <Route path="/installations" element={<PageWrapper><Installations /></PageWrapper>} />
         <Route path="/small-scale" element={<PageWrapper><SmallScale /></PageWrapper>} />
         <Route path="/site-specific" element={<PageWrapper><SiteSpecific /></PageWrapper>} />
         <Route path="/appliances" element={<PageWrapper><Appliances /></PageWrapper>} />

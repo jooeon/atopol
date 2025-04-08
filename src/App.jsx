@@ -6,9 +6,9 @@ import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
-import Appliances from './pages/Appliances.jsx';
 import ArtworkDetailSimple from './pages/ArtworkDetailSimple.jsx';
 import Installations from './pages/Installations.jsx';
+import Objects from './pages/Objects.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -48,7 +48,7 @@ const AnimatedRoutes = () => {
         {/* small-scale and site-specific has been combined to installations */}
         {/*<Route path="/small-scale" element={<PageWrapper><SmallScale /></PageWrapper>} />*/}
         {/*<Route path="/site-specific" element={<PageWrapper><SiteSpecific /></PageWrapper>} />*/}
-        <Route path="/appliances" element={<PageWrapper><Appliances /></PageWrapper>} />
+        <Route path="/objects" element={<PageWrapper><Objects /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
       </Routes>
       {/*</ScrollToTop>*/}

@@ -80,19 +80,13 @@ const Header = ({delay = 0.4}) => {
         </Link>
         <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
           <li>
-            <NavLink to="/installations" className={() => getLinkClasses("/installations")}>
-              Installations
-            </NavLink>
+            <NavLink to="/installations" className={() => getLinkClasses("/installations")}>Installations</NavLink>
           </li>
           <li>
-            <NavLink to="/appliances" className={() => getLinkClasses("/appliances")}>
-              Appliances
-            </NavLink>
+            <NavLink to="/objects" className={() => getLinkClasses("/objects")}>Objects</NavLink>
           </li>
           <li>
-            <NavLink to="/about" className={() => getLinkClasses("/about")}>
-              About
-            </NavLink>
+            <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
           </li>
         </ul>
       </motion.nav>

@@ -99,8 +99,9 @@ const ArtworkDetailSimple = () => {
                 })
               }
 
-              {/* Render images */}
-              {artworkData.images.map((image, index) => (
+              {/* Render images (if they exist, although content should have at least on of either video or image) */}
+              {artworkData.images &&
+                artworkData.images.map((image, index) => (
                 <div key={index} className="overflow-hidden">
                   <motion.img
                     src={image}
@@ -133,7 +134,7 @@ const ArtworkDetailSimple = () => {
               }}
             >
               <h1 className="col-start-3 row-start-1
-                text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-4xl 3xl:text-6xl 4xl:text-7xl">
+                text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl/normal 2xl:text-4xl/normal 3xl:text-6xl/normal 4xl:text-7xl/normal">
                 <MaskText phrase={artworkData.title} delay={1.1} duration={1.0} />
               </h1>
               {artworkData.year && <div className="col-start-3 row-start-2"><MaskText phrase={artworkData.year} delay={1.25} duration={1.0}/></div>}

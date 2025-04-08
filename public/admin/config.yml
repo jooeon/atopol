@@ -7,42 +7,6 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  - name: "appliances"
-    label: "Appliances"
-    folder: "src/data/appliances"
-    create: true
-    slug: "{{slug}}"
-    format: "json"
-    extension: "json"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-      - label: "Images"
-        name: "images"
-        widget: "list"
-        field:
-            label: "Image"
-            name: "image"
-            widget: "image"
-            required: false
-      - label: "Video Links"
-        name: "videoLinks"
-        widget: "list"
-        field:
-          label: "Video Link"
-          name: "videoLink"
-          widget: "string"
-          required: false
-      - { label: "Year", name: "year", widget: "string", required: false }
-      - { label: "Medium", name: "medium", widget: "string", required: false }
-      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
-      - { label: "Description", name: "description", widget: "string", required: false }
-      - {
-        label: "Category",
-        name: "category",
-        widget: "string",
-        default: "appliances"
-      }
   - name: "smallScale"
     label: "Small Scale"
     folder: "src/data/small-scale"
@@ -114,4 +78,76 @@ collections:
         name: "category",
         widget: "string",
         default: "site-specific"
+      }
+  - name: "appliances"
+    label: "Appliances"
+    folder: "src/data/appliances"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          required: false
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "appliances"
+      }
+  - name: "coping-mechanisms"
+    label: "Coping Mechanisms"
+    folder: "src/data/coping-mechanisms"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          required: false
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "coping mechanisms"
       }

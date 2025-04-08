@@ -168,7 +168,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
             </div>
           }
         </div>
-        <Link to={`/${data[currentIndex].category}/${formatString(data[currentIndex].title)}`}>
+        <Link to={`/${formatString(data[currentIndex].category)}/${formatString(data[currentIndex].title)}`}>
           <img
             src={data[currentIndex].thumbnail}
             alt="Selected"

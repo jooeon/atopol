@@ -1,7 +1,6 @@
 {
   "title": "A Common Inculcation",
   "images": [
-    "/images/001-scaled.jpg",
     "/images/a-common-inculcation-0012-scaled-215x215.jpg",
     "/images/a-common-inculcation-004-scaled-215x215.jpg",
     "/images/a-common-inculcation-005-scaled-215x215.jpg",
@@ -19,5 +18,6 @@
   ],
   "year": "2018",
   "description": "This installation was part of ‘Playground 2018’ and it occupied what was a chemistry lab in a former High School in Medina, NY. It employed a variety of means to conjure an imagined past based on a researched history. A net dragged through the space of my own religious and educational indoctrination yielded the installation components and they formed a new consequence for this specific classroom, the building’s function and the people that once experienced them.",
-  "category": "site-specific"
+  "category": "site-specific",
+  "thumbnail": "/images/001-scaled.jpg"
 }

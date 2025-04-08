@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { MaskText } from './MaskText.jsx';
+import { Link } from 'react-router-dom';
 
 // Pass in artwork data array, title of the gallery, and skipIndex
 // providing skipIndex allows the option to quickly skip to a certain part of the vertical scroll
@@ -167,13 +168,13 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
             </div>
           }
         </div>
-        <a href={data[currentIndex].category + '/' + formatString(data[currentIndex].title)} rel="noopener noreferrer">
+        <Link to={`/${data[currentIndex].category}/${formatString(data[currentIndex].title)}`}>
           <img
             src={data[currentIndex].images[0]}
             alt="Selected"
             className="w-full xl:w-[30vw] xl:max-h-[80vh] object-contain"
           />
-        </a>
+        </Link>
         {/* Artwork Label */}
         <div
           className="w-full xl:max-w-80 py-2 text-sm lg:text-base xl:text-[1vw] xl:leading-normal

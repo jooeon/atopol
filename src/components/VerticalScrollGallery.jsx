@@ -170,7 +170,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
         </div>
         <Link to={`/${data[currentIndex].category}/${formatString(data[currentIndex].title)}`}>
           <img
-            src={data[currentIndex].images[0]}
+            src={data[currentIndex].thumbnail}
             alt="Selected"
             className="w-full xl:w-[30vw] xl:max-h-[80vh] object-contain"
           />
@@ -215,7 +215,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
                 }`}
               >
                 <img
-                  src={artwork.images[0]}
+                  src={artwork.thumbnail}
                   alt={`Thumbnail ${index}`}
                   className="w-full h-full object-cover pointer-events-none"
                 />

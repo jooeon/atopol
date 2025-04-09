@@ -86,6 +86,9 @@ const Header = ({delay = 0.4}) => {
             <NavLink to="/objects" className={() => getLinkClasses("/objects")}>Objects</NavLink>
           </li>
           <li>
+            <NavLink to="/tangents" className={() => getLinkClasses("/tangents")}>Tangents</NavLink>
+          </li>
+          <li>
             <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
           </li>
         </ul>

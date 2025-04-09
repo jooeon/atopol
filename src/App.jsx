@@ -9,6 +9,7 @@ import {useEffect} from "react";
 import ArtworkDetailSimple from './pages/ArtworkDetailSimple.jsx';
 import Installations from './pages/Installations.jsx';
 import Objects from './pages/Objects.jsx';
+import Tangents from './pages/Tangents.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -45,11 +46,12 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
         <Route path="/:artworkGroup/:artworkTitle" element={<PageWrapper><ArtworkDetailSimple /></PageWrapper>} />
         <Route path="/installations" element={<PageWrapper><Installations /></PageWrapper>} />
+        <Route path="/objects" element={<PageWrapper><Objects /></PageWrapper>} />
+        <Route path="/tangents" element={<PageWrapper><Tangents /></PageWrapper>} />
+        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
         {/* small-scale and site-specific has been combined to installations */}
         {/*<Route path="/small-scale" element={<PageWrapper><SmallScale /></PageWrapper>} />*/}
         {/*<Route path="/site-specific" element={<PageWrapper><SiteSpecific /></PageWrapper>} />*/}
-        <Route path="/objects" element={<PageWrapper><Objects /></PageWrapper>} />
-        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
       </Routes>
       {/*</ScrollToTop>*/}
     </AnimatePresence>

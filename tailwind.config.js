@@ -59,12 +59,14 @@ module.exports = {
             colors: {
                 customWhite: "#fafafa",
                 customBlack: "#050505",
-                customBlackLight: "#151515",
+                customBlackLight: "#1c1c1c",
                 customGray: "#4e4e4e",
                 customGrayLight: "#898989",
-                customGrayLighter: "#cccccc",
+                customGrayLighter: "#c5c5c5",
                 customNavy: "#100f14",
                 customNavyLight: "#15141a",
+                customDarkBrown: "#0d0c09",
+                customWhiteTinge: "#fffcf5",
             },
             screens: {
                 'xs': '390px',

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 // skipIndex should be equal to the length of the first group of images
 // See src/data directory for examples of data structure
 export function VerticalScrollGallery({ data, title, skipIndex = null }) {
-  const [currentIndex, setCurrentIndex] = useState(Math.floor(data.length/2));
+  const [currentIndex, setCurrentIndex] = useState(Math.floor((data.length/2)-1));  // Start in the middle
   const containerRef = useRef(null);
   // y controls the vertical offset of the thumbnails list.
   const y = useMotionValue(0);
@@ -134,19 +134,17 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
       }
     };
   }, []);
-
+  console.log(defaultTheme);
   return (
     <div className="flex h-screen mr-5 xl:m-0">
-      <div className="xl:w-1/4"></div>
-      {/* Artwork Focus */}
-      <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">
+      <div className="xl:w-1/4">
         <div className="w-full xl:w-fit pb-10 xl:absolute xl:top-32 3xl:top-40 4xl:top-56 xl:left-40 3xl:left-52 4xl:left-64">
           <h1 className="text-3xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
             <MaskText phrase={title} duration={1.2} delay={0.6} />
           </h1>
           {/* Buttons to skip between groups */}
           {skipIndex &&
-            <div className="flex gap-4 text-sm lg:text-base xl:text-[1vw] xl:leading-normal">
+            <div className="flex gap-4 text-sm lg:text-base xl:text-[1vw] xl:leading-normal text-customGray dark:text-customGrayLighter">
               <button
                 onClick={skipToBeginning}
                 className={`capitalize ${
@@ -159,7 +157,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
               <button
                 onClick={skipToSkipIndex}
                 className={`capitalize ${
-                  !isBeforeSkipIndex ? '' : 'opacity-50 hover:opacity-100 transition-opacity duration-300'
+                  !isBeforeSkipIndex ? '' : 'opacity-40 hover:opacity-100 transition-opacity duration-300'
                 }`}
                 disabled={!isBeforeSkipIndex}
               >
@@ -168,16 +166,19 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
             </div>
           }
         </div>
+      </div>
+      {/* Artwork Focus */}
+      <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">
         <Link to={`/${formatString(data[currentIndex].category)}/${formatString(data[currentIndex].title)}`}>
           <img
             src={data[currentIndex].thumbnail}
             alt="Selected"
-            className="w-full xl:w-[30vw] xl:max-h-[80vh] object-contain"
+            className="w-full xl:w-[25vw] xl:max-h-[80vh] object-contain"
           />
         </Link>
         {/* Artwork Label */}
         <div
-          className="w-full xl:max-w-80 py-2 text-sm lg:text-base xl:text-[1vw] xl:leading-normal
+          className="w-full xl:max-w-80 py-2 text-sm lg:text-base xl:text-[1vw] xl:leading-normal text-customGray dark:text-customGrayLighter
           xl:absolute xl:bottom-44 2xl:bottom-52 3xl:bottom-72 4xl:bottom-96 xl:left-44 3xl:left-64 4xl:left-80"
         >
           <MaskText

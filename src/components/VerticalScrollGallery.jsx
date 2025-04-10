@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { MaskText } from './MaskText.jsx';
 import { Link } from 'react-router-dom';
+import { formatString } from '../Utils.jsx';
 
 // Pass in artwork data array, title of the gallery, and skipIndex
 // providing skipIndex allows the option to quickly skip to a certain part of the vertical scroll
@@ -99,12 +100,6 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
     }
   };
 
-  // For creating artwork detail page links
-  // To lowercase and replace spaces with dashes, remove parentheses
-  function formatString(str) {
-    return str.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
-  }
-
   useEffect(() => {
     if (skipIndex) {
       // Detect if the currentIndex is greater than the skipIndex and toggle the theme accordingly
@@ -134,10 +129,13 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
       }
     };
   }, []);
-  console.log(defaultTheme);
+
   return (
     <div className="flex h-screen mr-5 xl:m-0">
       <div className="xl:w-1/4">
+      </div>
+      {/* Artwork Focus */}
+      <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">
         <div className="w-full xl:w-fit pb-10 xl:absolute xl:top-32 3xl:top-40 4xl:top-56 xl:left-40 3xl:left-52 4xl:left-64">
           <h1 className="text-3xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
             <MaskText phrase={title} duration={1.2} delay={0.6} />
@@ -166,9 +164,6 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
             </div>
           }
         </div>
-      </div>
-      {/* Artwork Focus */}
-      <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">
         <Link to={`/${formatString(data[currentIndex].category)}/${formatString(data[currentIndex].title)}`}>
           <img
             src={data[currentIndex].thumbnail}
@@ -196,7 +191,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
         </div>
       </div>
       {/* Vertical Scroll Section */}
-      <div className="xl:w-1/4 relative flex flex-col items-center">
+      <div className="w-1/4 relative flex flex-col items-center">
         {/* A container with overflow-hidden to mask the list */}
         <div
           ref={containerRef}

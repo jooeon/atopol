@@ -10,6 +10,11 @@
     height: 80vh;
 }
 
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
 /* Attempt to randomize thumbnail layout for floating gallery */
 /* Not ideal, may have to manually set positions and size for aesthetics */
 

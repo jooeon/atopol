@@ -6,7 +6,7 @@ import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
-import ArtworkDetailSimple from './pages/ArtworkDetailSimple.jsx';
+import ArtworkDetailSimple from './components/ArtworkDetailSimple.jsx';
 import Installations from './pages/Installations.jsx';
 import Objects from './pages/Objects.jsx';
 import Tangents from './pages/Tangents.jsx';

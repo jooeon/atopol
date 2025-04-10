@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom";
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
-import { MaskText } from '../components/MaskText.jsx';
+import { MaskText } from './MaskText.jsx';
 
 // Template component for individual artwork pages
 const ArtworkDetailSimple = () => {

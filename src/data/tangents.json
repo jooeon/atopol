@@ -1,0 +1,24 @@
+{
+  "artwork-group": [
+    {
+      "image": "/images/niagara01-scaled-e1718131327820.jpg",
+      "title": "Something Like 2D",
+      "category": "something-like-2D"
+    },
+    {
+      "image": "/images/ndasota4.jpg",
+      "title": "Not Unrelated to Dance",
+      "category": "not-unrelated-to-dance"
+    },
+    {
+      "image": "/images/coolcomfort.jpg",
+      "title": "Almost Functional",
+      "category": "almost-functional"
+    },
+    {
+      "image": "/images/img_2408.jpg",
+      "title": "Nodding to Wayne White",
+      "category": "nodding-to-wayne-white"
+    }
+  ]
+}

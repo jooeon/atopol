@@ -100,39 +100,43 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
     }
   };
 
-  useEffect(() => {
-    if (skipIndex) {
-      // Detect if the currentIndex is greater than the skipIndex and toggle the theme accordingly
-      if (currentIndex < skipIndex) {
-        // Add dark mode and store in localStorage for temporary session theme
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        // Remove dark mode and store in localStorage for temporary session theme
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    }
-  }, [currentIndex, skipIndex]);
+  // Uncomment below to switch themes (dark <-> light) when going from one artwork group to another
+  // Unused because the reason for the transition was unclear/confusing to the user
 
-  // Reset the theme based on localStorage when leaving this page
-  useEffect(() => {
-    return () => {
-      if (defaultTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-        document.documentElement.classList.remove('light');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        document.documentElement.classList.add('light');
-        localStorage.setItem('theme', 'light');
-      }
-    };
-  }, []);
+  // useEffect(() => {
+  //   if (skipIndex) {
+  //     // Detect if the currentIndex is greater than the skipIndex and toggle the theme accordingly
+  //     if (currentIndex < skipIndex) {
+  //       // Add dark mode and store in localStorage for temporary session theme
+  //       document.documentElement.classList.add('dark');
+  //       localStorage.setItem('theme', 'dark');
+  //     } else {
+  //       // Remove dark mode and store in localStorage for temporary session theme
+  //       document.documentElement.classList.remove('dark');
+  //       localStorage.setItem('theme', 'light');
+  //     }
+  //   }
+  // }, [currentIndex, skipIndex]);
+  //
+  // // Reset the theme based on localStorage when leaving this page
+  // useEffect(() => {
+  //   return () => {
+  //     if (defaultTheme === 'dark') {
+  //       document.documentElement.classList.add('dark');
+  //       document.documentElement.classList.remove('light');
+  //       localStorage.setItem('theme', 'dark');
+  //     } else {
+  //       document.documentElement.classList.remove('dark');
+  //       document.documentElement.classList.add('light');
+  //       localStorage.setItem('theme', 'light');
+  //     }
+  //   };
+  // }, []);
 
   return (
     <div className="flex h-screen mr-5 xl:m-0">
       <div className="xl:w-1/4">
+      {/* Empty div for left-hand side space (for xl screens only) */}
       </div>
       {/* Artwork Focus */}
       <div className="w-3/4 xl:w-1/2 flex flex-col items-center justify-center px-5 md:px-10">

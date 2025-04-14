@@ -67,7 +67,7 @@ const Header = ({delay = 0.4}) => {
       initial={{y: -100, opacity: 0}}
       animate={isVisible ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
       transition={{
-        duration: 1.4,
+        duration: 1.6,
         delay: delay,
         ease: [0.16, 1, 0.3, 1],
       }}>

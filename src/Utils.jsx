@@ -3,3 +3,7 @@
 export function formatString(str) {
   return str.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
 }
+
+export function isEven(number) {
+  return number % 2 === 0;
+}

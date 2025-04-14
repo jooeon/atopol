@@ -10,6 +10,8 @@ import ArtworkDetailSimple from './components/ArtworkDetailSimple.jsx';
 import Installations from './pages/Installations.jsx';
 import Objects from './pages/Objects.jsx';
 import Tangents from './pages/Tangents.jsx';
+import { CursorProvider } from './components/cursor/CursorContext.jsx';
+import Cursor from './components/cursor/Cursor.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -86,7 +88,10 @@ const App = () => {
   return (
     <ReactLenis root>
       <BrowserRouter>
-          <AnimatedRoutes />
+        <CursorProvider>
+            <AnimatedRoutes />
+            <Cursor />
+        </CursorProvider>
       </BrowserRouter>
     </ReactLenis>
   );

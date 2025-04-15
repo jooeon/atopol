@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useCursor } from "./CursorContext";
 
 const Cursor = () => {
-  const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight * 3 / 4 });
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
-  const { isLinkHovered, isContentHovered, isClicked, leftViewport } = useCursor();
+  const { isLinkHovered, isClicked, leftViewport } = useCursor();
+
+  const mouseX = useMotionValue(window.innerWidth / 2);
+  const mouseY = useMotionValue(window.innerHeight / 2);
+
+  // Apply smoothing/spring to the motion values
+  const springX = useSpring(mouseX, { stiffness: 120, damping: 20, mass: 0.3 });
+  const springY = useSpring(mouseY, { stiffness: 120, damping: 20, mass: 0.3 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX - 8); // Offset to center the cursor
+      mouseY.set(e.clientY - 8);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -32,13 +39,12 @@ const Cursor = () => {
   }, []);
 
   const cursorVariants = {
-    initial: { scale: 1, opacity: 0 },
-    default: { scale: 1, opacity: 0.8, transition: { duration: 0.2, ease: "easeIn" }, },
-    linkHover: { scale: 1.5, opacity: 1, transition: { duration: 0.1, ease: "easeIn" }, },
-    contentHover: {
+    initial: { scale: 0.5, opacity: 0 },
+    default: { scale: 0.5, opacity: 0.8, transition: { duration: 0.2, ease: "easeIn" },  },
+    linkHover: {
       scale: isSmallScreen ? 2.0 : 3.0,
       opacity: 0.8,
-      transition: { duration: 0.2, ease: "easeOut" },
+      transition: { duration: 0.15, ease: "linear" },
     },
     click: { scale: 0.8, opacity: 1,},
     leftViewport: { scale: 1, opacity: 0, transition: { duration: 0.2, ease: "easeOut" }, },
@@ -46,7 +52,6 @@ const Cursor = () => {
 
   const getCursorVariant = () => {
     if (isLinkHovered) return "linkHover";
-    if (isContentHovered) return "contentHover";
     if (isClicked) return "click";
     if (leftViewport) return "leftViewport";
     return "default";
@@ -59,7 +64,7 @@ const Cursor = () => {
       variants={cursorVariants}
       initial="initial"
       animate={getCursorVariant()}
-      style={{ x: position.x - 8, y: position.y - 8 }}
+      style={{ x: springX, y: springY }}
     >
     </motion.div>
   );

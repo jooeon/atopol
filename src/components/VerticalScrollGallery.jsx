@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { MaskText } from './MaskText.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { formatString } from '../Utils.jsx';
 
 // Pass in artwork data array, title of the gallery, and skipIndex
@@ -20,7 +20,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
   const gap = 16; // Matching gap-y-4 (16px gap)
   const wheelTimeout = useRef(null);
   const [isBeforeSkipIndex, setIsBeforeSkipIndex] = useState(true);
-  const defaultTheme = localStorage.getItem('theme')
+  // const defaultTheme = localStorage.getItem('theme')
 
   const skipToBeginning = () => {
     setCurrentIndex(0);

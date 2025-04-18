@@ -9,21 +9,22 @@ import { motion } from 'framer-motion';
 
 const Tangents = () => {
 
+  // Unused
   // State to manage the hovered title
-  const [hoveredTitle, setHoveredTitle] = useState("");
-  const [hoveredIndex, setHoveredIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false); // Track hover state
+  // const [hoveredTitle, setHoveredTitle] = useState("");
+  // const [hoveredIndex, setHoveredIndex] = useState(0);
+  // const [isHovered, setIsHovered] = useState(false); // Track hover state
 
   // Handle hover events to set the hovered title
-  const handleMouseEnter = (index, title) => {
-    setHoveredTitle(title); // Set the hovered title
-    setHoveredIndex(index)
-    setIsHovered(true); // Set hover state to true
-  };
+  // const handleMouseEnter = (index, title) => {
+  //   setHoveredTitle(title); // Set the hovered title
+  //   setHoveredIndex(index)
+  //   setIsHovered(true); // Set hover state to true
+  // };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false); // Set hover state to false for fade-out effect
-  };
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false); // Set hover state to false for fade-out effect
+  // };
 
   return (
     <>
@@ -52,7 +53,7 @@ const Tangents = () => {
               <Link
                 to={`/tangents/${formatString(artworkGroup.title)}`}
                 key={index}
-                onMouseEnter={() => handleMouseEnter(index, artworkGroup.title)} // Update title on hover
+                // onMouseEnter={() => handleMouseEnter(index, artworkGroup.title)} // Update title on hover
                 // onMouseLeave={handleMouseLeave} // Fade out title on hover leave
                 className="overflow-hidden"
               >

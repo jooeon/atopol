@@ -1,0 +1,27 @@
+{
+  "imageGroup": [
+    {
+      "align": "left",
+      "imageGroupTitle": "WM",
+      "description": "Thrift store purchase and acrylic",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-9.jpg"
+        }
+      ]
+    },
+    {
+      "align": "right",
+      "imageGroupTitle": "Feed Time for AT-AT",
+      "description": "Thrift store purchase, ink jet transfer and acrylic",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-8.jpg"
+        }
+      ]
+    }
+  ],
+  "title": "Nodding to Wayne White",
+  "thumbnail": "/images/nodding_to_wayne_white-2.jpg",
+  "category": "nodding-to-wayne-white"
+}

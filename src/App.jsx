@@ -12,6 +12,7 @@ import Objects from './pages/Objects.jsx';
 import Tangents from './pages/Tangents.jsx';
 import { CursorProvider } from './components/cursor/CursorContext.jsx';
 import Cursor from './components/cursor/Cursor.jsx';
+import SomethingLike2D from './pages/SomethingLike2D.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -50,6 +51,7 @@ const AnimatedRoutes = () => {
         <Route path="/installations" element={<PageWrapper><Installations /></PageWrapper>} />
         <Route path="/objects" element={<PageWrapper><Objects /></PageWrapper>} />
         <Route path="/tangents" element={<PageWrapper><Tangents /></PageWrapper>} />
+        <Route path="/tangents/something-like-2d" element={<PageWrapper><SomethingLike2D /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
         {/* small-scale and site-specific has been combined to installations */}
         {/*<Route path="/small-scale" element={<PageWrapper><SmallScale /></PageWrapper>} />*/}

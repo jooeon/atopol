@@ -99,7 +99,7 @@ const ArtworkDetailSimple = () => {
                 })
               }
 
-              {/* Render images (if they exist, although content should have at least on of either video or image) */}
+              {/* Render images (if they exist, although content should have at least one of either video or image) */}
               {artworkData.images &&
                 artworkData.images.map((image, index) => (
                 <div key={index} className="overflow-hidden">

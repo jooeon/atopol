@@ -35,8 +35,30 @@ collections:
               widget: "string"
               required: true
               description: "Specify the category (e.g. something-like-2D, almost-functional). This will be used as the URL, so replace spaces with dashes (-) and avoid special characters."
+  - name: "tangents-groups"
+    label: "Tangents Artwork Groups"
+    folder: "src/data/tangents-groups"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+
+      - label: "Image Group"
+        name: "imageGroup"
+        widget: "list"
+        fields:
+          - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
+          - { label: "Title", name: "imageGroupTitle", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
   - name: "smallScale"
-    label: "Small Scale"
+    label: "Small Scale Installations"
     folder: "src/data/small-scale"
     create: true
     slug: "{{slug}}"
@@ -72,7 +94,7 @@ collections:
         default: "small-scale"
       }
   - name: "site-specific"
-    label: "Site-Specific"
+    label: "Site-Specific Installations"
     folder: "src/data/site-specific"
     create: true
     slug: "{{slug}}"
@@ -108,7 +130,7 @@ collections:
         default: "site-specific"
       }
   - name: "appliances"
-    label: "Appliances"
+    label: "Appliances (Objects)"
     folder: "src/data/appliances"
     create: true
     slug: "{{slug}}"
@@ -144,7 +166,7 @@ collections:
         default: "appliances"
       }
   - name: "coping-mechanisms"
-    label: "Coping Mechanisms"
+    label: "Coping Mechanisms (Objects)"
     folder: "src/data/coping-mechanisms"
     create: true
     slug: "{{slug}}"

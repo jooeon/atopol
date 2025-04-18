@@ -42,7 +42,7 @@ const Cursor = () => {
     initial: { scale: 0.5, opacity: 0 },
     default: { scale: 0.5, opacity: 0.8, transition: { duration: 0.2, ease: "easeIn" },  },
     linkHover: {
-      scale: isSmallScreen ? 2.0 : 3.0,
+      scale: isSmallScreen ? 1.5 : 2.5,
       opacity: 0.8,
       transition: { duration: 0.15, ease: "linear" },
     },

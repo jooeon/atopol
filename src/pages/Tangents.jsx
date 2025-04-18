@@ -50,7 +50,7 @@ const Tangents = () => {
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10 xl:gap-20">
             {tangentsData["artwork-group"].map((artworkGroup, index) => (
               <Link
-                to={`/${formatString(artworkGroup.title)}`}
+                to={`/tangents/${formatString(artworkGroup.title)}`}
                 key={index}
                 onMouseEnter={() => handleMouseEnter(index, artworkGroup.title)} // Update title on hover
                 // onMouseLeave={handleMouseLeave} // Fade out title on hover leave
@@ -59,7 +59,7 @@ const Tangents = () => {
                 <motion.img
                   src={artworkGroup.image}
                   alt={`Thumbnail for ${artworkGroup.title}`}
-                  className="xl:w-[45vw] xl:h-[95vh] object-cover object-top"
+                  className="xl:w-[43vw] xl:h-[95vh] object-cover object-top"
                   initial={{opacity: 0, y: 80}}
                   animate={{opacity: 1, y: 0}}
                   transition={{

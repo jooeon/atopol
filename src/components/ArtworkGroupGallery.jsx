@@ -37,13 +37,13 @@ const ArtworkGroupGallery = () => {
       <main>
         <div className="relative flex">
           {/* Main gallery section */}
-          <div className="flex flex-col gap-10 xl:gap-24 w-2/3 h-[300vh] pt-12 xl:pt-28">
+          <div className="flex flex-col gap-10 xl:gap-32 w-2/3 py-12 xl:py-28">
             {artworkGroupData.imageGroup?.map((group, index) => {
               const alignment = group.align === "left"
-                ? "justify-start"
+                ? "justify-start xl:flex-row"
                 : group.align === "right"
-                ? "justify-end"
-                : "justify-center";
+                ? "justify-end xl:flex-row"
+                : "items-center w-fit mx-auto";
 
               // in the case the imageGroupTitle does not exist
               // leave it empty string to prevent errors
@@ -57,36 +57,42 @@ const ArtworkGroupGallery = () => {
               }
 
               return (
-                <div key={index} className={`flex gap-1 ${alignment}`}>
+                <div key={index} className={`flex flex-col gap-2 xl:gap-1 ${alignment}`}>
                   {/* if aligned right, have the label text come before images */}
                   {group.align === "right" && (
-                    <div className="w-[15vw] text-right mr-5">
-                      <p>{title}</p>
-                      <p className="text-customGrayLight xl:text-2xs mt-1 xl:mt-2">{description}</p>
+                    <div className="xl:w-[15vw] 3xl:w-[12vw] text-right mr-5 my-2 xl:my-5">
+                      <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
+                      <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
                     </div>
                   )}
                   {/* Nested loop to map through the images within each imageGroup */}
                   {group.images?.map((image, imageIndex) => {
-                    const imageWidth = group.images.length === 1
-                      ? "w-[25vw]" // If there's only 1 image
+                    const imageSize = group.images.length === 1
+                      ? "xl:w-max" // If there's only 1 image
                       : group.images.length <= 3
-                      ? "w-[15vw] h-72" // If there are 2 or 3 images
-                      : "w-[15vw] h-72";
+                      ? "xl:w-[15vw] xl:max-h-[40vh]"
+                      : "xl:w-[10vw]"
 
                     return (
                       <img
                         key={imageIndex}
                         src={image.image}
                         alt={`Image ${imageIndex + 1} in ${title}`}
-                        className={`${imageWidth} h-max object-cover`}
+                        className={`${imageSize} max-w-full max-h-[70vh] object-cover`}
                       />
                     )
                   })}
                   {/* if aligned left, have the label text come after images */}
                   {group.align === "left" && (
-                    <div className="w-[15vw] ml-5">
-                      <p>{title}</p>
-                      <p className="text-customGrayLight xl:text-2xs mt-1 xl:mt-2">{description}</p>
+                    <div className="xl:w-[15vw] 3xl:w-[12vw] ml-5 my-2 xl:my-5">
+                      <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
+                      <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
+                    </div>
+                  )}
+                  {group.align === "center" && (
+                    <div className="w-full mt-5 px-5 xl:px-10">
+                      <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
+                      <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
                     </div>
                   )}
                 </div>
@@ -98,13 +104,13 @@ const ArtworkGroupGallery = () => {
             className="fixed right-0 w-1/3 h-screen bg-customWhiteTinge dark:bg-customDarkBrown opacity-10 -z-10"></div>
           <div className="sticky top-0
                         grid md:grid-cols-[1fr_8fr_1fr] grid-rows-[min]
-                        gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
+                        gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-5 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
                         h-fit w-1/3 fit p-0 pt-8 md:p-5 md:pt-16 2xl:pt-32 4xl:pt-48
                         text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
           >
             <motion.h1
-              className="col-start-2 row-start-1
-                text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl/normal 2xl:text-4xl/normal 3xl:text-6xl/normal 4xl:text-7xl/normal"
+              className="col-start-2 row-start-1 w-fit mx-auto
+                text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl/normal 2xl:text-4xl/normal 3xl:text-5xl/normal 4xl:text-6xl/normal"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -113,7 +119,7 @@ const ArtworkGroupGallery = () => {
                 ease: "easeOut",
               }}
             >
-              <MaskText phrase={artworkGroupData.title} delay={1.1} duration={1.0} />
+              <MaskText phrase={artworkGroupData.title} delay={1.1} duration={1.4} />
             </motion.h1>
             {artworkGroupData.description &&
               <motion.div

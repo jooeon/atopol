@@ -96,7 +96,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
       }
       wheelTimeout.current = setTimeout(() => {
         snapToNearest();
-      }, 150);
+      }, 1000);
     }
   };
 

@@ -22,6 +22,32 @@
           "image": "/images/Niagara01-scaled-e1718131327820-675x1024.jpg"
         }
       ]
+    },
+    {
+      "align": "left",
+      "imageGroupTitle": "A History of the World",
+      "description": "This intaglio print looks at a segment of design history around one function. It illustrates several generations of can openers. Although most of them would be considered obsolete, all of them would still open a can.",
+      "images": [
+        {
+          "image": "/images/History1-scaled-e1718131242455-567x1024.jpg"
+        }
+      ]
+    },
+    {
+      "align": "right",
+      "imageGroupTitle": "Form/Function",
+      "description": "We want our rest to be productive and our productivity to be restful. We summon extensions of ourselves – tools of our productivity and organization – with expectations that they will spare us from drudgery or supplement our repose. These works represent recent contemplations of functional objects (and their spaces and interiors) with which I align form/function with leisure/labor.\n\nThe Form/Function drawings are documents of a process toggled between digital approaches/prints and analog methods in an attempt to take advantage of each. There are (seemingly) pinned to domestic surface materials that serve as a framing devices and a reference to the space where the objects may have been originally been employed in the home.",
+      "images": [
+        {
+          "image": "/images/Form.Functionb-467x600.jpg"
+        },
+        {
+          "image": "/images/Form.Functiona-467x600.jpg"
+        },
+        {
+          "image": "/images/Form.Functionc-467x600.jpg"
+        }
+      ]
     }
   ],
   "title": "Something Like 2D",

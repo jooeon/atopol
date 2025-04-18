@@ -16,7 +16,7 @@ collections:
     format: "json"
     extension: "json"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", required: true }
       - label: "Thumbnail"
         name: "thumbnail"
         widget: "image"

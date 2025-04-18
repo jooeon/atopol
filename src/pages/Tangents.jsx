@@ -77,7 +77,7 @@ const Tangents = () => {
                 <motion.img
                   src={artworkGroup.thumbnail}
                   alt={`Thumbnail for ${artworkGroup.title}`}
-                  className="xl:w-[43vw] xl:h-[95vh] object-cover object-top"
+                  className="w-[100vw] xl:w-[43vw] xl:h-[110vh] object-cover object-top"
                   initial={{opacity: 0, y: 80}}
                   animate={{opacity: 1, y: 0}}
                   transition={{

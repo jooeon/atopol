@@ -2,6 +2,42 @@
   "imageGroup": [
     {
       "align": "left",
+      "imageGroupTitle": "JC with Tilak and Nose Ring / JC with Predicitive Tat",
+      "description": "Thrift store purchase and acrylic",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-6.jpg"
+        },
+        {
+          "image": "/images/nodding_to_wayne_white-5.jpg"
+        }
+      ]
+    },
+    {
+      "align": "right",
+      "imageGroupTitle": "Holy Flush (left) / JC with Tat and Nose Ring (right)",
+      "description": "Thrift store purchase, ink jet transfer and acrylic (left) / Thrift store purchase and acrylic (right)",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-2.jpg"
+        },
+        {
+          "image": "/images/nodding_to_wayne_white-1.jpg"
+        }
+      ]
+    },
+    {
+      "align": "center",
+      "imageGroupTitle": "JC’s Midnight Snack",
+      "description": "Thrift store purchase and acrylic",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-3.jpg"
+        }
+      ]
+    },
+    {
+      "align": "left",
       "imageGroupTitle": "WM",
       "description": "Thrift store purchase and acrylic",
       "images": [
@@ -17,6 +53,26 @@
       "images": [
         {
           "image": "/images/nodding_to_wayne_white-8.jpg"
+        }
+      ]
+    },
+    {
+      "align": "left",
+      "imageGroupTitle": "HMI",
+      "description": "Thrift store purchase and acrylic",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-7.jpg"
+        }
+      ]
+    },
+    {
+      "align": "left",
+      "description": "Thrift store purchase and acrylic",
+      "imageGroupTitle": "McD's",
+      "images": [
+        {
+          "image": "/images/nodding_to_wayne_white-4.jpg"
         }
       ]
     }

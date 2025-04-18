@@ -1,0 +1,27 @@
+{
+  "imageGroup": [
+    {
+      "align": "left",
+      "imageGroupTitle": "Cool Comfort",
+      "images": [
+        {
+          "image": "/images/coolcomfort.jpg"
+        }
+      ],
+      "description": "H-18″ W-16″ D-12″\nFound Objects"
+    },
+    {
+      "align": "left",
+      "imageGroupTitle": "Millipede Lamp",
+      "description": "H-44″ W-15″ D-15″\nFound Materials",
+      "images": [
+        {
+          "image": "/images/almost_functional_Millipede_Lamp-481x600.jpg"
+        }
+      ]
+    }
+  ],
+  "title": "Almost Functional",
+  "thumbnail": "/images/almost_functional_CoolComfort-435x600.jpg",
+  "category": "almost-functional"
+}

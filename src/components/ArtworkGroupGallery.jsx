@@ -57,10 +57,10 @@ const ArtworkGroupGallery = () => {
               }
 
               return (
-                <div key={index} className={`flex gap-5 ${alignment}`}>
+                <div key={index} className={`flex gap-1 ${alignment}`}>
                   {/* if aligned right, have the label text come before images */}
                   {group.align === "right" && (
-                    <div className="w-[15vw] text-right">
+                    <div className="w-[15vw] text-right mr-5">
                       <p>{title}</p>
                       <p className="text-customGrayLight xl:text-2xs mt-1 xl:mt-2">{description}</p>
                     </div>
@@ -70,8 +70,8 @@ const ArtworkGroupGallery = () => {
                     const imageWidth = group.images.length === 1
                       ? "w-[25vw]" // If there's only 1 image
                       : group.images.length <= 3
-                      ? "w-[15vw]" // If there are 2 or 3 images
-                      : "w-full"; // Default width if more than 3 images
+                      ? "w-[15vw] h-72" // If there are 2 or 3 images
+                      : "w-[15vw] h-72";
 
                     return (
                       <img
@@ -84,7 +84,7 @@ const ArtworkGroupGallery = () => {
                   })}
                   {/* if aligned left, have the label text come after images */}
                   {group.align === "left" && (
-                    <div className="w-[15vw]">
+                    <div className="w-[15vw] ml-5">
                       <p>{title}</p>
                       <p className="text-customGrayLight xl:text-2xs mt-1 xl:mt-2">{description}</p>
                     </div>

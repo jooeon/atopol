@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import ThemeToggle from "./ThemeToggle.jsx";
 
 const Footer = () => {
   return (
@@ -14,8 +13,7 @@ const Footer = () => {
           ease: "linear"
         }}
       >
-        <p>&copy; 2025. Allen Topolski</p>
-        {/*<ThemeToggle />*/}
+        <p>&copy; {new Date().getFullYear()}. Allen Topolski</p>
       </motion.div>
     </footer>
   );

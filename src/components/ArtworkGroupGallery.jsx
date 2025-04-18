@@ -60,7 +60,7 @@ const ArtworkGroupGallery = () => {
                 <div key={index} className={`flex gap-5 ${alignment}`}>
                   {/* if aligned right, have the label text come before images */}
                   {group.align === "right" && (
-                    <div className="w-[15vw]">
+                    <div className="w-[15vw] text-right">
                       <p>{title}</p>
                       <p className="text-customGrayLight xl:text-2xs mt-1 xl:mt-2">{description}</p>
                     </div>

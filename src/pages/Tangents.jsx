@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../components/Header.jsx';
-import tangentsData from '../data/tangents.json';
 import Footer from '../components/Footer.jsx';
 import { Link } from 'react-router-dom';
 import { formatString, isEven } from '../Utils.jsx';
@@ -26,6 +25,24 @@ const Tangents = () => {
   //   setIsHovered(false); // Set hover state to false for fade-out effect
   // };
 
+  const [tangentsData, setTangentsData] = useState([]);
+
+  useEffect(() => {
+    // Dynamically import all JSON files from the folder
+    const modules = import.meta.glob('../data/tangents/*.json');
+    console.log("Modules found:", modules); // Check this in the browser console
+    const loadData = async () => {
+      const entries = await Promise.all(
+        Object.values(modules).map(async (importer) => {
+          const mod = await importer();
+          return mod.default;  // JSON files export their content as default
+        })
+      );
+      setTangentsData(entries);
+    };
+    loadData();
+  }, []);
+
   return (
     <>
       <Header />
@@ -49,16 +66,16 @@ const Tangents = () => {
           </div>
           {/* Artwork Group Thumbnail Vertical Scroll */}
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10 xl:gap-20">
-            {tangentsData["artwork-group"].map((artworkGroup, index) => (
+            {tangentsData.map((artworkGroup, index) => (
               <Link
-                to={`/tangents/${formatString(artworkGroup.title)}`}
+                to={`/tangents/${formatString(artworkGroup.category)}`}
                 key={index}
                 // onMouseEnter={() => handleMouseEnter(index, artworkGroup.title)} // Update title on hover
                 // onMouseLeave={handleMouseLeave} // Fade out title on hover leave
                 className="overflow-hidden"
               >
                 <motion.img
-                  src={artworkGroup.image}
+                  src={artworkGroup.thumbnail}
                   alt={`Thumbnail for ${artworkGroup.title}`}
                   className="xl:w-[43vw] xl:h-[95vh] object-cover object-top"
                   initial={{opacity: 0, y: 80}}

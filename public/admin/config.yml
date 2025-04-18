@@ -9,6 +9,7 @@ public_folder: "/images"
 collections:
   - name: "tangents"
     label: "Tangents"
+    description: "Add artwork groups (e.g. Something Like 2D, Not Unrelated to Dance) in the \"Tangents\" category."
     folder: "src/data/tangents"
     create: true
     slug: "{{slug}}"
@@ -32,8 +33,8 @@ collections:
         widget: "list"
         fields:
           - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
-          - { label: "Title", name: "imageGroupTitle", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Title", name: "imageGroupTitle", widget: "string", required: false  }
+          - { label: "Description", name: "description", widget: "text", required: false  }
           - label: "Images"
             name: "images"
             widget: "list"
@@ -41,6 +42,7 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
   - name: "smallScale"
     label: "Small Scale Installations"
+    description: "Add each artwork in the \"Small Scale Installations\" category."
     folder: "src/data/small-scale"
     create: true
     slug: "{{slug}}"
@@ -77,6 +79,7 @@ collections:
       }
   - name: "site-specific"
     label: "Site-Specific Installations"
+    description: "Add each artwork in the \"Site-Specific Installations\" category."
     folder: "src/data/site-specific"
     create: true
     slug: "{{slug}}"
@@ -113,6 +116,7 @@ collections:
       }
   - name: "appliances"
     label: "Appliances (Objects)"
+    description: "Add each artwork in the \"Appliances\" category."
     folder: "src/data/appliances"
     create: true
     slug: "{{slug}}"
@@ -149,6 +153,7 @@ collections:
       }
   - name: "coping-mechanisms"
     label: "Coping Mechanisms (Objects)"
+    description: "Add each artwork in the \"Coping Mechanisms\" category."
     folder: "src/data/coping-mechanisms"
     create: true
     slug: "{{slug}}"

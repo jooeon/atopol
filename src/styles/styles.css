@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'ds-digi';
+    src: url('/fonts/DS-DIGII.TTF') format('truetype');
+}
+
+.navbar li {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.blink {
+    animation: blink-animation 1s infinite step-start;
+}
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+
 /* Image zoom on hover START */
 
 /* [1] The container */

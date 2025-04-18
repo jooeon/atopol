@@ -10,8 +10,8 @@ const Cursor = () => {
   const mouseY = useMotionValue(window.innerHeight / 2);
 
   // Apply smoothing/spring to the motion values
-  const springX = useSpring(mouseX, { stiffness: 120, damping: 20, mass: 0.3 });
-  const springY = useSpring(mouseY, { stiffness: 120, damping: 20, mass: 0.3 });
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 30, mass: 0.3 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 30, mass: 0.3 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -44,6 +44,7 @@ const Cursor = () => {
     linkHover: {
       scale: isSmallScreen ? 1.5 : 2.5,
       opacity: 0.8,
+      // backgroundColor: "#e81737",
       transition: { duration: 0.15, ease: "linear" },
     },
     click: { scale: 0.8, opacity: 1,},
@@ -60,7 +61,7 @@ const Cursor = () => {
   return (
     <motion.div
       className={`fixed top-0 left-0 flex items-center justify-center z-30 w-5 h-5
-                bg-customWhite backdrop-blur-xs pointer-events-none rounded-full`}
+                bg-customWhite mix-blend-difference pointer-events-none rounded-full`}
       variants={cursorVariants}
       initial="initial"
       animate={getCursorVariant()}

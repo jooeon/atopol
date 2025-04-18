@@ -2,6 +2,7 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import {motion, useScroll} from "framer-motion";
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
+import LocalTime from './LocalTime.jsx';
 
 const Header = ({delay = 0.4}) => {
 
@@ -72,26 +73,32 @@ const Header = ({delay = 0.4}) => {
         ease: [0.16, 1, 0.3, 1],
       }}>
       <motion.nav
-        className="flex items-center justify-between text-3xs sm:text-sm md:text-md xl:text-xl 4xl:text-3xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-4 4xl:px-10 4xl:py-8 7xl:px-14 7xl:py-12
+        className="flex items-center justify-between text-4xs sm:text-sm md:text-md xl:text-xl 4xl:text-3xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
               font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
       >
         <Link to="/" className="text-link">
           Allen Topolski
         </Link>
-        <ul className="flex gap-4 md:gap-10 3xl:gap-14 4xl:gap-20 6xl:gap-28">
-          <li>
-            <NavLink to="/installations" className={() => getLinkClasses("/installations")}>Installations</NavLink>
-          </li>
-          <li>
-            <NavLink to="/objects" className={() => getLinkClasses("/objects")}>Objects</NavLink>
-          </li>
-          <li>
-            <NavLink to="/tangents" className={() => getLinkClasses("/tangents")}>Tangents</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
-          </li>
-        </ul>
+        <div className="navbar flex gap-[10vw] xl:gap-[20vw]">
+          <ul className="flex gap-1 xl:gap-2 4xl:gap-3">
+            <li>
+              <NavLink to="/installations" className={() => getLinkClasses("/installations")}>Installations,</NavLink>
+            </li>
+            <li>
+              <NavLink to="/objects" className={() => getLinkClasses("/objects")}>Objects,</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tangents" className={() => getLinkClasses("/tangents")}>Tangents,</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
+            </li>
+          </ul>
+          <div className="flex gap-1 md:gap-3 xl:gap-5 font-ds-digi text-customGrayLighter text-4xs sm:text-sm md:text-md xl:text-xl 4xl:text-3xl 6xl:text-4xl">
+            <span>Rochester, NY</span>
+            <LocalTime />
+          </div>
+        </div>
       </motion.nav>
     </motion.header>
   );

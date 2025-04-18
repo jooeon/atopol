@@ -3,13 +3,31 @@ import Footer from '../components/Footer.jsx';
 import { MaskText } from '../components/MaskText.jsx';
 import { motion } from "framer-motion";
 import Carousel from '../components/Carousel.jsx';
+import LocalTime from '../components/LocalTime.jsx';
 
 const Index = () => {
     return (
         <>
           <Header/>
           <main>
-            <Carousel />
+            <section className="flex justify-center items-center h-screen w-full">
+              <motion.h1
+                className="text-[5vh] xl:text-[6vw] leading-none w-[25vh] xl:w-[30vw]"
+                initial={{opacity: 0}}
+                animate={{opacity: 0.85}}
+                transition={{
+                  duration: 0.5,
+                  delay: 1.0,
+                  ease: "easeIn",
+                }}
+              >
+                {/*<MaskText phrase={"Allen"} />*/}
+                {/*<MaskText phrase={"Topolski"} />*/}
+                <p>Allen</p>
+                <p className="text-right">Topolski</p>
+              </motion.h1>
+            </section>
+            {/*<Carousel />*/}
             {/*<section className="py-20">*/}
             {/*  <h1 className="text-[10vw] uppercase leading-none px-5">*/}
             {/*    <div className="flex">*/}

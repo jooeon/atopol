@@ -11,7 +11,9 @@ module.exports = {
     theme: {
         fontFamily: {
             'hedvig': ['Hedvig Letters Serif', 'georgiapro', 'serif'],
+            'nanum': ['Nanum Myeongjo', 'Hedvig Letters Serif', 'serif'],
             'georgia': ['georgiapro', 'serif'],
+            'ds-digi': ['ds-digi'],
         },
         extend: {
             width: {

@@ -19,6 +19,46 @@
           "image": "/images/almost_functional_Millipede_Lamp-481x600.jpg"
         }
       ]
+    },
+    {
+      "align": "center",
+      "images": [
+        {
+          "image": "/images/almost_functional_Suspended_table-600x417.jpg"
+        }
+      ],
+      "imageGroupTitle": "Suspended Table",
+      "description": "H-18″ W-36″ D-36″\nFound objects and steel"
+    },
+    {
+      "align": "right",
+      "imageGroupTitle": "Ceiling Light",
+      "description": "H-22″ X W-18″ X D-18″\nVintage cathode ray tube and found objects",
+      "images": [
+        {
+          "image": "/images/almost_functional_ceiling-light-426x600.jpg"
+        }
+      ]
+    },
+    {
+      "align": "left",
+      "imageGroupTitle": "Plastic Palette Table",
+      "description": "H-17.5″ W-42″ D-21″\nFound objects and steel",
+      "images": [
+        {
+          "image": "/images/almost_functional_Plastic_Palette_Table-600x468.jpg"
+        }
+      ]
+    },
+    {
+      "align": "center",
+      "imageGroupTitle": "Some Good Things to Have Around the House",
+      "description": "1994\nApproximately H – 7″ W – 15″ D – 10″\nFound materials",
+      "images": [
+        {
+          "image": "/images/almost_functional_Some-Good-Things..-600x405.jpg"
+        }
+      ]
     }
   ],
   "title": "Almost Functional",

@@ -58,6 +58,54 @@
       ],
       "imageGroupTitle": "Print Series",
       "description": "All the works in this series involve processes that require inscription, layering on, embossment, transferal and transformation – processes I associate with memory and means of recollection. (More information under ‘Words’)"
+    },
+    {
+      "align": "left",
+      "imageGroupTitle": "Caddy",
+      "description": "101″H X 56W” X 15″D\nFound objects and mixed media\nCaddy is a drawing holder, a mechanism that can shift the order of its drawings (front to back) – drawings that each engage multi-layered renderings in an attempt to mirror   the memory process.",
+      "images": [
+        {
+          "image": "/images/Caddy.jpg"
+        }
+      ]
+    },
+    {
+      "align": "center",
+      "imageGroupTitle": "Imprint Series",
+      "description": "1. H-19.5″ W-19.5″ D-1.5″\nLinoleum, wood and caulking\n(More information under ‘Words’)\n2. H-19.5″ W-19.5″ D-1.5″\nFloorboards and wood-filler\n(More information under ‘Words’)\n3. H-19.5″ W-19.5″ D-1.5″\nLinoleum, wood and caulking\n(More information under ‘Words’)\n4. H-19.5″ W-19.5″ D-1.5″\nTile, grout and wood\n(More information under ‘Words’)",
+      "images": [
+        {
+          "image": "/images/Imprint_1.jpg"
+        },
+        {
+          "image": "/images/Imprint_2.jpg"
+        },
+        {
+          "image": "/images/Imprint_3.jpg"
+        },
+        {
+          "image": "/images/Imprint_4.jpg"
+        }
+      ]
+    },
+    {
+      "align": "right",
+      "imageGroupTitle": "Indidem Series",
+      "description": "The works in the Indidem Series employ the repetition of alternating drawing processes – erasing and mark-making, drawing and redrawing, adding and subtracting – the same image or a similar representation again and again. The process mimics the act of recall – one that relies on and accumulates residual information.",
+      "images": [
+        {
+          "image": "/images/Indidem_07.jpg"
+        },
+        {
+          "image": "/images/Indidem_38.jpg"
+        },
+        {
+          "image": "/images/Indidem_125.jpg"
+        },
+        {
+          "image": "/images/Indidem_173.jpg"
+        }
+      ]
     }
   ],
   "title": "Something Like 2D",

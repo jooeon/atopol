@@ -1,0 +1,30 @@
+{
+  "imageGroup": [
+    {
+      "align": "left",
+      "imageGroupTitle": "Siqux I, Siqux II",
+      "description": "These intaglio prints are examinations of an inside/outside relationship – an electric drill whose external design necessitated significant compromise to the internal workings so as to accommodate the human body.  In Siqux I and II, I emphasize the exterior with a chine collé process to the surface of the print and the interior with elaborate mark-making akin to the complexity of the mechanism. ",
+      "images": [
+        {
+          "image": "/images/SiquxI-scaled-e1718131211457-738x1024.jpg"
+        },
+        {
+          "image": "/images/SiquxII-scaled-e1718131184656-731x1024.jpg"
+        }
+      ]
+    },
+    {
+      "align": "right",
+      "imageGroupTitle": "Niagara",
+      "description": "This intaglio print is an examination of an inside/outside relationship – an electric ‘massager’ from the 1950s whose external design necessitated significant compromise to the internal workings so as to accommodate the human body.  I emphasize the exterior with a chine collé process to the surface of the print and the interior with elaborate mark-making akin to the complexity of the mechanism. ",
+      "images": [
+        {
+          "image": "/images/Niagara01-scaled-e1718131327820-675x1024.jpg"
+        }
+      ]
+    }
+  ],
+  "title": "Something Like 2D",
+  "thumbnail": "/images/Niagara01-scaled-e1718131327820-675x1024.jpg",
+  "category": "something-like-2d"
+}

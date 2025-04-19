@@ -45,21 +45,33 @@ const Header = ({delay = 0.4}) => {
   }, [lastScrollY]);
 
   const location = useLocation();
+  const pathSegments = location.pathname.split('/');
   const isLandingPage = location.pathname === "/";
-  const isAboutPage = location.pathname === "/about";
 
   const getLinkClasses = (path) => {
-    if (isLandingPage) {
+    if (path === "/" && isLandingPage) {
       // On the landing page, all links are full opacity
-      return "text-link";
+      return "text-link invisible";
     }
 
-    if (path === "/about" && isAboutPage) {
-      return "text-link";
+    if (path === "/installations" && (location.pathname === "/installations" || pathSegments[1] === "site-specific" || pathSegments[1] === "small-scale")) {
+      return "text-link text-customOrange";
+    }
+
+    if (path === "/objects" && (location.pathname === "/objects" || pathSegments[1] === "appliances" || pathSegments[1] === "coping-mechanisms")) {
+      return "text-link text-customOrange";
+    }
+
+    if (path === "/tangents" && (location.pathname === "/tangents" || pathSegments[1] === "tangents")) {
+      return "text-link text-customOrange";
+    }
+
+    if (path === "/about" && location.pathname === "/about") {
+      return "text-link text-customOrange";
     }
 
     // Otherwise, make inactive links greyed out
-    return "text-link opacity-50 hover:opacity-100 transition-opacity duration-500";
+    return "text-link";
   };
 
   return (
@@ -73,13 +85,13 @@ const Header = ({delay = 0.4}) => {
         ease: [0.16, 1, 0.3, 1],
       }}>
       <motion.nav
-        className="flex items-center justify-between text-4xs sm:text-sm md:text-md xl:text-xl 4xl:text-3xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
-              font-medium tracking-wide text-customWhite [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
+        className="flex items-center justify-between text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
+              font-medium tracking-wide text-customGrayLighter [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
       >
-        <Link to="/" className="text-link">
+        <NavLink to="/" className={() => getLinkClasses("/")}>
           Allen Topolski
-        </Link>
-        <div className="navbar flex gap-[10vw] xl:gap-[20vw]">
+        </NavLink>
+        <div className="navbar flex gap-[10vw]">
           <ul className="flex gap-1 xl:gap-2 4xl:gap-3">
             <li>
               <NavLink to="/installations" className={() => getLinkClasses("/installations")}>Installations,</NavLink>
@@ -94,7 +106,7 @@ const Header = ({delay = 0.4}) => {
               <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
             </li>
           </ul>
-          <div className="flex gap-1 md:gap-3 xl:gap-5 font-ds-digi text-customGrayLighter text-4xs sm:text-sm md:text-md xl:text-xl 4xl:text-3xl 6xl:text-4xl">
+          <div className="flex gap-1 font-ds-digi text-right text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl">
             <span>Rochester, NY</span>
             <LocalTime />
           </div>

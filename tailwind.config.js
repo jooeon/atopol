@@ -11,7 +11,7 @@ module.exports = {
     theme: {
         fontFamily: {
             'hedvig': ['Hedvig Letters Serif', 'georgiapro', 'serif'],
-            'nanum': ['Nanum Myeongjo', 'Hedvig Letters Serif', 'serif'],
+            'cormorant': ['Cormorant Garamond', 'Hedvig Letters Serif', 'serif'],
             'georgia': ['georgiapro', 'serif'],
             'ds-digi': ['ds-digi'],
         },
@@ -69,6 +69,7 @@ module.exports = {
                 customNavyLight: "#15141a",
                 customDarkBrown: "#0d0c09",
                 customWhiteTinge: "#fffcf5",
+                customOrange: "#ff533c",
             },
             screens: {
                 'xs': '390px',

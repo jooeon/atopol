@@ -146,11 +146,11 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
           </h1>
           {/* Buttons to skip between groups */}
           {skipIndex &&
-            <div className="flex gap-4 text-sm lg:text-base xl:text-[1vw] xl:leading-normal text-customGray dark:text-customGrayLighter">
+            <div className="flex gap-4 text-sm lg:text-base xl:text-[1vw] xl:leading-normal text-customOrange opacity-80">
               <button
                 onClick={skipToBeginning}
                 className={`capitalize ${
-                  isBeforeSkipIndex ? '' : 'opacity-50 hover:opacity-100 transition-opacity duration-300'
+                  isBeforeSkipIndex ? '' : 'opacity-70 hover:opacity-100 transition-opacity duration-300 text-customGrayLighter'
                 }`}
                 disabled={isBeforeSkipIndex}
               >
@@ -159,7 +159,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
               <button
                 onClick={skipToSkipIndex}
                 className={`capitalize ${
-                  !isBeforeSkipIndex ? '' : 'opacity-40 hover:opacity-100 transition-opacity duration-300'
+                  !isBeforeSkipIndex ? '' : 'opacity-70 hover:opacity-100 transition-opacity duration-300 text-customGrayLighter'
                 }`}
                 disabled={!isBeforeSkipIndex}
               >

@@ -31,7 +31,7 @@ const AnimatedRoutes = () => {
 
   useEffect(() => {
     // This will run whenever the location changes (e.g., navigation)
-    window.scrollTo(0, 0); // Scroll to top on mount and route change
+    window.scrollTo({ top: 0, behavior: 'auto' }); // Scroll to top on mount and route change
 
     // Optional: smoother scroll
     // window.scrollTo({

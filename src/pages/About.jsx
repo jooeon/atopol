@@ -9,7 +9,7 @@ const Index = () => {
       <Header/>
       <main>
         <section className="w-full h-full">
-          <img src="/images/about/allen_topolski_portrait.jpg" alt="Portrain of Allen Topolski"/>
+          <img src="/images/about/allen_topolski_portrait.jpg" alt="Portrait of Allen Topolski"/>
         </section>
         <section className="flex justify-between w-full h-full p-10">
           <motion.h2

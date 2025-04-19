@@ -7,6 +7,18 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
+  - name: "landingPageGalleryImage"
+    label: "Landing Page Gallery Image"
+    description: "Add each artwork to show on the landing page."
+    folder: "src/data/landing-page"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: true }
+      - { label: "Year", name: "year", widget: "string", required: false }
   - name: "tangents"
     label: "Tangents"
     description: "Add artwork groups (e.g. Something Like 2D, Not Unrelated to Dance) in the \"Tangents\" category."

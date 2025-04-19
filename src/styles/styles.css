@@ -7,9 +7,25 @@
     src: url('/fonts/DS-DIGII.TTF') format('truetype');
 }
 
+a {
+    transition: 0.5s;
+}
+
+a:hover {
+    color: #ff533c;
+}
+
 .navbar li {
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.y-scroll-item:nth-child(2n) {
+    justify-content: end;
+}
+
+.y-scroll-item:nth-child(3n) {
+    justify-content: center;
 }
 
 .blink {

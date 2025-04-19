@@ -1,5 +1,7 @@
 {
   "title": "Active Absence",
   "image": "/images/activeabsence01-scaled.jpg",
-  "year": "2019"
+  "year": "2019",
+  "align": "left",
+  "order": 1
 }

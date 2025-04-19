@@ -1,5 +1,7 @@
 {
   "image": "/images/Houseware.jpg",
   "title": "Houseware",
-  "year": "2000"
+  "year": "2000",
+  "align": "center",
+  "order": 3
 }

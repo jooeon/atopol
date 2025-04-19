@@ -28,6 +28,14 @@ a:hover {
     justify-content: center;
 }
 
+.y-scroll-item:nth-child(4n) {
+    justify-content: start;
+}
+
+.y-scroll-item:nth-child(5n) {
+    justify-content: center;
+}
+
 .blink {
     animation: blink-animation 1s infinite step-start;
 }
@@ -68,39 +76,6 @@ a:hover {
 .vertical-text {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-}
-
-/* Attempt to randomize thumbnail layout for floating gallery */
-/* Not ideal, may have to manually set positions and size for aesthetics */
-
-.floating-gallery-item:nth-child(5n+1) {
-    max-width: 8vw;
-    margin: 0.5vw;
-    transform: translateY(-150px) scale(0.95);
-}
-
-.floating-gallery-item:nth-child(5n+2) {
-    max-width: 10vw;
-    margin: 1vw;
-    transform: translateY(150px) scale(1.1);
-}
-
-.floating-gallery-item:nth-child(5n+3) {
-    max-width: 7vw;
-    margin: 2vw;
-    transform: translateY(-100px) scale(0.9);
-}
-
-.floating-gallery-item:nth-child(5n+4) {
-    max-width: 11vw;
-    margin: 4vw;
-    transform: translateY(200px) scale(1);
-}
-
-.floating-gallery-item:nth-child(5n) {
-    max-width: 9vw;
-    margin: 1.5vw;
-    transform: translateY(50px) scale(1.05);
 }
 
 /* Background grain effect on all pages */

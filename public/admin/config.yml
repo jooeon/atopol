@@ -18,6 +18,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: true }
+      - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Year", name: "year", widget: "string", required: false }
   - name: "tangents"
     label: "Tangents"

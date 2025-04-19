@@ -2,7 +2,7 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import { motion } from "framer-motion";
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import ParallaxGallery from '../components/ParallaxGallery.jsx';
 
 const Index = () => {
 
@@ -28,9 +28,9 @@ const Index = () => {
       <>
         <Header/>
         <main>
-          <section className="">
+          <section>
             <motion.h1
-              className="fixed flex gap-10 text-[5vh] xl:text-[5vw] leading-none pl-8 pt-24 mix-blend-difference"
+              className="fixed flex gap-10 text-[5vh] xl:text-[5vw] leading-none pl-8 pt-24 mix-blend-difference z-10"
               initial={{opacity: 0}}
               animate={{opacity: 0.85}}
               transition={{
@@ -45,31 +45,10 @@ const Index = () => {
                 <span className="text-right">objects</span>
               </p>
             </motion.h1>
-            <div className="flex flex-col h-full">
-              {galleryData.map((artwork, index) => (
-                <Link
-                  to=""
-                  key={index}
-                  className="y-scroll-item flex"
-                >
-                  <motion.img
-                    src={artwork.image}
-                    alt={`Image of ${artwork.title}`}
-                    className="w-full max-w-[30vw] object-cover object-top"
-                    initial={{opacity: 0, y: 80}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{
-                      duration: 0.5,
-                      delay: 1.6,
-                      ease: "easeOut",
-                    }}
-                  />
-                </Link>
-              ))}
-            </div>
+            <ParallaxGallery galleryData={galleryData} />
           </section>
         </main>
-        <Footer/>
+        {/*<Footer/>*/}
       </>
   );
 };

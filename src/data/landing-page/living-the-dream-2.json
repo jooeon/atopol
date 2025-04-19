@@ -1,5 +1,7 @@
 {
   "title": "Living the Dream (2)",
   "image": "/images/DreamBDetail1.jpg",
-  "year": "2006"
+  "year": "2006",
+  "order": 4,
+  "align": "right"
 }

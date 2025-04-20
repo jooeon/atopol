@@ -2,8 +2,13 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import { motion } from "framer-motion";
 import { MaskText } from '../components/MaskText.jsx';
+import exhibitionsData from '../data/exhibitions-about.json';
+import { Fragment } from 'react';
+import { formatNewline } from '../Utils.jsx';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
+
   return (
     <>
       <Header/>
@@ -11,14 +16,15 @@ const Index = () => {
         <section className="w-full h-full">
           <img src="/images/about/allen_topolski_portrait.jpg" alt="Portrait of Allen Topolski"/>
         </section>
-        <section className="flex justify-between w-full h-full p-10">
+        <section className="flex justify-between w-full h-full p-3 md:p-8 xl:p-10 3xl:p-16">
           <motion.h2
-            className="text-[5vw] leading-none"
+            className="text-[3vh] md:text-[5vw] leading-none"
           >
             <MaskText phrase={"Bio"} duration={1.5} isAnimateInView={true}/>
           </motion.h2>
-          <div className="flex gap-20 w-3/4">
-            <div className="text-sm">
+          <div className="flex gap-5 md:gap-10 xl:gap-20 w-10/12 xl:w-3/4
+            text-4xs sm:text-3xs md:text-sm 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
+            <div>
               <p>Allen C. Topolski considers himself the foremost expert on himself and the most qualified person
                 for the task of distilling the ideas inside his head; Topolski attended Bucknell University and
                 Penn State where he learned several ways of doing this. He has been a Professor at the
@@ -32,7 +38,7 @@ const Index = () => {
                 disconcerting susceptibility to nostalgia and Topolski finds himself coveting the decayed, feigning the
                 familiar and writing about himself in the third person.</p>
             </div>
-            <div className="text-sm text-customGrayLight">
+            <div className="text-customGrayLight">
               <p>The objects and images I make tap the familiar. They are constructed primarily of found
                 materials or objects that are reworked and combined through a variety of transformative activities.
                 They have associations that are sometimes transparent – wheels, hanging devices, etc. – that
@@ -47,17 +53,17 @@ const Index = () => {
             </div>
           </div>
         </section>
-        <section className="flex justify-between w-full h-full p-10">
+        <section className="flex justify-between w-full h-full p-3 md:p-8 xl:p-10 3xl:p-16">
           <motion.h2
             className="text-[5vw] leading-none"
           >
-            <MaskText phrase={"Exhibitions"} duration={1.5} isAnimateInView={true}/>
+            <MaskText phrase={'Exhibitions'} duration={1.5} isAnimateInView={true} />
           </motion.h2>
           <motion.div
-            className="sticky top-0 grid md:grid-cols-[1fr_8fr] grid-rows-[min]
+            className="grid md:grid-cols-[1fr_8fr] grid-rows-[min]
                             gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
-                            h-fit w-7/12
-                            text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+                            h-fit w-7/12 xl:pt-5
+                            text-4xs sm:text-3xs md:text-sm 3xl:text-lg 5xl:text-2xl 6xl:text-3xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -66,18 +72,19 @@ const Index = () => {
               ease: "easeOut",
             }}
           >
-            {galleryData.map((artwork, index) => {
+            {exhibitionsData.exhibitions.map((exhibition, index) => {
               return (
-                <div key={index}>
-                  <div className="col-start-1 row-start-1">
-                    <MaskText phrase={""} delay={1.25} duration={1.0} />
+                <Fragment key={index}>
+                  <div className={`col-start-1 row-start-${index+1} text-customGrayLight`}>
+                    {exhibition.year}
                   </div>
-                  <div className="col-start-1 row-start-2">
-                    <MaskText phrase={""} delay={1.25} duration={1.0} />
+                  <div className={`col-start-2 row-start-${index+1} whitespace-pre-line`}>
+                    {formatNewline(exhibition.description)}
                   </div>
-                </div>
+                </Fragment>
               );
             })}
+            <Link to="/files/Vitae_2024-1.pdf" target="_blank" className="col-start-2 text-customOrange mt-2">Curriculum Vitae ↗</Link>
           </motion.div>
         </section>
       </main>

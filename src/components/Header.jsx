@@ -106,7 +106,7 @@ const Header = ({delay = 0.4}) => {
               <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
             </li>
           </ul>
-          <div className="flex gap-1 font-ds-digi text-right text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl">
+          <div className="flex gap-1 font-ds-digi text-right text-3xs sm:text-xs md:text-base 4xl:text-2xl 6xl:text-4xl">
             <span>Rochester, NY</span>
             <LocalTime />
           </div>

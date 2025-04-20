@@ -20,6 +20,8 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, required: true }
   - name: "tangents"
     label: "Tangents"
     description: "Add artwork groups (e.g. Something Like 2D, Not Unrelated to Dance) in the \"Tangents\" category."

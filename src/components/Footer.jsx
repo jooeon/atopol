@@ -13,7 +13,7 @@ const Footer = () => {
           ease: "linear"
         }}
       >
-        <p>&copy; {new Date().getFullYear()}. Allen Topolski</p>
+        <p>Allen Topolski <span className="text-customOrange">&copy;{new Date().getFullYear()}</span></p>
       </motion.div>
     </footer>
   );

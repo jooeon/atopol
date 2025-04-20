@@ -11,18 +11,24 @@ const Index = () => {
   useEffect(() => {
     // Dynamically import all JSON files from the folder
     const modules = import.meta.glob('../data/landing-page/*.json');
-    console.log("Modules found:", modules); // Check this in the browser console
+
     const loadData = async () => {
       const entries = await Promise.all(
         Object.values(modules).map(async (importer) => {
           const mod = await importer();
-          return mod.default;  // JSON files export their content as default
+          return mod.default; // JSON files export their content as default
         })
       );
-      setGalleryData(entries);
+
+      // Sort the data by the 'order' field after loading
+      const sortedData = entries
+        .sort((a, b) => a.order - b.order); // Sort by 'order' field
+
+      setGalleryData(sortedData); // Set the sorted data into state
     };
+
     loadData();
-  }, []);
+  }, []); // Empty dependency array to run once on component mount
 
   return (
       <>
@@ -30,7 +36,8 @@ const Index = () => {
         <main>
           <section>
             <motion.h1
-              className="fixed flex gap-10 text-[5vh] xl:text-[5vw] leading-none pl-8 pt-24 mix-blend-difference z-10"
+              className="fixed flex flex-col md:flex-row gap-2 md:gap-10 leading-none pl-4 md:pl-8 pt-12 md:pt-24 mix-blend-difference z-10
+                text-[3vh] md:text-[5vw] "
               initial={{opacity: 0}}
               animate={{opacity: 0.85}}
               transition={{
@@ -40,7 +47,7 @@ const Index = () => {
               }}
             >
               <p>Allen Topolski</p>
-              <p className="flex flex-col w-[30vh] xl:w-[35vw] text-customOrange">
+              <p className="flex flex-col w-[45vw] md:w-[35vw] ml-11 md:ml-0 text-customOrange">
                 <span>(re)collecting</span>
                 <span className="text-right">objects</span>
               </p>
@@ -48,7 +55,7 @@ const Index = () => {
             <ParallaxGallery galleryData={galleryData} />
           </section>
         </main>
-        {/*<Footer/>*/}
+        <Footer/>
       </>
   );
 };

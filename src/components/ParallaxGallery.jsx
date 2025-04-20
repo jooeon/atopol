@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -19,16 +19,22 @@ const ParallaxGallery = ({ galleryData }) => {
   }, []);
 
   return (
-    <div className="flex flex-col h-[500vh]">
+    <div className="flex flex-col">
       {galleryData.map((artwork, index) => {
         // Different scroll speeds for different images
-        const speed = index % 3 === 0 ? 0.2 : index % 3 === 1 ? 0.3 : 0.1; // Custom scroll speeds based on index
+        const speed = index % 3 === 0 ? -0.2 : index % 3 === 1 ? -0.1 : -0.3; // Custom scroll speeds based on index
+        const animDelay = index % 3 === 0 ? 1.0 : index % 3 === 1 ? 1.2 : 1.4; // Custom scroll speeds based on index
+        const alignment = artwork.align === "left"
+          ? "justify-start"
+          : artwork.align === "right"
+          ? "justify-end"
+          : "justify-center";
 
         return (
-          <div className="y-scroll-item flex">
-            <Link to="" key={index}>
+          <div key={index} className={`flex ${alignment}`}>
+            <Link to={artwork.link}>
               <motion.div
-                className="w-full max-w-[30vw] object-cover object-top"
+                className="flex flex-col w-full max-w-[30vw] object-cover object-top"
                 style={{
                   transform: `translateY(${scrollY * speed}px)`, // Apply different parallax scroll speeds
                 }}
@@ -41,10 +47,24 @@ const ParallaxGallery = ({ galleryData }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.5,
-                    delay: 1.2,
+                    delay: animDelay,
                     ease: "easeOut",
                   }}
                 />
+                <motion.div
+                  className={`flex justify-between text-customGrayLight mt-0.5 md:mt-1 ${artwork.align === "left" && "pl-0.5 md:pl-1"}
+                    text-4xs sm:text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: animDelay+0.4,
+                    ease: "linear",
+                  }}
+                >
+                  <p>{artwork.title}</p>
+                  <p className="text-customGray">{artwork.year}</p>
+                </motion.div>
               </motion.div>
             </Link>
           </div>

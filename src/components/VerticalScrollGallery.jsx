@@ -96,7 +96,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
       }
       wheelTimeout.current = setTimeout(() => {
         snapToNearest();
-      }, 1000);
+      }, 800);
     }
   };
 
@@ -150,7 +150,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
               <button
                 onClick={skipToBeginning}
                 className={`capitalize ${
-                  isBeforeSkipIndex ? '' : 'opacity-70 hover:opacity-100 transition-opacity duration-300 text-customGrayLighter'
+                  isBeforeSkipIndex ? '' : 'opacity-40 hover:opacity-100 transition-opacity duration-300 text-customGrayLighter'
                 }`}
                 disabled={isBeforeSkipIndex}
               >
@@ -159,7 +159,7 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
               <button
                 onClick={skipToSkipIndex}
                 className={`capitalize ${
-                  !isBeforeSkipIndex ? '' : 'opacity-70 hover:opacity-100 transition-opacity duration-300 text-customGrayLighter'
+                  !isBeforeSkipIndex ? '' : 'opacity-40 hover:opacity-100 transition-opacity duration-300 text-customGrayLighter'
                 }`}
                 disabled={!isBeforeSkipIndex}
               >

@@ -32,7 +32,7 @@ const LocalTime = () => {
   }, []);
 
   return (
-    <p className="w-5 md:w-12 xl:w-16 2xl:w-20 4xl:w-32">
+    <p className="xs:w-6 sm:w-8 md:w-12 xl:w-16 2xl:w-20 4xl:w-32">
       {localTime.hours}:{localTime.minutes}:{localTime.seconds}
     </p>
   );

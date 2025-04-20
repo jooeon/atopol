@@ -20,22 +20,6 @@ a:hover {
     margin-bottom: auto;
 }
 
-.y-scroll-item:nth-child(2n) {
-    justify-content: end;
-}
-
-.y-scroll-item:nth-child(3n) {
-    justify-content: center;
-}
-
-.y-scroll-item:nth-child(4n) {
-    justify-content: start;
-}
-
-.y-scroll-item:nth-child(5n) {
-    justify-content: center;
-}
-
 .blink {
     animation: blink-animation 1s infinite step-start;
 }

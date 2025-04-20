@@ -59,7 +59,7 @@ module.exports = {
                 xs: '0.75px',
             },
             colors: {
-                customWhite: "#fafafa",
+                customWhite: "#f1f1f1",
                 customBlack: "#050505",
                 customBlackLight: "#1c1c1c",
                 customGray: "#4e4e4e",

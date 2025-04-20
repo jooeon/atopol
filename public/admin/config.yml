@@ -9,7 +9,7 @@ public_folder: "/images"
 collections:
   - name: "landingPageGalleryImage"
     label: "Landing Page Gallery Image"
-    description: "Add each artwork to show on the landing page."
+    description: "Add each artwork to show on the landing page. Control horizontal alignment and order for each image."
     folder: "src/data/landing-page"
     create: true
     slug: "{{slug}}"
@@ -204,8 +204,8 @@ collections:
         default: "coping mechanisms"
       }
   - name: "exhibitionsAboutPage"
-    label: "Exhibitions (About Page)"
-    description: "Add exhibition info shown in About page."
+    label: "About Page (Exhibitions)"
+    description: "Add exhibition info shown in About page. Use \"\\n\" to insert a line-break."
     files:
       - name: "exhibitionsAboutData"
         label: "Exhibitions Data"

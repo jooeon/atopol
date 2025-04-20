@@ -203,3 +203,18 @@ collections:
         widget: "string",
         default: "coping mechanisms"
       }
+  - name: "exhibitionsAboutPage"
+    label: "Exhibitions (About Page)"
+    description: "Add exhibition info shown in About page."
+    folder: "src/data/exhibitions-about"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - label: "Exhibition"
+        name: "exhibition"
+        widget: "list"
+        fields:
+          - { label: "Year", name: "year", widget: "string", required: true }
+          - { label: "Description", name: "description", widget: "string", required: true }

@@ -53,7 +53,26 @@ const Index = () => {
           >
             <MaskText phrase={"Exhibitions"} duration={1.5} isAnimateInView={true}/>
           </motion.h2>
-          <div className="text-sm"></div>
+          <motion.div
+            className="sticky top-0 grid md:grid-cols-[1fr_8fr] grid-rows-[min]
+                            gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
+                            h-fit w-7/12
+                            text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.3,
+              delay: 0.9,
+              ease: "easeOut",
+            }}
+          >
+            <div className="col-start-1 row-start-1">
+              <MaskText phrase={""} delay={1.25} duration={1.0} />
+            </div>
+            <div className="col-start-1 row-start-2">
+              <MaskText phrase={""} delay={1.25} duration={1.0} />
+            </div>
+          </motion.div>
         </section>
       </main>
       <Footer />

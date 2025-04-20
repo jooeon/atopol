@@ -66,12 +66,18 @@ const Index = () => {
               ease: "easeOut",
             }}
           >
-            <div className="col-start-1 row-start-1">
-              <MaskText phrase={""} delay={1.25} duration={1.0} />
-            </div>
-            <div className="col-start-1 row-start-2">
-              <MaskText phrase={""} delay={1.25} duration={1.0} />
-            </div>
+            {galleryData.map((artwork, index) => {
+              return (
+                <div key={index}>
+                  <div className="col-start-1 row-start-1">
+                    <MaskText phrase={""} delay={1.25} duration={1.0} />
+                  </div>
+                  <div className="col-start-1 row-start-2">
+                    <MaskText phrase={""} delay={1.25} duration={1.0} />
+                  </div>
+                </div>
+              );
+            })}
           </motion.div>
         </section>
       </main>

@@ -6,10 +6,12 @@
       "description": "Thrift store purchase and acrylic",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-6.jpg"
+          "image": "/images/nodding_to_wayne_white-6.jpg",
+          "artworkTitle": "JC with Tilak and Nose Ring"
         },
         {
-          "image": "/images/nodding_to_wayne_white-5.jpg"
+          "image": "/images/nodding_to_wayne_white-5.jpg",
+          "artworkTitle": "JC with Predicitive Tat"
         }
       ]
     },
@@ -19,10 +21,12 @@
       "description": "Thrift store purchase, ink jet transfer and acrylic (left) / Thrift store purchase and acrylic (right)",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-2.jpg"
+          "image": "/images/nodding_to_wayne_white-2.jpg",
+          "artworkTitle": "Holy Flush"
         },
         {
-          "image": "/images/nodding_to_wayne_white-1.jpg"
+          "image": "/images/nodding_to_wayne_white-1.jpg",
+          "artworkTitle": "JC with Tat and Nose Ring"
         }
       ]
     },
@@ -32,7 +36,8 @@
       "description": "Thrift store purchase and acrylic",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-3.jpg"
+          "image": "/images/nodding_to_wayne_white-3.jpg",
+          "artworkTitle": "JC’s Midnight Snack"
         }
       ]
     },
@@ -42,7 +47,8 @@
       "description": "Thrift store purchase and acrylic",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-9.jpg"
+          "image": "/images/nodding_to_wayne_white-9.jpg",
+          "artworkTitle": "WM"
         }
       ]
     },
@@ -52,7 +58,8 @@
       "description": "Thrift store purchase, ink jet transfer and acrylic",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-8.jpg"
+          "image": "/images/nodding_to_wayne_white-8.jpg",
+          "artworkTitle": "Feed Time for AT-AT"
         }
       ]
     },
@@ -62,7 +69,8 @@
       "description": "Thrift store purchase and acrylic",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-7.jpg"
+          "image": "/images/nodding_to_wayne_white-7.jpg",
+          "artworkTitle": "HMI"
         }
       ]
     },
@@ -72,7 +80,8 @@
       "imageGroupTitle": "McD's",
       "images": [
         {
-          "image": "/images/nodding_to_wayne_white-4.jpg"
+          "image": "/images/nodding_to_wayne_white-4.jpg",
+          "artworkTitle": "McD's"
         }
       ]
     }

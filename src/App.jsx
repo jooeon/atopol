@@ -5,7 +5,7 @@ import { ReactLenis } from 'lenis/react'
 import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import PropTypes from "prop-types";
-import {useEffect} from "react";
+import { useEffect, useRef } from 'react';
 import ArtworkDetailSimple from './components/templates/ArtworkDetailSimple.jsx';
 import Installations from './pages/Installations.jsx';
 import Objects from './pages/Objects.jsx';
@@ -28,20 +28,24 @@ const navVariants = {
 };
 
 const AnimatedRoutes = () => {
-  const location = useLocation(); // Get current location from Router
+  const location = useLocation();
+  const { pathname } = useLocation();
+  const prevRootRef = useRef(null);
 
   useEffect(() => {
-    // This will run whenever the location changes (e.g., navigation)
-    window.scrollTo({ top: 0, behavior: 'auto' }); // Scroll to top on mount and route change
+    // extract the "root" segment of path
+    const segments = pathname.split('/');
+    const currentRoot = segments[1] || '';
 
-    // Optional: smoother scroll
-    // window.scrollTo({
-    //   top: 0,
-    //   left: 0,
-    //   behavior: 'smooth' // Optional smooth scrolling
-    // });
+    // on first mount, prevRootRef.current will be null
+    // only auto scroll up on navigation if roots are different
+    if (prevRootRef.current !== null && prevRootRef.current !== currentRoot) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
 
-  }, [location]);
+    // remember for next time
+    prevRootRef.current = currentRoot;
+  }, [pathname]);
 
   return (
     <AnimatePresence mode="wait">

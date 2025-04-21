@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @font-face {
+    font-family: 'CentSchbook Mono BT';
+    src: url('/fonts/Century-Schoolbook-Monospace-BT.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'ds-digi';
     src: url('/fonts/DS-DIGII.TTF') format('truetype');
 }

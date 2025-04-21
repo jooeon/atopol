@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Extended = () => {
 
   return (
-    <main className="flex justify-center items-center">
+    <main className="flex justify-center items-center font-centschbook">
       <div className="w-[70vw] xl:w-[50vw] py-12 md:py-24 xl:py-32
         text-4xs sm:text-3xs md:text-sm 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
         <h1 className="text-customOrange text-3xs sm:text-2xs md:text-base 3xl:text-xl 5xl:text-3xl 6xl:text-4xl">Extended</h1>

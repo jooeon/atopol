@@ -12,6 +12,7 @@ module.exports = {
         fontFamily: {
             'hedvig': ['Hedvig Letters Serif', 'georgiapro', 'serif'],
             'cormorant': ['Cormorant Garamond', 'Hedvig Letters Serif', 'serif'],
+            'centschbook': ['CentSchbook Mono BT', 'Hedvig Letters Serif', 'serif'],
             'georgia': ['georgiapro', 'serif'],
             'ds-digi': ['ds-digi'],
         },

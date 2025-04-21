@@ -5,7 +5,8 @@
       "imageGroupTitle": "Cool Comfort",
       "images": [
         {
-          "image": "/images/coolcomfort.jpg"
+          "image": "/images/coolcomfort.jpg",
+          "artworkTitle": "Cool Comfort"
         }
       ],
       "description": "H-18″ W-16″ D-12″\nFound Objects"
@@ -16,7 +17,8 @@
       "description": "H-44″ W-15″ D-15″\nFound Materials",
       "images": [
         {
-          "image": "/images/almost_functional_Millipede_Lamp-481x600.jpg"
+          "image": "/images/almost_functional_Millipede_Lamp-481x600.jpg",
+          "artworkTitle": "Millipede Lamp"
         }
       ]
     },
@@ -24,7 +26,8 @@
       "align": "center",
       "images": [
         {
-          "image": "/images/almost_functional_Suspended_table-600x417.jpg"
+          "image": "/images/almost_functional_Suspended_table-600x417.jpg",
+          "artworkTitle": "Suspended Table"
         }
       ],
       "imageGroupTitle": "Suspended Table",
@@ -36,7 +39,8 @@
       "description": "H-22″ X W-18″ X D-18″\nVintage cathode ray tube and found objects",
       "images": [
         {
-          "image": "/images/almost_functional_ceiling-light-426x600.jpg"
+          "image": "/images/almost_functional_ceiling-light-426x600.jpg",
+          "artworkTitle": "Ceiling Light"
         }
       ]
     },
@@ -46,7 +50,8 @@
       "description": "H-17.5″ W-42″ D-21″\nFound objects and steel",
       "images": [
         {
-          "image": "/images/almost_functional_Plastic_Palette_Table-600x468.jpg"
+          "image": "/images/almost_functional_Plastic_Palette_Table-600x468.jpg",
+          "artworkTitle": "Plastic Palette Table"
         }
       ]
     },
@@ -56,7 +61,8 @@
       "description": "1994\nApproximately H – 7″ W – 15″ D – 10″\nFound materials",
       "images": [
         {
-          "image": "/images/almost_functional_Some-Good-Things..-600x405.jpg"
+          "image": "/images/almost_functional_Some-Good-Things..-600x405.jpg",
+          "artworkTitle": "Some Good Things to Have Around the House"
         }
       ]
     }

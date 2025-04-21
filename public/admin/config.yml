@@ -22,39 +22,6 @@ collections:
       - { label: "Year", name: "year", widget: "string", required: false }
       - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
       - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, required: true }
-  - name: "tangents"
-    label: "Tangents"
-    description: "Add artwork groups (e.g. Something Like 2D, Not Unrelated to Dance) in the \"Tangents\" category."
-    folder: "src/data/tangents"
-    create: true
-    slug: "{{slug}}"
-    format: "json"
-    extension: "json"
-    fields:
-      - { label: "Title", name: "title", widget: "string", required: true }
-      - label: "Thumbnail"
-        name: "thumbnail"
-        widget: "image"
-        required: true
-        description: "Upload a thumbnail image for this artwork group."
-      - { label: "Description", name: "description", widget: "string", required: false }
-      - label: "Category"
-        name: "category"
-        widget: "string"
-        required: true
-        description: "Specify the category (e.g. something-like-2D, almost-functional). This will be used as the URL, so replace spaces with dashes (-) and avoid special characters."
-      - label: "Image Group"
-        name: "imageGroup"
-        widget: "list"
-        fields:
-          - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
-          - { label: "Title", name: "imageGroupTitle", widget: "string", required: false  }
-          - { label: "Description", name: "description", widget: "text", required: false  }
-          - label: "Images"
-            name: "images"
-            widget: "list"
-            fields:
-              - { label: "Image", name: "image", widget: "image" }
   - name: "smallScale"
     label: "Small Scale Installations"
     description: "Add each artwork in the \"Small Scale Installations\" category."
@@ -201,7 +168,197 @@ collections:
         label: "Category",
         name: "category",
         widget: "string",
-        default: "coping mechanisms"
+        default: "coping-mechanisms"
+      }
+  - name: "tangents"
+    label: "Tangents"
+    description: "Add artwork groups (e.g. Something Like 2D, Not Unrelated to Dance) in the \"Tangents\" category."
+    folder: "src/data/tangents"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - label: "Thumbnail"
+        name: "thumbnail"
+        widget: "image"
+        required: true
+        description: "Upload a thumbnail image for this artwork group."
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - label: "Category"
+        name: "category"
+        widget: "string"
+        required: true
+        description: "Specify the category (e.g. something-like-2D, almost-functional). This will be used as the URL, so replace spaces with dashes (-) and avoid special characters."
+      - label: "Image Group"
+        name: "imageGroup"
+        widget: "list"
+        fields:
+          - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
+          - { label: "Label", name: "imageGroupTitle", widget: "string", required: false  }
+          - { label: "Description", name: "description", widget: "text", required: false  }
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Artwork Title", name: "artworkTitle", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image" }
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+  - name: "nodding-to-wayne-white"
+    label: "Nodding to Wayne White (Tangents)"
+    description: "Add each artwork in the \"Nodding to Wayne White\" category."
+    folder: "src/data/nodding-to-wayne-white"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          required: false
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "nodding-to-wayne-white"
+      }
+  - name: "something-like-2d"
+    label: "Something Like 2D (Tangents)"
+    description: "Add each artwork in the \"Something Like 2D\" category."
+    folder: "src/data/something-like-2d"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          required: false
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "something-like-2d"
+      }
+  - name: "not-unrelated-to-dance"
+    label: "Not Unrelated to Dance (Tangents)"
+    description: "Add each artwork in the \"Not Unrelated to Dance\" category."
+    folder: "src/data/not-unrelated-to-dance"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          required: false
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "not-unrelated-to-dance"
+      }
+  - name: "almost-functional"
+    label: "Almost Functional (Tangents)"
+    description: "Add each artwork in the \"Almost Functional\" category."
+    folder: "src/data/almost-functional"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
+          required: false
+      - label: "Video Links"
+        name: "videoLinks"
+        widget: "list"
+        field:
+          label: "Video Link"
+          name: "videoLink"
+          widget: "string"
+          required: false
+      - { label: "Year", name: "year", widget: "string", required: false }
+      - { label: "Medium", name: "medium", widget: "string", required: false }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - {
+        label: "Category",
+        name: "category",
+        widget: "string",
+        default: "almost-functional"
       }
   - name: "exhibitionsAboutPage"
     label: "About Page (Exhibitions)"

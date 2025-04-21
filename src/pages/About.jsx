@@ -81,6 +81,8 @@ const About = () => {
                   imagined times (past or future) are inextricably linked to the objects and spaces that comprise our
                   environment. My art is both the transformed material evidence of my past and a surrogate for the
                   missing. I draw on images, objects, and memories to form reliquaries of unconscious associations.</p>
+                <br />
+                <Link to="/about/extended" className="col-start-2 text-customOrange mt-2">Extended Essay →</Link>
               </div>
             </div>
           </div>

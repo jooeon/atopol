@@ -6,23 +6,24 @@ import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import PropTypes from "prop-types";
 import {useEffect} from "react";
-import ArtworkDetailSimple from './components/ArtworkDetailSimple.jsx';
+import ArtworkDetailSimple from './components/templates/ArtworkDetailSimple.jsx';
 import Installations from './pages/Installations.jsx';
 import Objects from './pages/Objects.jsx';
 import Tangents from './pages/Tangents.jsx';
 import { CursorProvider } from './components/cursor/CursorContext.jsx';
 import Cursor from './components/cursor/Cursor.jsx';
-import ArtworkGroupGallery from './components/ArtworkGroupGallery.jsx';
+import ArtworkGroupGallery from './components/templates/ArtworkGroupGallery.jsx';
+import Extended from './pages/Extended.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
   enter: {
     opacity: 1,
-    transition: { delay: 0.6, duration: 0.3, ease: "easeIn" },
+    transition: { delay: 0.3, duration: 0.4, ease: "easeIn" },
   },
   exit: {
     opacity: 0,
-    transition: { delay: 0, duration: 0.3, ease: "easeOut" },
+    transition: { delay: 0, duration: 0.4, ease: "easeOut" },
   },
 };
 
@@ -46,12 +47,13 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-        <Route path="/:artworkGroup/:artworkTitle" element={<PageWrapper><ArtworkDetailSimple /></PageWrapper>} />
         <Route path="/installations" element={<PageWrapper><Installations /></PageWrapper>} />
         <Route path="/objects" element={<PageWrapper><Objects /></PageWrapper>} />
         <Route path="/tangents" element={<PageWrapper><Tangents /></PageWrapper>} />
         <Route path="/tangents/:artworkGroup" element={<PageWrapper><ArtworkGroupGallery /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/about/extended" element={<PageWrapper><Extended /></PageWrapper>} />
+        <Route path="/:artworkGroup/:artworkTitle" element={<PageWrapper><ArtworkDetailSimple /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );

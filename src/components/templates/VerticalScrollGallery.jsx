@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { MaskText } from './MaskText.jsx';
+import { MaskText } from '../MaskText.jsx';
 import { Link, useLocation } from 'react-router-dom';
-import { formatString } from '../Utils.jsx';
+import { formatString } from '../../Utils.jsx';
 
 // Pass in artwork data array, title of the gallery, and skipIndex
 // providing skipIndex allows the option to quickly skip to a certain part of the vertical scroll

@@ -2,7 +2,7 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import { motion } from "framer-motion";
 import { useEffect, useState } from 'react';
-import ParallaxGallery from '../components/ParallaxGallery.jsx';
+import ParallaxGallery from '../components/templates/ParallaxGallery.jsx';
 
 const Index = () => {
 

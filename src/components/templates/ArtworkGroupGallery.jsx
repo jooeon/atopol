@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Header from './Header.jsx';
+import Header from '../Header.jsx';
 import { motion } from 'framer-motion';
-import { MaskText } from './MaskText.jsx';
+import { MaskText } from '../MaskText.jsx';
+import { convertToEmbedURL, formatString } from '../../Utils.jsx';
 
 const ArtworkGroupGallery = () => {
 
@@ -11,7 +12,7 @@ const ArtworkGroupGallery = () => {
   const [artworkGroupData, setArtworkGroupData] = useState(null);
 
   // Create the path dynamically based on URL params
-  const artworkJsonPath = `../data/tangents/${artworkGroup}.json`;
+  const artworkJsonPath = `../../data/tangents/${artworkGroup}.json`;
 
   useEffect(() => {
     // Dynamically import the JSON data based on the path
@@ -38,6 +39,34 @@ const ArtworkGroupGallery = () => {
         <div className="relative flex">
           {/* Main gallery section */}
           <div className="flex flex-col gap-10 xl:gap-32 w-2/3 py-12 xl:py-28">
+            {artworkGroupData.videoLinks &&
+              artworkGroupData.videoLinks?.map((videoLink, index) => {
+                const embedUrl = convertToEmbedURL(videoLink);
+                return (
+                  <motion.div
+                    key={index}
+                    className="relative overflow-hidden"
+                    initial={{opacity: 0, y: 40}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{
+                      duration: 0.3,
+                      delay: 1.0,
+                      ease: "easeOut",
+                    }}
+                  >
+                    {/* Container with aspect ratio */}
+                    <div className="relative w-full aspect-w-16 aspect-h-9">
+                      <iframe
+                        title={`video-${index}`}
+                        src={embedUrl}
+                        className="absolute top-0 left-0 w-full h-full"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </motion.div>
+                );
+              })
+            }
             {artworkGroupData.imageGroup?.map((group, index) => {
               const alignment = group.align === "left"
                 ? "justify-start xl:flex-row"
@@ -73,17 +102,28 @@ const ArtworkGroupGallery = () => {
                       ? "xl:w-[15vw] xl:max-h-[40vh]"
                       : "xl:w-[10vw]"
 
-                    return (
-                      <img
+                    return image.artworkTitle ? (
+                      <Link
                         key={imageIndex}
+                        to={`/${formatString(artworkGroupData.category)}/${formatString(image.artworkTitle)}`}
+                        className={`max-w-full max-h-[70vh] overflow-hidden relative`}
+                      >
+                        <img
+                          src={image.image}
+                          alt={`Image ${imageIndex + 1} in ${title}`}
+                          className={`${imageSize} h-full object-cover`}
+                        />
+                      </Link>
+                    ) : (
+                      <img
                         src={image.image}
                         alt={`Image ${imageIndex + 1} in ${title}`}
                         className={`${imageSize} max-w-full max-h-[70vh] object-cover`}
                       />
-                    )
+                    );
                   })}
                   {/* if aligned left, have the label text come after images */}
-                  {group.align === "left" && (
+                  {group.align === 'left' && (
                     <div className="xl:w-[15vw] 3xl:w-[12vw] ml-5 my-2 xl:my-5">
                       <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
                       <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header.jsx';
-import VerticalScrollGallery from '../components/VerticalScrollGallery.jsx';
+import VerticalScrollGallery from '../components/templates/VerticalScrollGallery.jsx';
 
 const Objects = () => {
   const [combinedData, setCombinedData] = useState([]);

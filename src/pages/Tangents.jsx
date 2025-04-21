@@ -30,7 +30,7 @@ const Tangents = () => {
   useEffect(() => {
     // Dynamically import all JSON files from the folder
     const modules = import.meta.glob('../data/tangents/*.json');
-    console.log("Modules found:", modules); // Check this in the browser console
+
     const loadData = async () => {
       const entries = await Promise.all(
         Object.values(modules).map(async (importer) => {
@@ -51,7 +51,7 @@ const Tangents = () => {
           <div className="xl:ml-16
             text-2xs md:text-base lg:text-xl xl:text-[1.25vw]">
             <h1 className="text-2xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
-              <MaskText phrase={"Tangents"} delay={1.0} duration={1.0} />
+              <MaskText phrase={"Tangents"} delay={1.0} duration={1.2} />
             </h1>
             {/*{hoveredTitle && (*/}
             {/*  <motion.p*/}
@@ -78,11 +78,11 @@ const Tangents = () => {
                   src={artworkGroup.thumbnail}
                   alt={`Thumbnail for ${artworkGroup.title}`}
                   className="w-[100vw] xl:w-[43vw] xl:h-[110vh] object-cover object-top"
-                  initial={{opacity: 0, y: 80}}
+                  initial={{opacity: 0, y: 60}}
                   animate={{opacity: 1, y: 0}}
                   transition={{
-                    duration: 0.5,
-                    delay: isEven(index) ? 1.4 : 1.6,
+                    duration: 0.7,
+                    delay: isEven(index) ? 1.2 : 1.4,
                     ease: "easeOut",
                   }}
                 />

@@ -1,10 +1,11 @@
 import {useParams} from "react-router-dom";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import Header from "../Header.jsx";
+import Footer from "../Footer.jsx";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
-import { MaskText } from './MaskText.jsx';
+import { MaskText } from '../MaskText.jsx';
+import { convertToEmbedURL } from '../../Utils.jsx';
 
 // Template component for individual artwork pages
 const ArtworkDetailSimple = () => {
@@ -14,7 +15,7 @@ const ArtworkDetailSimple = () => {
   const [artworkData, setArtworkData] = useState(null);
 
   // Create the path dynamically based on URL params
-  const artworkJsonPath = `../data/${artworkGroup}/${artworkTitle}.json`;
+  const artworkJsonPath = `../../data/${artworkGroup}/${artworkTitle}.json`;
 
   useEffect(() => {
     // Dynamically import the JSON data based on the path
@@ -33,32 +34,6 @@ const ArtworkDetailSimple = () => {
   if (!artworkData) {
     return <div>Failed to load artwork data...</div>;
   }
-
-  // Convert normal video URL to embed version
-  const convertToEmbedURL = (url) => {
-    // YouTube URL pattern
-    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/[^\n\s]+\/|(?:v|e(?:mbed))\/?)([a-zA-Z0-9_-]{11})(?:[?&][^\n\s]*)?|youtu\.be\/([a-zA-Z0-9_-]{11}))/;
-
-    // Vimeo URL pattern (fixing the regex)
-    const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?(?:vimeo\.com\/(?:[^\n\s]+\/)?([0-9]+))/;
-
-    // Check if it's a YouTube URL
-    const youtubeMatch = url.match(youtubeRegex);
-    if (youtubeMatch) {
-      const videoId = youtubeMatch[1] || youtubeMatch[2];
-      return `https://www.youtube.com/embed/${videoId}`;
-    }
-
-    // Check if it's a Vimeo URL
-    const vimeoMatch = url.match(vimeoRegex);
-    if (vimeoMatch) {
-      const videoId = vimeoMatch[1];
-      return `https://player.vimeo.com/video/${videoId}`;
-    }
-
-    // Return the URL as-is if it's neither YouTube nor Vimeo
-    return url;
-  };
 
   return (
     <>

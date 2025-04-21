@@ -1,6 +1,6 @@
 import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import carouselData from "../data/CarouselData.json";
+import carouselData from "../../data/CarouselData.json";
 
 // Infinite scroll not functional
 const DragCarousel = () => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -29,10 +29,13 @@ const ParallaxGallery = ({ galleryData }) => {
           : artwork.align === "right"
           ? "justify-end"
           : "justify-center";
+        const to = artwork.link;
+        const Wrapper = to ? Link : Fragment;
+        const wrapperProps = to ? { to } : {};
 
         return (
           <div key={index} className={`flex ${alignment}`}>
-            <Link to={artwork.link}>
+            <Wrapper {...wrapperProps}>
               <motion.div
                 className="flex flex-col w-full max-w-[30vw] object-cover object-top"
                 style={{
@@ -66,7 +69,7 @@ const ParallaxGallery = ({ galleryData }) => {
                   <p className="text-customGray">{artwork.year}</p>
                 </motion.div>
               </motion.div>
-            </Link>
+            </Wrapper>
           </div>
         );
       })}

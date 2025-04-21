@@ -6,10 +6,12 @@
       "description": "These intaglio prints are examinations of an inside/outside relationship – an electric drill whose external design necessitated significant compromise to the internal workings so as to accommodate the human body.  In Siqux I and II, I emphasize the exterior with a chine collé process to the surface of the print and the interior with elaborate mark-making akin to the complexity of the mechanism. ",
       "images": [
         {
-          "image": "/images/SiquxI-scaled-e1718131211457-738x1024.jpg"
+          "image": "/images/SiquxI-scaled-e1718131211457-738x1024.jpg",
+          "artworkTitle": "Siqux I, Siqux II"
         },
         {
-          "image": "/images/SiquxII-scaled-e1718131184656-731x1024.jpg"
+          "image": "/images/SiquxII-scaled-e1718131184656-731x1024.jpg",
+          "artworkTitle": "Siqux I, Siqux II"
         }
       ]
     },
@@ -19,7 +21,8 @@
       "description": "This intaglio print is an examination of an inside/outside relationship – an electric ‘massager’ from the 1950s whose external design necessitated significant compromise to the internal workings so as to accommodate the human body.  I emphasize the exterior with a chine collé process to the surface of the print and the interior with elaborate mark-making akin to the complexity of the mechanism. ",
       "images": [
         {
-          "image": "/images/Niagara01-scaled-e1718131327820-675x1024.jpg"
+          "image": "/images/Niagara01-scaled-e1718131327820-675x1024.jpg",
+          "artworkTitle": "Niagara"
         }
       ]
     },
@@ -29,7 +32,8 @@
       "description": "This intaglio print looks at a segment of design history around one function. It illustrates several generations of can openers. Although most of them would be considered obsolete, all of them would still open a can.",
       "images": [
         {
-          "image": "/images/History1-scaled-e1718131242455-567x1024.jpg"
+          "image": "/images/History1-scaled-e1718131242455-567x1024.jpg",
+          "artworkTitle": "A History of the World"
         }
       ]
     },
@@ -39,13 +43,16 @@
       "description": "We want our rest to be productive and our productivity to be restful. We summon extensions of ourselves – tools of our productivity and organization – with expectations that they will spare us from drudgery or supplement our repose. These works represent recent contemplations of functional objects (and their spaces and interiors) with which I align form/function with leisure/labor.\n\nThe Form/Function drawings are documents of a process toggled between digital approaches/prints and analog methods in an attempt to take advantage of each. There are (seemingly) pinned to domestic surface materials that serve as a framing devices and a reference to the space where the objects may have been originally been employed in the home.",
       "images": [
         {
-          "image": "/images/Form.Functionb-467x600.jpg"
+          "image": "/images/Form.Functionb-467x600.jpg",
+          "artworkTitle": "Form/Function"
         },
         {
-          "image": "/images/Form.Functiona-467x600.jpg"
+          "image": "/images/Form.Functiona-467x600.jpg",
+          "artworkTitle": "Form/Function"
         },
         {
-          "image": "/images/Form.Functionc-467x600.jpg"
+          "image": "/images/Form.Functionc-467x600.jpg",
+          "artworkTitle": "Form/Function"
         }
       ]
     },
@@ -53,7 +60,8 @@
       "align": "center",
       "images": [
         {
-          "image": "/images/Prints.jpg"
+          "image": "/images/Prints.jpg",
+          "artworkTitle": "Print Series"
         }
       ],
       "imageGroupTitle": "Print Series",
@@ -65,7 +73,8 @@
       "description": "101″H X 56W” X 15″D\nFound objects and mixed media\nCaddy is a drawing holder, a mechanism that can shift the order of its drawings (front to back) – drawings that each engage multi-layered renderings in an attempt to mirror   the memory process.",
       "images": [
         {
-          "image": "/images/Caddy.jpg"
+          "image": "/images/Caddy.jpg",
+          "artworkTitle": "Caddy"
         }
       ]
     },
@@ -75,16 +84,20 @@
       "description": "1. H-19.5″ W-19.5″ D-1.5″\nLinoleum, wood and caulking\n(More information under ‘Words’)\n2. H-19.5″ W-19.5″ D-1.5″\nFloorboards and wood-filler\n(More information under ‘Words’)\n3. H-19.5″ W-19.5″ D-1.5″\nLinoleum, wood and caulking\n(More information under ‘Words’)\n4. H-19.5″ W-19.5″ D-1.5″\nTile, grout and wood\n(More information under ‘Words’)",
       "images": [
         {
-          "image": "/images/Imprint_1.jpg"
+          "image": "/images/Imprint_1.jpg",
+          "artworkTitle": "Imprint Series"
         },
         {
-          "image": "/images/Imprint_2.jpg"
+          "image": "/images/Imprint_2.jpg",
+          "artworkTitle": "Imprint Series"
         },
         {
-          "image": "/images/Imprint_3.jpg"
+          "image": "/images/Imprint_3.jpg",
+          "artworkTitle": "Imprint Series"
         },
         {
-          "image": "/images/Imprint_4.jpg"
+          "image": "/images/Imprint_4.jpg",
+          "artworkTitle": "Imprint Series"
         }
       ]
     },
@@ -94,16 +107,20 @@
       "description": "The works in the Indidem Series employ the repetition of alternating drawing processes – erasing and mark-making, drawing and redrawing, adding and subtracting – the same image or a similar representation again and again. The process mimics the act of recall – one that relies on and accumulates residual information.",
       "images": [
         {
-          "image": "/images/Indidem_07.jpg"
+          "image": "/images/Indidem_07.jpg",
+          "artworkTitle": "Indidem Series"
         },
         {
-          "image": "/images/Indidem_38.jpg"
+          "image": "/images/Indidem_38.jpg",
+          "artworkTitle": "Indidem Series"
         },
         {
-          "image": "/images/Indidem_125.jpg"
+          "image": "/images/Indidem_125.jpg",
+          "artworkTitle": "Indidem Series"
         },
         {
-          "image": "/images/Indidem_173.jpg"
+          "image": "/images/Indidem_173.jpg",
+          "artworkTitle": "Indidem Series"
         }
       ]
     }

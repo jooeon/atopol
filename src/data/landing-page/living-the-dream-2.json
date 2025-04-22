@@ -1,9 +1,11 @@
 {
-  "title": "Living the Dream (2)",
-  "image": "/images/DreamBDetail1.jpg",
-  "year": "2006",
-  "order": 4,
-  "align": "right",
   "horizontalAlign": "right",
-  "verticalAlign": "bottom"
+  "align": "right",
+  "order": 4,
+  "verticalAlign": "bottom",
+  "title": "Living the Dream (2)",
+  "scrollSpeed": "normal",
+  "link": "/site-specific/living-the-dream-2",
+  "image": "/images/DreamBDetail1.jpg",
+  "year": "2006"
 }

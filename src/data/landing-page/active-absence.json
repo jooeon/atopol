@@ -1,10 +1,11 @@
 {
-  "title": "Active Absence",
-  "image": "/images/activeabsence01-scaled.jpg",
-  "year": "2019",
+  "horizontalAlign": "left",
   "align": "left",
   "order": 1,
-  "link": "/site-specific/active-absence",
   "verticalAlign": "top",
-  "horizontalAlign": "left"
+  "title": "Active Absence",
+  "scrollSpeed": "normal",
+  "link": "/site-specific/active-absence",
+  "image": "/images/activeabsence01-scaled.jpg",
+  "year": "2019"
 }

@@ -51,7 +51,7 @@ const About = () => {
             <motion.h2
               className="text-[3vh] md:text-[5vw] leading-none"
             >
-              <MaskText phrase={"Bio"} duration={1.5} isAnimateInView={true}/>
+              <MaskText phrase={"Bio"} duration={1.5}/>
             </motion.h2>
             <div className="flex gap-5 md:gap-10 xl:gap-20 w-10/12 xl:w-3/4
               text-4xs sm:text-3xs md:text-sm 3xl:text-lg 5xl:text-2xl 6xl:text-3xl">
@@ -90,7 +90,7 @@ const About = () => {
             <motion.h2
               className="text-[5vw] leading-none"
             >
-              <MaskText phrase={'Exhibitions'} duration={1.5} isAnimateInView={true} />
+              <MaskText phrase={'Exhibitions'} duration={1.5} />
             </motion.h2>
             <motion.div
               className="grid md:grid-cols-[1fr_8fr] grid-rows-[min]

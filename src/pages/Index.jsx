@@ -1,6 +1,6 @@
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import ParallaxGallery from '../components/templates/ParallaxGallery.jsx';
 import { MaskText } from '../components/MaskText.jsx';
@@ -8,6 +8,13 @@ import { MaskText } from '../components/MaskText.jsx';
 const Index = () => {
 
   const [galleryData, setGalleryData] = useState([]);
+  const { scrollY } = useScroll();
+  const [titleOpacity, setTitleOpacity] = useState(10);
+  const threshold = 200;
+
+  useMotionValueEvent(scrollY, "change", (y) => {
+    setTitleOpacity(y > threshold ?  0: 1);
+  });
 
   useEffect(() => {
     // Dynamically import all JSON files from the folder
@@ -36,17 +43,24 @@ const Index = () => {
         <Header/>
         <main>
           <section>
-            <h1 className="fixed flex flex-col md:flex-row gap-2 md:gap-10 leading-tight pointer-events-none
+            <motion.h1
+              // animate={{ opacity: titleOpacity }}
+              // transition={{
+              //   duration: 0.5,
+              //   ease: "easeOut",
+              // }}
+              className="fixed flex flex-col md:flex-row gap-2 md:gap-10 leading-tight pointer-events-none
                   pl-4 md:pl-8 pt-12 md:pt-24 mix-blend-difference z-10
-                  text-[3vh] md:text-[5vw]">
+                  text-[3vh] md:text-[5vw]"
+            >
               <div>
-                <MaskText phrase={"Allen Topolski"} delay={1.0} duration={1.2} />
+                <MaskText phrase={"Allen Topolski"} delay={0.5} duration={1.2} />
               </div>
               <div className="flex flex-col w-[45vw] md:w-[35vw] ml-11 md:ml-0 text-customOrange">
-                <MaskText phrase={"(re)collecting"} delay={1.3} duration={1.2} />
-                <span className="text-right"><MaskText phrase={"objects"} delay={1.4} duration={1.2} /></span>
+                <MaskText phrase={"(re)collecting"} delay={0.8} duration={1.2} />
+                <span className="text-right"><MaskText phrase={"objects"} delay={0.9} duration={1.2} /></span>
               </div>
-            </h1>
+            </motion.h1>
             <ParallaxGallery galleryData={galleryData} />
           </section>
         </main>

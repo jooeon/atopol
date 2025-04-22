@@ -1,10 +1,11 @@
 {
-  "image": "/images/Houseware.jpg",
-  "title": "Houseware",
-  "year": "2000",
+  "horizontalAlign": "center",
   "align": "center",
   "order": 3,
   "verticalAlign": "top",
-  "horizontalAlign": "center",
-  "link": "/appliances/houseware"
+  "title": "Houseware",
+  "scrollSpeed": "faster",
+  "link": "/appliances/houseware",
+  "image": "/images/Houseware.jpg",
+  "year": "2000"
 }

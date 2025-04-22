@@ -4,5 +4,7 @@
   "year": "2019",
   "align": "left",
   "order": 1,
-  "link": "/site-specific/active-absence"
+  "link": "/site-specific/active-absence",
+  "verticalAlign": "top",
+  "horizontalAlign": "left"
 }

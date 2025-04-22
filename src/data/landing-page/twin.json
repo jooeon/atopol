@@ -1,10 +1,11 @@
 {
-  "title": "Twin",
-  "image": "/images/twin_b.jpg",
-  "year": "2023",
-  "order": 6,
+  "horizontalAlign": "center",
   "align": "left",
-  "link": "/appliances/twin",
+  "order": 6,
   "verticalAlign": "center",
-  "horizontalAlign": "center"
+  "title": "Twin",
+  "scrollSpeed": "fast",
+  "link": "/appliances/twin",
+  "image": "/images/twin_b.jpg",
+  "year": "2023"
 }

@@ -4,7 +4,7 @@
   "order": 6,
   "verticalAlign": "center",
   "title": "Twin",
-  "scrollSpeed": "fast",
+  "scrollSpeed": "normal",
   "link": "/appliances/twin",
   "image": "/images/twin_b.jpg",
   "year": "2023"

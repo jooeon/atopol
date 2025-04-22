@@ -1,10 +1,11 @@
 {
-  "title": "Equipment for Constructive Calm and Productive Play",
-  "image": "/images/Equipment-for-Constructive-Calm-and-Productive-Play1.jpg",
-  "year": "2013",
-  "order": 2,
-  "align": "right",
-  "verticalAlign": "bottom",
   "horizontalAlign": "right",
-  "link": "/small-scale/equipment-for-constructive-calm-and-productive-play"
+  "align": "right",
+  "order": 2,
+  "verticalAlign": "bottom",
+  "title": "Equipment for Constructive Calm and Productive Play",
+  "scrollSpeed": "fast",
+  "link": "/small-scale/equipment-for-constructive-calm-and-productive-play",
+  "image": "/images/Equipment-for-Constructive-Calm-and-Productive-Play1.jpg",
+  "year": "2013"
 }

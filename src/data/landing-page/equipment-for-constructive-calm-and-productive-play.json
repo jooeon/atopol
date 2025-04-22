@@ -3,5 +3,7 @@
   "image": "/images/Equipment-for-Constructive-Calm-and-Productive-Play1.jpg",
   "year": "2013",
   "order": 2,
-  "align": "right"
+  "align": "right",
+  "verticalAlign": "center",
+  "horizontalAlign": "right"
 }

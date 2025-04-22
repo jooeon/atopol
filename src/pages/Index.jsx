@@ -3,6 +3,7 @@ import Footer from '../components/Footer.jsx';
 import { motion } from "framer-motion";
 import { useEffect, useState } from 'react';
 import ParallaxGallery from '../components/templates/ParallaxGallery.jsx';
+import { MaskText } from '../components/MaskText.jsx';
 
 const Index = () => {
 
@@ -35,23 +36,17 @@ const Index = () => {
         <Header/>
         <main>
           <section>
-            <motion.h1
-              className="fixed flex flex-col md:flex-row gap-2 md:gap-10 leading-none pl-4 md:pl-8 pt-12 md:pt-24 mix-blend-difference z-10
-                text-[3vh] md:text-[5vw] "
-              initial={{opacity: 0}}
-              animate={{opacity: 0.85}}
-              transition={{
-                duration: 0.5,
-                delay: 1.0,
-                ease: "easeIn",
-              }}
-            >
-              <p>Allen Topolski</p>
-              <p className="flex flex-col w-[45vw] md:w-[35vw] ml-11 md:ml-0 text-customOrange">
-                <span>(re)collecting</span>
-                <span className="text-right">objects</span>
-              </p>
-            </motion.h1>
+            <h1 className="fixed flex flex-col md:flex-row gap-2 md:gap-10 leading-tight pointer-events-none
+                  pl-4 md:pl-8 pt-12 md:pt-24 mix-blend-difference z-10
+                  text-[3vh] md:text-[5vw]">
+              <div>
+                <MaskText phrase={"Allen Topolski"} delay={1.0} duration={1.2} />
+              </div>
+              <div className="flex flex-col w-[45vw] md:w-[35vw] ml-11 md:ml-0 text-customOrange">
+                <MaskText phrase={"(re)collecting"} delay={1.3} duration={1.2} />
+                <span className="text-right"><MaskText phrase={"objects"} delay={1.4} duration={1.2} /></span>
+              </div>
+            </h1>
             <ParallaxGallery galleryData={galleryData} />
           </section>
         </main>

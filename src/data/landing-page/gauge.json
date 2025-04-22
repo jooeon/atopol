@@ -3,8 +3,7 @@
   "image": "/images/gauge-795x805.jpg",
   "year": "1994",
   "order": 8,
-  "align": "left",
   "horizontalAlign": "right",
   "verticalAlign": "bottom",
-  "scrollSpeed": "normal"
+  "scrollSpeed": "slow"
 }

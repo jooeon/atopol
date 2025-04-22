@@ -1,8 +1,7 @@
 {
   "horizontalAlign": "right",
-  "align": "right",
   "order": 7,
-  "verticalAlign": "bottom",
+  "verticalAlign": "center",
   "title": "Foley",
   "scrollSpeed": "fast",
   "link": "/appliances/foley",

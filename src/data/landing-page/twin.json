@@ -1,8 +1,7 @@
 {
   "horizontalAlign": "center",
-  "align": "left",
   "order": 6,
-  "verticalAlign": "center",
+  "verticalAlign": "top",
   "title": "Twin",
   "scrollSpeed": "normal",
   "link": "/appliances/twin",

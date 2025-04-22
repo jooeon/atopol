@@ -9,7 +9,7 @@ public_folder: "/images"
 collections:
   - name: "landingPageGalleryImage"
     label: "Landing Page Gallery Image"
-    description: "Add each artwork to show on the landing page. Control horizontal alignment and order for each image."
+    description: "Add each artwork to show on the landing page. Control alignment and order for each image."
     folder: "src/data/landing-page"
     create: true
     slug: "{{slug}}"
@@ -20,7 +20,9 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Year", name: "year", widget: "string", required: false }
-      - { label: "Align", name: "align", widget: "select", options: [ "left", "center", "right" ], default: "left" }
+      - { label: "Scroll Speed", name: "scrollSpeed", widget: "select", options: [ "slow", "normal", "fast", "faster", "fastest" ], default: "normal", required: true }
+      - { label: "Vertical Align", name: "verticalAlign", widget: "select", options: [ "top", "center", "bottom" ], default: "top", required: true }
+      - { label: "Horizontal Align", name: "horizontalAlign", widget: "select", options: [ "left", "center", "right" ], default: "left", required: true }
       - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, required: true }
   - name: "smallScale"
     label: "Small Scale Installations"

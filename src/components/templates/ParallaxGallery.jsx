@@ -19,14 +19,28 @@ const ParallaxGallery = ({ galleryData }) => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col xl:grid xl:grid-cols-2 xl:gap-x-0 xl:gap-y-32">
       {galleryData.map((artwork, index) => {
         // Different scroll speeds for different images
-        const speed = index % 3 === 0 ? -0.2 : index % 3 === 1 ? -0.1 : -0.3; // Custom scroll speeds based on index
-        const animDelay = index % 3 === 0 ? 1.0 : index % 3 === 1 ? 1.2 : 1.4; // Custom scroll speeds based on index
-        const alignment = artwork.align === "left"
+        const speed = artwork.scrollSpeed === "slow"
+          ? 0
+          : artwork.scrollSpeed === "normal"
+          ? -0.1
+          : artwork.scrollSpeed === "fast"
+          ? -0.2
+          : artwork.scrollSpeed === "faster"
+          ? -0.3
+          : -0.45
+        // const speed = speedToInt % 3 === 0 ? -0.2 : speedToInt % 3 === 1 ? -0.1 : -0.3;
+        const animDelay = index % 3 === 0 ? 1.0 : index % 3 === 1 ? 1.2 : 1.4;
+        const vAlignment = artwork.verticalAlign === "top"
+          ? "items-start"
+          : artwork.verticalAlign === "bottom"
+          ? "items-end"
+          : "items-center";
+        const hAlignment = artwork.horizontalAlign === "left"
           ? "justify-start"
-          : artwork.align === "right"
+          : artwork.horizontalAlign === "right"
           ? "justify-end"
           : "justify-center";
         const to = artwork.link;
@@ -34,7 +48,7 @@ const ParallaxGallery = ({ galleryData }) => {
         const wrapperProps = to ? { to } : {};
 
         return (
-          <div key={index} className={`flex ${alignment}`}>
+          <div key={index} className={`flex xl:h-[70vh] ${hAlignment} ${vAlignment}`}>
             <Wrapper {...wrapperProps}>
               <motion.div
                 className="flex flex-col w-full max-w-[30vw] object-cover object-top"
@@ -55,7 +69,7 @@ const ParallaxGallery = ({ galleryData }) => {
                   }}
                 />
                 <motion.div
-                  className={`flex justify-between text-customGrayLight mt-0.5 md:mt-1 ${artwork.align === "left" && "pl-0.5 md:pl-1"}
+                  className={`flex justify-between text-customGrayLight mt-0.5 md:mt-1 ${artwork.horizontalAlign === "left" && "pl-0.5 md:pl-1"}
                     text-4xs sm:text-3xs md:text-base 3xl:text-lg 5xl:text-2xl 6xl:text-3xl`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

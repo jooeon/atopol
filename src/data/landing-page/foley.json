@@ -1,8 +1,11 @@
 {
+  "horizontalAlign": "right",
   "align": "right",
+  "order": 7,
+  "verticalAlign": "bottom",
   "title": "Foley",
-  "image": "/images/Foley1-683x1024.jpg",
+  "scrollSpeed": "fast",
   "link": "/appliances/foley",
-  "year": "2002",
-  "order": 7
+  "image": "/images/Foley1-683x1024.jpg",
+  "year": "2002"
 }

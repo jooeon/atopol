@@ -3,5 +3,7 @@
   "title": "Houseware",
   "year": "2000",
   "align": "center",
-  "order": 3
+  "order": 3,
+  "verticalAlign": "top",
+  "horizontalAlign": "center"
 }

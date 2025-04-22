@@ -16,7 +16,7 @@ const Footer = () => {
         }}
       >
         <p><span className="text-customOrange">&copy;{new Date().getFullYear()}</span> Allen Topolski</p>
-        <p>Design & Development: <Link to="https://jooeonpark.com" target="_blank">Joo Eon Park</Link></p>
+        <p className="text-customGrayLight">Design & Development: <Link to="https://jooeonpark.com" target="_blank">Joo Eon Park</Link></p>
       </motion.div>
     </footer>
   );

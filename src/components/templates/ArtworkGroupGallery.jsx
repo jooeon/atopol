@@ -116,6 +116,7 @@ const ArtworkGroupGallery = () => {
                       </Link>
                     ) : (
                       <img
+                        key={imageIndex}
                         src={image.image}
                         alt={`Image ${imageIndex + 1} in ${title}`}
                         className={`${imageSize} max-w-full max-h-[70vh] object-cover`}
@@ -149,7 +150,7 @@ const ArtworkGroupGallery = () => {
                         text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
           >
             <motion.h1
-              className="col-start-2 row-start-1 w-fit mx-auto
+              className="col-start-2 row-start-1 w-fit
                 text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl/normal 2xl:text-4xl/normal 3xl:text-5xl/normal 4xl:text-6xl/normal"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

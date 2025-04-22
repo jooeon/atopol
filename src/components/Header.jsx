@@ -85,7 +85,7 @@ const Header = ({delay = 0.4}) => {
         ease: [0.16, 1, 0.3, 1],
       }}>
       <motion.nav
-        className="flex items-center justify-between text-3xs sm:text-xs md:text-sm 4xl:text-2xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
+        className="flex items-center justify-between text-3xs sm:text-xs md:text-sm 2xl:text-base 4xl:text-2xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
               font-medium tracking-wide text-customGrayLighter [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
       >
         <NavLink to="/" className={() => getLinkClasses("/")}>
@@ -106,7 +106,7 @@ const Header = ({delay = 0.4}) => {
               <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
             </li>
           </ul>
-          <div className="flex gap-1 font-ds-digi text-right text-3xs sm:text-xs md:text-base 4xl:text-2xl 6xl:text-4xl">
+          <div className="flex gap-1 font-ds-digi text-right text-3xs sm:text-xs md:text-base 2xl:text-lg 4xl:text-2xl 6xl:text-4xl">
             <span>Rochester, NY</span>
             <LocalTime />
           </div>

@@ -168,11 +168,15 @@ export function VerticalScrollGallery({ data, title, skipIndex = null }) {
             </div>
           }
         </div>
-        <Link to={`/${formatString(data[currentIndex].category)}/${formatString(data[currentIndex].title)}`}>
-          <img
+        <Link to={`/${formatString(data[currentIndex].category)}/${formatString(data[currentIndex].title)}`} className="overflow-hidden">
+          <motion.img
             src={data[currentIndex].thumbnail}
             alt="Selected"
             className="w-full xl:w-[25vw] xl:max-h-[80vh] object-contain"
+            transition={{
+              scale: { duration: 1.5, ease: [0.075, 0.82, 0.165, 1] }
+            }}
+            whileHover={{ scale: 1.03 }}
           />
         </Link>
         {/* Artwork Label */}

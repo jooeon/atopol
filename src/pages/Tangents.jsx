@@ -47,7 +47,7 @@ const Tangents = () => {
     <>
       <Header />
       <main>
-        <div className="relative flex flex-col justify-center gap-5 lg:gap-8 xl:gap-14 py-14 md:py-16 lg:py-20 xl:py-28 px-4 md:px-8">
+        <div className="relative h-screen flex flex-col justify-center gap-5 lg:gap-8 xl:gap-14 py-14 md:py-16 lg:py-20 xl:py-28 px-4 md:px-8">
           <div className="xl:ml-16
             text-2xs md:text-base lg:text-xl xl:text-[1.25vw]">
             <h1 className="text-2xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
@@ -65,29 +65,36 @@ const Tangents = () => {
             {/*)}*/}
           </div>
           {/* Artwork Group Thumbnail Vertical Scroll */}
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10 xl:gap-20">
-            {tangentsData.map((artworkGroup, index) => (
-              <Link
-                to={`/tangents/${formatString(artworkGroup.category)}`}
-                key={index}
-                // onMouseEnter={() => handleMouseEnter(index, artworkGroup.title)} // Update title on hover
-                // onMouseLeave={handleMouseLeave} // Fade out title on hover leave
-                className="overflow-hidden"
-              >
-                <motion.img
-                  src={artworkGroup.thumbnail}
-                  alt={`Thumbnail for ${artworkGroup.title}`}
-                  className="w-[100vw] xl:w-[43vw] xl:h-[110vh] object-cover object-top"
-                  initial={{opacity: 0, y: 60}}
-                  animate={{opacity: 1, y: 0}}
-                  transition={{
-                    duration: 0.7,
-                    delay: isEven(index) ? 1.2 : 1.4,
-                    ease: "easeOut",
-                  }}
-                />
-              </Link>
-            ))}
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10 xl:gap-16">
+            {tangentsData.map((artworkGroup, index) => {
+              const baseDelay = 1.2;
+              const delayStep = 0.15;
+              const delay = baseDelay + index * delayStep;  // stagger delay by delayStep
+
+              return (
+                <Link
+                  to={`/tangents/${formatString(artworkGroup.category)}`}
+                  key={index}
+                  // onMouseEnter={() => handleMouseEnter(index, artworkGroup.title)} // Update title on hover
+                  // onMouseLeave={handleMouseLeave} // Fade out title on hover leave
+                  className="overflow-hidden"
+                >
+                  <motion.img
+                    src={artworkGroup.thumbnail}
+                    alt={`Thumbnail for ${artworkGroup.title}`}
+                    // className="w-[100vw] xl:w-[43vw] xl:h-[110vh] object-cover object-top"
+                    className="w-[100vw] xl:w-[21vw] xl:h-[55vh] object-cover object-top"
+                    initial={{ opacity: 0, y: 60 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.7,
+                      delay: delay,
+                      ease: "easeOut",
+                    }}
+                  />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </main>

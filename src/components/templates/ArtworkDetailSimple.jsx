@@ -42,7 +42,7 @@ const ArtworkDetailSimple = () => {
         <div className="flex flex-col">
           <section className="relative flex m-2 md:m-5 h-full pt-10 md:pt-20">
             {/* Image/Video content scroll section */}
-            <div className="flex flex-col gap-3 md:gap-6 w-7/12">
+            <div className="flex flex-col gap-3 md:gap-6 w-6/12">
 
               {/* Render videos (if they exist) */}
               {artworkData.videoLinks &&
@@ -96,9 +96,9 @@ const ArtworkDetailSimple = () => {
             </div>
             {/* Description section */}
             <motion.div
-              className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] grid-rows-[min]
+              className="sticky top-0 grid md:grid-cols-[1fr_1fr_8fr_1fr] auto-rows-min
                                 gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-8 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
-                                h-fit w-5/12 p-0 pt-8 md:p-5 md:pt-16 2xl:pt-32 4xl:pt-48
+                                h-fit w-6/12 p-0 pt-8 md:p-5 md:pt-16 2xl:pt-32 4xl:pt-48
                                 text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
               initial={{opacity: 0, y: 20}}
               animate={{opacity: 1, y: 0}}
@@ -112,12 +112,12 @@ const ArtworkDetailSimple = () => {
                 text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl/normal 2xl:text-4xl/normal 3xl:text-6xl/normal 4xl:text-7xl/normal">
                 <MaskText phrase={artworkData.title} delay={1.1} duration={1.0} />
               </h1>
-              {artworkData.year && <div className="col-start-3 row-start-2"><MaskText phrase={artworkData.year} delay={1.25} duration={1.0}/></div>}
-              {artworkData.medium && <div className="col-start-3 row-start-3"><MaskText phrase={artworkData.medium} delay={1.4} duration={1.0}/></div>}
-              {artworkData.dimensions && <div className="col-start-3 row-start-4"><MaskText phrase={artworkData.dimensions} delay={1.55} duration={1.0}/></div>}
+              {artworkData.year && <div className="col-start-3"><MaskText phrase={artworkData.year} delay={1.25} duration={1.0}/></div>}
+              {artworkData.medium && <div className="col-start-3"><MaskText phrase={artworkData.medium} delay={1.4} duration={1.0}/></div>}
+              {artworkData.dimensions && <div className="col-start-3"><MaskText phrase={artworkData.dimensions} delay={1.55} duration={1.0}/></div>}
               {artworkData.description &&
                 <motion.div
-                  className="col-start-3 row-start-5 text-customGrayLight
+                  className="col-start-3 text-customGrayLight
                   text-5xs xs:text-5xs md:text-3xs lg:text-xs xl:text-xs 2xl:text-sm 3xl:text-lg 4xl:text-xl"
                   initial={{opacity: 0, y: 20 }}
                   animate={{opacity: 1, y: 0 }}

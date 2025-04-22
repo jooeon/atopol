@@ -69,7 +69,7 @@ const ParallaxGallery = ({ galleryData }) => {
                         opacity: { duration: 0.5, delay: animDelay, ease: "easeOut" },
                         scale: { duration: 1.5, ease: [0.075, 0.82, 0.165, 1] }
                       }}
-                      whileHover={{ scale: 1.05, filter: "grayscale(0.5) sepia(0.75) brightness(0.75)", }}
+                      whileHover={{ scale: 1.02, filter: "grayscale(0.5) sepia(0.75) brightness(0.75)", }}
                     />
                   </div>
                 </Wrapper>

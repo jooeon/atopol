@@ -3,5 +3,7 @@
   "image": "/images/DreamBDetail1.jpg",
   "year": "2006",
   "order": 4,
-  "align": "right"
+  "align": "right",
+  "horizontalAlign": "left",
+  "verticalAlign": "bottom"
 }

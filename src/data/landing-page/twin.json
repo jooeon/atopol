@@ -2,6 +2,9 @@
   "title": "Twin",
   "image": "/images/twin_b.jpg",
   "year": "2023",
-  "order": 5,
-  "align": "left"
+  "order": 6,
+  "align": "left",
+  "link": "/appliances/twin",
+  "verticalAlign": "center",
+  "horizontalAlign": "center"
 }

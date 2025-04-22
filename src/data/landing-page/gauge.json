@@ -5,5 +5,6 @@
   "order": 8,
   "horizontalAlign": "right",
   "verticalAlign": "bottom",
-  "scrollSpeed": "slow"
+  "scrollSpeed": "slow",
+  "link": "/appliances/gauge"
 }

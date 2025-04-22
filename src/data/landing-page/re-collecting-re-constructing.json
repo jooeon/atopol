@@ -3,5 +3,7 @@
   "image": "/images/recollecting_reconstructing_Primary.jpg",
   "year": "2001",
   "align": "center",
-  "order": 6
+  "order": 5,
+  "horizontalAlign": "left",
+  "verticalAlign": "top"
 }

@@ -47,7 +47,7 @@ const Tangents = () => {
     <>
       <Header />
       <main>
-        <div className="relative h-screen flex flex-col justify-center gap-5 lg:gap-8 xl:gap-14 py-14 md:py-16 lg:py-20 xl:py-28 px-4 md:px-8">
+        <div className="relative xl:h-screen flex flex-col gap-5 lg:gap-8 xl:gap-14 py-14 md:py-16 lg:py-20 xl:py-28 px-4 md:px-8">
           <div className="xl:ml-16
             text-2xs md:text-base lg:text-xl xl:text-[1.25vw]">
             <h1 className="text-2xl/normal md:text-4xl/normal lg:text-5xl/normal xl:text-[3vw]/normal">
@@ -65,7 +65,7 @@ const Tangents = () => {
             {/*)}*/}
           </div>
           {/* Artwork Group Thumbnail Vertical Scroll */}
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10 xl:gap-16">
+          <div className="flex flex-wrap flex-col xl:flex-row justify-center items-center gap-4 md:gap-8 lg:gap-10 xl:gap-[3vw]">
             {tangentsData.map((artworkGroup, index) => {
               const baseDelay = 1.2;
               const delayStep = 0.15;
@@ -83,7 +83,7 @@ const Tangents = () => {
                     src={artworkGroup.thumbnail}
                     alt={`Thumbnail for ${artworkGroup.title}`}
                     // className="w-[100vw] xl:w-[43vw] xl:h-[110vh] object-cover object-top"
-                    className="w-[100vw] xl:w-[21vw] xl:h-[55vh] object-cover object-top"
+                    className="w-[100vw] h-[60vh] md:h-[90vh] xl:w-[20vw] xl:h-[55vh] object-cover object-top"
                     initial={{ opacity: 0, y: 60 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -98,7 +98,7 @@ const Tangents = () => {
           </div>
         </div>
       </main>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   );
 };

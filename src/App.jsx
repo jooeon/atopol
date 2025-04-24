@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { ReactLenis } from 'lenis/react'
+import { isMobile } from "react-device-detect";
 import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import PropTypes from "prop-types";
@@ -92,8 +93,8 @@ const App = () => {
     <ReactLenis root>
       <BrowserRouter>
         <CursorProvider>
-            <AnimatedRoutes />
-            <Cursor />
+          <AnimatedRoutes />
+          {!isMobile && <Cursor />}
         </CursorProvider>
       </BrowserRouter>
     </ReactLenis>

@@ -36,9 +36,9 @@ const ArtworkGroupGallery = () => {
     <>
       <Header />
       <main>
-        <div className="relative flex">
+        <div className="relative flex py-14 md:py-16 lg:py-20 xl:py-28">
           {/* Main gallery section */}
-          <div className="flex flex-col gap-10 xl:gap-32 w-2/3 py-12 xl:py-28">
+          <div className="flex flex-col gap-10 xl:gap-32 w-2/3 xl:py-28">
             {artworkGroupData.videoLinks &&
               artworkGroupData.videoLinks?.map((videoLink, index) => {
                 const embedUrl = convertToEmbedURL(videoLink);
@@ -69,10 +69,10 @@ const ArtworkGroupGallery = () => {
             }
             {artworkGroupData.imageGroup?.map((group, index) => {
               const alignment = group.align === "left"
-                ? "justify-start xl:flex-row"
+                ? "justify-center xl:justify-start xl:flex-row"
                 : group.align === "right"
-                ? "justify-end xl:flex-row"
-                : "items-center w-fit mx-auto";
+                ? "justify-center xl:justify-end xl:flex-row"
+                : "items-center w-fit mx-auto flex-col";
 
               // in the case the imageGroupTitle does not exist
               // leave it empty string to prevent errors
@@ -86,21 +86,21 @@ const ArtworkGroupGallery = () => {
               }
 
               return (
-                <div key={index} className={`flex flex-col gap-2 xl:gap-1 ${alignment}`}>
+                <div key={index} className={`flex flex-wrap xl:flex-nowrap gap-2 xl:gap-1 ${alignment}`}>
                   {/* if aligned right, have the label text come before images */}
                   {group.align === "right" && (
-                    <div className="xl:w-[15vw] 3xl:w-[12vw] text-right mr-5 my-2 xl:my-5">
-                      <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
-                      <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
+                    <div className="xl:w-[15vw] 3xl:w-[12vw] text-right mx-2 xl:mr-5 my-2 xl:my-5">
+                      <p className="text-3xs md:text-2xs xl:text-xs 3xl:text-sm">{title}</p>
+                      <p className="text-customGrayLight text-3xs md:text-2xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
                     </div>
                   )}
                   {/* Nested loop to map through the images within each imageGroup */}
                   {group.images?.map((image, imageIndex) => {
                     const imageSize = group.images.length === 1
-                      ? "xl:w-max" // If there's only 1 image
+                      ? "w-max xl:w-max" // If there's only 1 image
                       : group.images.length <= 3
-                      ? "xl:w-[15vw] xl:max-h-[40vh]"
-                      : "xl:w-[10vw]"
+                      ? "w-[30vw] xl:w-[15vw] xl:max-h-[40vh]"
+                      : "w-[30vw] xl:w-[10vw]"
 
                     return image.artworkTitle ? (
                       <Link
@@ -111,7 +111,7 @@ const ArtworkGroupGallery = () => {
                         <img
                           src={image.image}
                           alt={`Image ${imageIndex + 1} in ${title}`}
-                          className={`${imageSize} h-full object-cover`}
+                          className={`${imageSize} mx-auto h-full object-cover`}
                         />
                       </Link>
                     ) : (
@@ -125,15 +125,15 @@ const ArtworkGroupGallery = () => {
                   })}
                   {/* if aligned left, have the label text come after images */}
                   {group.align === 'left' && (
-                    <div className="xl:w-[15vw] 3xl:w-[12vw] ml-5 my-2 xl:my-5">
-                      <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
-                      <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
+                    <div className="xl:w-[15vw] 3xl:w-[12vw] mx-2 xl:ml-5 my-2 xl:my-5">
+                      <p className="text-3xs md:text-2xs xl:text-xs 3xl:text-sm">{title}</p>
+                      <p className="text-customGrayLight text-3xs md:text-2xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
                     </div>
                   )}
                   {group.align === "center" && (
-                    <div className="w-full mt-5 px-5 xl:px-10">
-                      <p className="text-2xs xl:text-xs 3xl:text-sm">{title}</p>
-                      <p className="text-customGrayLight text-3xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
+                    <div className="w-full xl:mt-5 px-2 xl:px-10">
+                      <p className="text-3xs md:text-2xs xl:text-xs 3xl:text-sm">{title}</p>
+                      <p className="text-customGrayLight text-3xs md:text-2xs xl:text-2xs 3xl:text-sm mt-1 xl:mt-2">{description}</p>
                     </div>
                   )}
                 </div>
@@ -144,13 +144,13 @@ const ArtworkGroupGallery = () => {
           <div
             className="fixed right-0 w-1/3 h-screen bg-customWhiteTinge dark:bg-customDarkBrown opacity-10 -z-10"></div>
           <div className="sticky top-0
-                        grid md:grid-cols-[1fr_8fr_1fr] grid-rows-[min]
+                        grid md:grid-cols-[1fr_8fr_1fr] auto-rows-min
                         gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-5 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10
                         h-fit w-1/3 fit p-0 pt-8 md:p-5 md:pt-16 2xl:pt-32 4xl:pt-48
                         text-5xs xs:text-5xs md:text-xs lg:text-base xl:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl"
           >
             <motion.h1
-              className="col-start-2 row-start-1 w-fit
+              className="col-start-2 w-fit
                 text-2xs xs:text-xs md:text-xl lg:text-2xl xl:text-2xl/normal 2xl:text-4xl/normal 3xl:text-5xl/normal 4xl:text-6xl/normal"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

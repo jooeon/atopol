@@ -1,10 +1,11 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: jooeon/atopol
   branch: master
   auth_scope: repo
-  client_id: "{{ env.AUTH0_CLIENT_ID }}"
-  auth_endpoint: "{{ env.AUTH0_DOMAIN }}"
-  base_url: "https://allentopolski.netlify.app"
+  client_id: {{ AUTH0_CLIENT_ID }}
+  auth_endpoint: {{ AUTH0_DOMAIN }}
+  base_url: https://allentopolski.netlify.app
 
 media_folder: "public/images"
 public_folder: "/images"

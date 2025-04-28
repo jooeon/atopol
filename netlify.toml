@@ -1,3 +1,5 @@
-[build]
-  publish = "public"
-  command = "npx nunjucks-render public/admin"
+[[redirects]]
+  from = "/admin/config.yml"
+  to = "/admin/config.yml.njk"
+  status = 200
+  force = true

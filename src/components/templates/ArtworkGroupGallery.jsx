@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Header from '../Header.jsx';
 import { motion } from 'framer-motion';
 import { MaskText } from '../MaskText.jsx';
-import { convertToEmbedURL, formatString } from '../../Utils.jsx';
+import { convertToEmbedURL, formatString, loadArtwork } from '../../Utils.jsx';
 
 const ArtworkGroupGallery = () => {
 
@@ -11,26 +11,13 @@ const ArtworkGroupGallery = () => {
 
   const [artworkGroupData, setArtworkGroupData] = useState(null);
 
-  // Create the path dynamically based on URL params
-  const artworkJsonPath = `../../data/tangents/${artworkGroup}.json`;
-
   useEffect(() => {
-    // Dynamically import the JSON data based on the path
-    const fetchArtworkGroupData = async () => {
-      try {
-        const data = await import(`${artworkJsonPath}`);
-        setArtworkGroupData(data.default); // Assuming the data is exported as default
-      } catch (error) {
-        console.error("Error loading artwork group data:", error);
-      }
-    };
+    loadArtwork("tangents", artworkGroup)
+      .then(setArtworkGroupData)
+      .catch(console.error);
+  }, [artworkGroup]);
 
-    fetchArtworkGroupData();
-  }, [artworkGroup]); // Run the effect when URL params change
-
-  if (!artworkGroupData) {
-    return <div>Failed to load artwork group data...</div>;
-  }
+  if (!artworkGroupData) return <p>Loading…</p>;
 
   return (
     <>

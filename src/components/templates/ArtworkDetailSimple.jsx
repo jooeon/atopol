@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
 import { MaskText } from '../MaskText.jsx';
-import { convertToEmbedURL } from '../../Utils.jsx';
+import { convertToEmbedURL, loadArtwork } from '../../Utils.jsx';
 
 // Template component for individual artwork pages
 const ArtworkDetailSimple = () => {
@@ -14,26 +14,13 @@ const ArtworkDetailSimple = () => {
 
   const [artworkData, setArtworkData] = useState(null);
 
-  // Create the path dynamically based on URL params
-  const artworkJsonPath = `../../data/${artworkGroup}/${artworkTitle}.json`;
-
   useEffect(() => {
-    // Dynamically import the JSON data based on the path
-    const fetchArtworkData = async () => {
-      try {
-        const data = await import(`${artworkJsonPath}`);
-        setArtworkData(data.default); // Assuming the data is exported as default
-      } catch (error) {
-        console.error("Error loading artwork data:", error);
-      }
-    };
+    loadArtwork(artworkGroup, artworkTitle)
+      .then(setArtworkData)
+      .catch(console.error);
+  }, [artworkGroup, artworkTitle]);
 
-    fetchArtworkData();
-  }, [artworkGroup, artworkTitle]); // Run the effect when URL params change
-
-  if (!artworkData) {
-    return <div>Failed to load artwork data...</div>;
-  }
+  if (!artworkData) return <p>Loading…</p>;
 
   return (
     <>

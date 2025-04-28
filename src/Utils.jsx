@@ -45,3 +45,14 @@ export const convertToEmbedURL = (url) => {
   // Return the URL as-is if it's neither YouTube nor Vimeo
   return url;
 };
+
+const artworkModules = import.meta.glob('./data/**/*.json');
+
+export async function loadArtwork(group, title) {
+  const key = `./data/${group}/${title}.json`;
+  console.log(artworkModules)
+  const loader = artworkModules[key];
+  if (!loader) throw new Error(`No artwork at ${key}`);
+  const mod = await loader();
+  return mod.default;
+}

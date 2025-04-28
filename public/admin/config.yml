@@ -2,6 +2,10 @@ backend:
   name: github
   repo: jooeon/atopol
   branch: master
+  auth_scope: repo
+  client_id: cL1NgHyJGfR5Inbuicl9wPB3u5QqTm6u
+  auth_endpoint: https://dev-05vvy75464otn8a5.us.auth0.com/authorize
+  base_url: https://allentopolski.netlify.app
 
 media_folder: "public/images"
 public_folder: "/images"

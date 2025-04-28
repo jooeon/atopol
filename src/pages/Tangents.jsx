@@ -86,10 +86,11 @@ const Tangents = () => {
                     className="w-[100vw] h-[60vh] md:h-[90vh] xl:w-[20vw] xl:h-[55vh] object-cover object-top"
                     initial={{ opacity: 0, y: 60 }}
                     animate={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.03 }}
                     transition={{
-                      duration: 0.7,
-                      delay: delay,
-                      ease: "easeOut",
+                      y: { duration: 0.7, delay: delay, ease: "easeOut" },
+                      opacity: { duration: 0.7, delay: delay, ease: "easeOut" },
+                      scale: { duration: 1.5, ease: [0.075, 0.82, 0.165, 1] }
                     }}
                   />
                 </Link>

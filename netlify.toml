@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/admin/config.yml"
-  to = "/admin/config.yml.njk"
-  status = 200
-  force = true

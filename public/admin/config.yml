@@ -3,9 +3,11 @@ backend:
   repo: jooeon/atopol
   branch: master
   auth_scope: repo
+  auth_type: auth0
   client_id: {{ AUTH0_CLIENT_ID }}
-  auth_endpoint: {{ AUTH0_DOMAIN }}
+  auth_endpoint: https://{{ AUTH0_DOMAIN }}/authorize
   base_url: https://allentopolski.netlify.app
+  app_id: {{ AUTH0_APP_ID }}
 
 media_folder: "public/images"
 public_folder: "/images"

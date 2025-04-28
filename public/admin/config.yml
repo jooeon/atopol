@@ -4,10 +4,9 @@ backend:
   branch: master
   auth_scope: repo
   auth_type: auth0
-  client_id: {{ AUTH0_CLIENT_ID }}
-  auth_endpoint: https://{{ AUTH0_DOMAIN }}/authorize
+  client_id: cL1NgHyJGfR5Inbuicl9wPB3u5QqTm6u
+  auth_endpoint: https://dev-05vvy75464otn8a5.us.auth0.com/authorize
   base_url: https://allentopolski.netlify.app
-  app_id: {{ AUTH0_APP_ID }}
 
 media_folder: "public/images"
 public_folder: "/images"

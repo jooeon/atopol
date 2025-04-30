@@ -17,7 +17,7 @@ const ArtworkGroupGallery = () => {
       .catch(console.error);
   }, [artworkGroup]);
 
-  if (!artworkGroupData) return <p>Loading…</p>;
+  if (!artworkGroupData) return <p>Artwork data missing…</p>;
 
   return (
     <>
@@ -129,7 +129,7 @@ const ArtworkGroupGallery = () => {
           </div>
           {/* Right-hand side description section */}
           <div
-            className="fixed right-0 w-1/3 h-screen bg-customWhiteTinge dark:bg-customDarkBrown opacity-10 -z-10"></div>
+            className="fixed top-0 right-0 w-1/3 h-screen bg-customWhiteTinge dark:bg-customDarkBrown opacity-10 -z-10"></div>
           <div className="sticky top-0
                         grid md:grid-cols-[1fr_8fr_1fr] auto-rows-min
                         gap-y-1 md:gap-y-3 lg:gap-y-4 3xl:gap-y-5 gap-x-2 md:gap-x-4 lg:gap-x-6 3xl:gap-x-10

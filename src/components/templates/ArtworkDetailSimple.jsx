@@ -20,7 +20,7 @@ const ArtworkDetailSimple = () => {
       .catch(console.error);
   }, [artworkGroup, artworkTitle]);
 
-  if (!artworkData) return <p>Loading…</p>;
+  if (!artworkData) return <p>Artwork data missing…</p>;
 
   return (
     <>

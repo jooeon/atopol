@@ -50,7 +50,7 @@ const artworkModules = import.meta.glob('./data/**/*.json');
 
 export async function loadArtwork(group, title) {
   const key = `./data/${group}/${title}.json`;
-  console.log(artworkModules)
+  // console.log(artworkModules)
   const loader = artworkModules[key];
   if (!loader) throw new Error(`No artwork at ${key}`);
   const mod = await loader();

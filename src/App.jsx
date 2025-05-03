@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { ReactLenis } from 'lenis/react'
@@ -15,6 +15,7 @@ import { CursorProvider } from './components/cursor/CursorContext.jsx';
 import Cursor from './components/cursor/Cursor.jsx';
 import ArtworkGroupGallery from './components/templates/ArtworkGroupGallery.jsx';
 import Extended from './pages/Extended.jsx';
+import Page404 from './pages/Page404.jsx';
 
 // animations for entering and exiting each page
 const navVariants = {
@@ -59,6 +60,9 @@ const AnimatedRoutes = () => {
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
         <Route path="/about/extended" element={<PageWrapper><Extended /></PageWrapper>} />
         <Route path="/:artworkGroup/:artworkTitle" element={<PageWrapper><ArtworkDetailSimple /></PageWrapper>} />
+        <Route path="/404" element={<Page404 />} />
+        {/* catch‑all: redirect to /404 */}
+        <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
     </AnimatePresence>
   );

@@ -94,7 +94,13 @@ const App = () => {
   }, []);
 
   return (
-    <ReactLenis root>
+    <ReactLenis
+      root
+      options={{
+        lerp:         0.075,    // default 0.1, smaller=slower catch-up
+        wheelMultiplier:  0.75, // default 1
+      }}
+    >
       <BrowserRouter>
         <CursorProvider>
           <AnimatedRoutes />

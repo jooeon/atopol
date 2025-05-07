@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
+import { scrollToTop } from '../Utils.jsx';
+import { useEffect } from 'react';
+import { useLenis } from 'lenis/react';
 
 const Extended = () => {
+
+  // always begin page from top on load
+  const lenis = useLenis();
+
+  useEffect(() => {
+    scrollToTop(lenis);
+  }, [lenis]);
 
   return (
     <main className="flex justify-center items-center font-centschbook">

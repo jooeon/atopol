@@ -31,23 +31,6 @@ const navVariants = {
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-  const { pathname } = useLocation();
-  const prevRootRef = useRef(null);
-
-  useEffect(() => {
-    // extract the "root" segment of path
-    const segments = pathname.split('/');
-    const currentRoot = segments[1] || '';
-
-    // on first mount, prevRootRef.current will be null
-    // only auto scroll up on navigation if roots are different
-    if (prevRootRef.current !== null && prevRootRef.current !== currentRoot) {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
-
-    // remember for next time
-    prevRootRef.current = currentRoot;
-  }, [pathname]);
 
   return (
     <AnimatePresence mode="wait">

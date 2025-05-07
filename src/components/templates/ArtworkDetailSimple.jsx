@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
 import { MaskText } from '../MaskText.jsx';
-import { convertToEmbedURL, loadArtwork } from '../../Utils.jsx';
+import { convertToEmbedURL, loadArtwork, scrollToTop } from '../../Utils.jsx';
+import { useLenis } from 'lenis/react';
 
 // Template component for individual artwork pages
 const ArtworkDetailSimple = () => {
@@ -19,6 +20,13 @@ const ArtworkDetailSimple = () => {
       .then(setArtworkData)
       .catch(console.error);
   }, [artworkGroup, artworkTitle]);
+
+  // always begin page from top on load
+  const lenis = useLenis();
+
+  useEffect(() => {
+    scrollToTop(lenis);
+  }, [lenis]);
 
   if (!artworkData) return <p>Artwork data missing…</p>;
 

@@ -1,3 +1,6 @@
+import { useLenis } from 'lenis/react';
+import { useEffect } from 'react';
+
 // Format string to lowercase and replace spaces with dashes, remove parentheses
 export function formatString(str) {
   return str
@@ -55,4 +58,12 @@ export async function loadArtwork(group, title) {
   if (!loader) throw new Error(`No artwork at ${key}`);
   const mod = await loader();
   return mod.default;
+}
+
+export function scrollToTop(lenis, immediate = true) {
+  if (lenis && typeof lenis.scrollTo === "function") {
+    lenis.scrollTo(0, { immediate });
+  } else {
+    window.scrollTo(0, 0);
+  }
 }

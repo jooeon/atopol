@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { MaskText } from '../components/MaskText.jsx';
 import exhibitionsData from '../data/exhibitions-about.json';
 import { Fragment, useEffect, useState } from 'react';
-import { formatNewline } from '../Utils.jsx';
+import { formatNewline, scrollToTop } from '../Utils.jsx';
 import { Link } from 'react-router-dom';
+import { useLenis } from 'lenis/react';
 
 const About = () => {
 
@@ -24,6 +25,13 @@ const About = () => {
       window.removeEventListener("scroll", handleScroll); // Clean up the event listener
     };
   }, []);
+
+  // always begin page from top on load
+  const lenis = useLenis();
+
+  useEffect(() => {
+    scrollToTop(lenis);
+  }, [lenis]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 Allen Topolski's Portfolio Website
 
-allentopolski.com
+Design and Development by Joo Eon Park ©2025
 
-Design and Development by Joo Eon Park
+Visit: [allentopolski.com](https://allentopolski.com/)

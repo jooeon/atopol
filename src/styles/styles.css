@@ -12,7 +12,12 @@
     src: url('/fonts/DS-DIGII.TTF') format('truetype');
 }
 
+button {
+    cursor: none;
+}
+
 a {
+    cursor: none;
     transition: 0.5s;
 }
 

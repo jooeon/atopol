@@ -1,15 +1,27 @@
 import {useParams} from "react-router-dom";
 import Header from "../Header.jsx";
 import Footer from "../Footer.jsx";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
 import { MaskText } from '../MaskText.jsx';
 import { convertToEmbedURL, loadArtwork, scrollToTop } from '../../Utils.jsx';
 import { useLenis } from 'lenis/react';
+import Overlay from '../Overlay.jsx';
 
 // Template component for individual artwork pages
 const ArtworkDetailSimple = () => {
+
+  // functions and variables for image overlay on click
+  const [overlayVisible, setOverlayVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const openOverlay = (index) => {
+    setCurrentIndex(index);
+    setOverlayVisible(true);
+  };
+
+  const closeOverlay = () => setOverlayVisible(false);
 
   const { artworkGroup, artworkTitle } = useParams(); // Get URL params
 
@@ -72,10 +84,17 @@ const ArtworkDetailSimple = () => {
               {/* Render images (if they exist, although content should have at least one of either video or image) */}
               {artworkData.images &&
                 artworkData.images.map((image, index) => (
-                <div key={index} className="overflow-hidden">
+                <div
+                  key={index}
+                  onClick={() => openOverlay(index)}
+                  tabIndex={0}
+                  aria-label={`Open overlay for fullscreen image view`}
+                  className="overflow-hidden"
+                >
                   <motion.img
                     src={image}
                     alt={artworkData.title}
+                    data-clickable
                     className="w-full h-full object-cover"
                     loading="lazy"
                     initial={{ opacity: 0, y: 40 }}
@@ -130,6 +149,19 @@ const ArtworkDetailSimple = () => {
           </section>
         </div>
       </main>
+
+      {/* Image overlay */}
+      <AnimatePresence>
+        {overlayVisible && (
+          <Overlay
+            images={artworkData.images}
+            currentIndex={currentIndex}
+            closeOverlay={closeOverlay}
+            key="overlay" // Key is necessary for AnimatePresence
+          />
+        )}
+      </AnimatePresence>
+
       <Footer />
     </>
   );

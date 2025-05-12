@@ -1,8 +1,9 @@
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {motion, useScroll} from "framer-motion";
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 import LocalTime from './LocalTime.jsx';
+import { isMobile } from 'react-device-detect';
 
 const Header = ({delay = 0.4}) => {
 
@@ -85,11 +86,11 @@ const Header = ({delay = 0.4}) => {
         ease: [0.16, 1, 0.3, 1],
       }}>
       <motion.nav
-        className="flex items-center justify-between text-3xs sm:text-xs md:text-sm 2xl:text-base 4xl:text-2xl 6xl:text-4xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
+        className="flex items-center justify-between text-2xs sm:text-sm md:text-base 2xl:text-lg 3xl:text-2xl 4xl:text-3xl 6xl:text-4xl 7xl:text-5xl p-3 md:p-5 xl:px-7 xl:py-6 4xl:px-10 4xl:py-10 7xl:px-14 7xl:py-14
               font-medium tracking-wide text-customGrayLighter [&_a]:after:bg-customBlack dark:[&_a]:after:bg-customWhite"
       >
         <NavLink to="/" className={() => getLinkClasses("/")}>
-          Allen Topolski
+          Allen C. Topolski
         </NavLink>
         <div className="navbar flex gap-[10vw]">
           <ul className="flex gap-1 xl:gap-2 4xl:gap-3">
@@ -106,10 +107,12 @@ const Header = ({delay = 0.4}) => {
               <NavLink to="/about" className={() => getLinkClasses("/about")}>About</NavLink>
             </li>
           </ul>
-          <div className="flex gap-1 font-ds-digi text-right text-3xs sm:text-xs md:text-base 2xl:text-lg 4xl:text-2xl 6xl:text-4xl">
-            <span>Rochester, NY</span>
-            <LocalTime />
-          </div>
+          { !isMobile &&
+            <div className="flex gap-1 font-ds-digi text-right">
+              <span>Rochester, NY</span>
+              <LocalTime />
+            </div>
+          }
         </div>
       </motion.nav>
     </motion.header>

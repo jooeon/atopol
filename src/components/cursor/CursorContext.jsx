@@ -6,21 +6,24 @@ const CursorContext = createContext();
 
 export const CursorProvider = ({ children }) => {
   const [isLinkHovered, setIsLinkHovered] = useState(false);
-  const [isContentHovered, setIsContentHovered] = useState(false);
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [leftViewport, setLeftViewport] = useState(false);
 
   useEffect(() => {
     // Hover event on specific tags
     const handleMouseEnter = (e) => {
-      if (e.target.closest("a") || e.target.closest("button")) {
+      if (e.target.closest("a") || e.target.closest("button") || e.target.closest('[data-clickable]')) {
         setIsLinkHovered(true);
+      }
+      if (e.target.closest("iframe")) {
+        setIsVideoHovered(true);
       }
     };
     // Mouse leaves the target elements
     const handleMouseLeave = () => {
       setIsLinkHovered(false);
-      setIsContentHovered(false);
+      setIsVideoHovered(false);
     };
 
     // Mouse click event
@@ -63,7 +66,7 @@ export const CursorProvider = ({ children }) => {
 
   const value = {
     isLinkHovered,
-    isContentHovered,
+    isVideoHovered,
     isClicked,
     leftViewport,
   };

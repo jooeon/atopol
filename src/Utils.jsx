@@ -1,6 +1,3 @@
-import { useLenis } from 'lenis/react';
-import { useEffect } from 'react';
-
 // Format string to lowercase and replace spaces with dashes, remove parentheses
 export function formatString(str) {
   return str
@@ -9,7 +6,6 @@ export function formatString(str) {
     .replace(/\//g, '-')     // slashes → hyphens
     .replace(/[(),]/g, '');  // remove parentheses and commas
 }
-
 
 export function isEven(number) {
   return number % 2 === 0;

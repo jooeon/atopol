@@ -40,7 +40,7 @@ const About = () => {
         <section>
           <motion.img
             src="/images/about/allen_topolski_portrait.jpg"
-            alt="Portrait of Allen Topolski"
+            alt="Portrait of Allen C. Topolski"
             className="relative w-full h-auto object-cover"
             style={{
               // clipping image from the bottom to emulate parallax effect of bottom section covering image

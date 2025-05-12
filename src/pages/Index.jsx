@@ -1,6 +1,6 @@
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import ParallaxGallery from '../components/templates/ParallaxGallery.jsx';
 import { MaskText } from '../components/MaskText.jsx';
@@ -54,7 +54,7 @@ const Index = () => {
                   text-[3vh] md:text-[5vw]"
             >
               <div>
-                <MaskText phrase={"Allen Topolski"} delay={0.5} duration={1.2} />
+                <MaskText phrase={"Allen C. Topolski"} delay={0.5} duration={1.2} />
               </div>
               <div className="flex flex-col w-[45vw] md:w-[35vw] ml-11 md:ml-0 text-customOrange">
                 <MaskText phrase={"(re)collecting"} delay={0.8} duration={1.2} />

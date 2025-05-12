@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 import { useCursor } from "./CursorContext";
 
 const Cursor = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
-  const { isLinkHovered, isClicked, leftViewport } = useCursor();
+  const { isLinkHovered, isVideoHovered, isClicked, leftViewport } = useCursor();
 
   const mouseX = useMotionValue(window.innerWidth / 2);
   const mouseY = useMotionValue(window.innerHeight / 2);
 
+  // Replace mouseX, mouseY in style below to springX, springY to enable momentum on cursor (also should show normal OS cursor)
   // Apply smoothing/spring to the motion values
-  const springX = useSpring(mouseX, { stiffness: 300, damping: 30, mass: 0.3 });
-  const springY = useSpring(mouseY, { stiffness: 300, damping: 30, mass: 0.3 });
+  // const springX = useSpring(mouseX, { stiffness: 300, damping: 30, mass: 0.3 });
+  // const springY = useSpring(mouseY, { stiffness: 300, damping: 30, mass: 0.3 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -47,12 +48,14 @@ const Cursor = () => {
       // backgroundColor: "#e81737",
       transition: { duration: 0.15, ease: "linear" },
     },
+    videoHover: { scale: 1, opacity: 0, transition: { duration: 0.2, ease: "easeOut" }, },
     click: { scale: 0.8, opacity: 1,},
     leftViewport: { scale: 1, opacity: 0, transition: { duration: 0.2, ease: "easeOut" }, },
   };
 
   const getCursorVariant = () => {
     if (isLinkHovered) return "linkHover";
+    if (isVideoHovered) return "videoHover";
     if (isClicked) return "click";
     if (leftViewport) return "leftViewport";
     return "default";
@@ -60,12 +63,12 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className={`fixed top-0 left-0 flex items-center justify-center z-30 w-5 h-5
+      className={`fixed top-0 left-0 flex items-center justify-center z-50 w-5 h-5
                 bg-customWhite mix-blend-difference pointer-events-none rounded-full`}
       variants={cursorVariants}
       initial="initial"
       animate={getCursorVariant()}
-      style={{ x: springX, y: springY }}
+      style={{ x: mouseX, y: mouseY }}
     >
     </motion.div>
   );

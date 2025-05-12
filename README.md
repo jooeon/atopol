@@ -1,4 +1,4 @@
-Allen Topolski's Portfolio Website
+Allen C. Topolski's Portfolio Website
 
 Design and Development by Joo Eon Park ©2025
 

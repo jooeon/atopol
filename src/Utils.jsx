@@ -2,9 +2,10 @@
 export function formatString(str) {
   return str
     .toLowerCase()
-    .replace(/\s+/g, '-')    // spaces → hyphens
-    .replace(/\//g, '-')     // slashes → hyphens
-    .replace(/[(),]/g, '');  // remove parentheses and commas
+    .replace(/\s+/g, '-')           // spaces → hyphens
+    .replace(/\//g, '-')            // slashes → hyphens
+    .replace(/[(),]/g, '')          // remove parentheses and commas
+    .replace(/[\u0027\u2018\u2019\u201A\u201B\u2032\u2035]/g, '');  // remove all apostrophe-like characters
 }
 
 export function isEven(number) {
@@ -48,10 +49,39 @@ export const convertToEmbedURL = (url) => {
 const artworkModules = import.meta.glob('./data/**/*.json');
 
 export async function loadArtwork(group, title) {
-  const key = `./data/${group}/${title}.json`;
-  // console.log(artworkModules)
-  const loader = artworkModules[key];
-  if (!loader) throw new Error(`No artwork at ${key}`);
+  // First try exact match
+  let key = `./data/${group}/${title}.json`;
+  let loader = artworkModules[key];
+
+  // If not found, do fuzzy matching by removing all special characters
+  if (!loader) {
+    const normalizeForComparison = (str) =>
+      str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    const normalizedTitle = normalizeForComparison(title);
+
+    // Find matching file by comparing normalized versions
+    const matchingKey = Object.keys(artworkModules).find(k => {
+      if (!k.startsWith(`./data/${group}/`)) return false;
+
+      const filename = k
+        .replace(`./data/${group}/`, '')
+        .replace('.json', '');
+
+      return normalizeForComparison(filename) === normalizedTitle;
+    });
+
+    if (matchingKey) {
+      loader = artworkModules[matchingKey];
+    }
+  }
+
+  if (!loader) {
+    console.log('Available keys:', Object.keys(artworkModules));
+    console.log('Looking for title:', title, 'in group:', group);
+    throw new Error(`No artwork at ./data/${group}/${title}.json`);
+  }
+
   const mod = await loader();
   return mod.default;
 }

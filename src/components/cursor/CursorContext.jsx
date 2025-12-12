@@ -13,7 +13,7 @@ export const CursorProvider = ({ children }) => {
   useEffect(() => {
     // Hover event on specific tags
     const handleMouseEnter = (e) => {
-      if (e.target.closest("a") || e.target.closest("button") || e.target.closest('[data-clickable]')) {
+      if (e.target.closest("a") || e.target.closest("button") || e.target.closest('[data-clickable]') || e.target.closest(".thumbnail")) {
         setIsLinkHovered(true);
       }
       if (e.target.closest("iframe")) {

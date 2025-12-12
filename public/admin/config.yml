@@ -11,7 +11,7 @@ collections:
     description: "Add each artwork to show on the landing page. Control alignment and order for each image."
     folder: "src/data/landing-page"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -28,7 +28,7 @@ collections:
     description: "Add each artwork in the \"Small Scale Installations\" category."
     folder: "src/data/small-scale"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -65,7 +65,7 @@ collections:
     description: "Add each artwork in the \"Site-Specific Installations\" category."
     folder: "src/data/site-specific"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -102,7 +102,7 @@ collections:
     description: "Add each artwork in the \"Appliances\" category."
     folder: "src/data/appliances"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -139,7 +139,7 @@ collections:
     description: "Add each artwork in the \"Coping Mechanisms\" category."
     folder: "src/data/coping-mechanisms"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -176,7 +176,7 @@ collections:
     description: "Add artwork groups (e.g. Something Like 2D, Not Unrelated to Dance) in the \"Tangents\" category."
     folder: "src/data/tangents"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -218,7 +218,7 @@ collections:
     description: "Add each artwork in the \"Nodding to Wayne White\" category."
     folder: "src/data/nodding-to-wayne-white"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -255,7 +255,7 @@ collections:
     description: "Add each artwork in the \"Something Like 2D\" category."
     folder: "src/data/something-like-2d"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -292,7 +292,7 @@ collections:
     description: "Add each artwork in the \"Not Unrelated to Dance\" category."
     folder: "src/data/not-unrelated-to-dance"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:
@@ -329,7 +329,7 @@ collections:
     description: "Add each artwork in the \"Almost Functional\" category."
     folder: "src/data/almost-functional"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.title | lower | replace(' ', '-') | replace('/', '-') | replace(',', '') | replace('(', '') | replace(')', '') | replace(\"'\", '')}}"
     format: "json"
     extension: "json"
     fields:

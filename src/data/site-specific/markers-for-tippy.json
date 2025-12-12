@@ -1,15 +1,17 @@
 {
-  "category": "site-specific",
-  "title": "Markers for Tippy",
+  "title": "An Earlier Account",
   "images": [
-    "/images/markersfortippy1-215x215.jpg",
-    "/images/markersfortippy2-215x215.jpg",
-    "/images/markersfortippy3-215x215.jpg",
-    "/images/markersfortippy4-215x215.jpg"
+    "/images/anearlieraccount02-215x215.jpg",
+    "/images/anearlieraccount01-215x215.jpg",
+    "/images/anearlieraccount09-215x215.jpg",
+    "/images/anearlieracct21-215x215.jpg",
+    "/images/anearlieracct17-215x215.jpg"
   ],
-  "description": "Cairns are traditionally made of a mound of rough stones built as a memorial or property or landmark. The bowling ball cairns in Markers for Tippy are arranged in pyramids that mimic the common organization of bowling pins and deny the balls’ typical dynamic function. The pattern established by the piles is defied by the partially sunken cairn and the ball that appears to deny gravity. I associate bowling to my blue-collar background; my father was an avid and skilled bowler. His nickname was Tippy.",
-  "medium": "Bowling balls and Plexiglas (LED lights)",
-  "year": "2017",
-  "dimensions": "Variable Dimensions",
-  "thumbnail": "/images/markersfortippy1-215x215.jpg"
+  "videoLinks": [
+    "https://vimeo.com/128039103?fl=pl&fe=sh"
+  ],
+  "description": "For “how good are your dwelling places” an exhibition in an empty residence, organized by the Koffler Center in Toronto and curated by Cyril Reade, I focused production on my domestic residence – what it had, what it has lost, what I want it to have, and how those relate to a collective understanding of domestic environments and cultural displacement, permanence, integration, and ignorance.    When my family moved to a home previously owned by Jews, renovations to the building meant taking it from its past. I was never comfortable with that; our habitation of the house obliterated a record of a family and its routine intersections with objects and spaces.  An Earlier Account projected images into the remnants of an abandoned kitchen. Each projection is doubled referring to the separation of dairy and meat common to some Jewish homes – a custom which was not observed in our renovated kitchen.",
+  "year": "2012",
+  "thumbnail": "/images/anearlieraccount02-215x215.jpg",
+  "category": "site-specific"
 }

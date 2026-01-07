@@ -1,0 +1,11 @@
+{
+  "category": "appliances",
+  "title": "Anna's Appliance",
+  "thumbnail": "/images/Anna.jpg",
+  "images": [
+    "/images/Anna.jpg"
+  ],
+  "year": "1994",
+  "medium": "Found Materials",
+  "dimensions": "H - 33\" W - 30\" D - 17\""
+}

@@ -63,7 +63,9 @@ const Header = ({delay = 0.4}) => {
       return "text-link text-customOrange";
     }
 
-    if (path === "/tangents" && (location.pathname === "/tangents" || pathSegments[1] === "tangents")) {
+    if (path === "/tangents"
+          && (location.pathname === "/tangents" || pathSegments[1] === "tangents" || pathSegments[1] === "almost-functional"
+        || pathSegments[1] === "nodding-to-wayne-white" || pathSegments[1] === "not-unrelated-to-dance" || pathSegments[1] === "something-like-2d")) {
       return "text-link text-customOrange";
     }
 
